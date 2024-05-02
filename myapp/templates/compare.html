@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1">
+    <meta http-equiv=X-UA-Compatible content="ie=edge">
+    <title>Compare List | Herbalist</title>
+    {% load static %}
+    <link rel="stylesheet preload" as=style href="{% static 'css/preload.min.css' %}">
+    <link rel="stylesheet preload" as=style href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet preload" as=style href="{% static 'css/libs.min.css' %}">
+    <link rel=stylesheet href="{% static 'css/compare.min.css' %}">
+    <link rel=stylesheet href="{% static 'css/floatbutton.min.css' %}">
+</head>
+<body>
+<header class="header d-flex flex-wrap align-items-center" data-page=compare data-overlay=@@overlay>
+    <div class="container d-flex flex-wrap flex-xl-nowrap align-items-center justify-content-between"><a
+            class="brand header_logo d-flex align-items-center" href=http://127.0.0.1:8000/><span class=logo><svg width=48 height=45
+                                                                                                      viewBox="0 0 48 45"
+                                                                                                      fill=none
+                                                                                                      xmlns=http://www.w3.org/2000/svg><g
+            clip-path=url(#logoHeader)><circle cx=23.5 cy=23.4998 r=17.5 fill=#EFC368/></g><defs><clipPath id=logoHeader><rect width=48 height=45
+                                                                  fill=white/></clipPath></defs></svg> </span><span
+            class=accent>Herba</span> <span>list</span></a>
+        <nav class=header_nav>
+            <ul class=header_nav-list>
+                <li class="header_nav-list_item dropdown"><a
+                        class="nav-link dropdown-toggle d-inline-flex align-items-center" href=# data-bs-toggle=collapse
+                        data-bs-target=#homeMenu aria-expanded=false aria-controls=homeMenu>Home <i
+                        class="icon-caret_down icon"></i></a>
+                    <div class="dropdown-menu collapse" id=homeMenu>
+                        <ul class=dropdown-list>
+                            <li class="list-item nav-item" data-page=home><a class=dropdown-item href=http://127.0.0.1:8000/>Home
+                                01</a></li>
+                            <li class="list-item nav-item" data-page=home2><a class=dropdown-item href=index2.html>Home
+                                02</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="header_nav-list_item dropdown"><a
+                        class="nav-link dropdown-toggle d-inline-flex align-items-center" href=# data-bs-toggle=collapse
+                        data-bs-target=#shopMenu aria-expanded=false aria-controls=shopMenu>Shop <i
+                        class="icon-caret_down icon"></i></a>
+                    <div class="dropdown-menu collapse" id=shopMenu>
+                        <ul class=dropdown-list>
+                            <li class="list-item nav-item" data-page=shop><a class=dropdown-item href=http://127.0.0.1:8000/shop.html/>Shop
+                                01</a></li>
+                            <li class="list-item nav-item" data-page=shop2><a class=dropdown-item href=shop2.html>Shop
+                                02</a></li>
+                            <li class="list-item nav-item" data-page=product><a class=dropdown-item href=http://127.0.0.1:8000/product.html/>Single
+                                Product 01</a></li>
+                            <li class="list-item nav-item" data-page=product2><a class=dropdown-item href=product2.html>Single
+                                Product 02</a></li>
+                            <li class="list-item nav-item" data-page=compare><a class=dropdown-item href=http://127.0.0.1:8000/compare.html/>Compare
+                                List</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="header_nav-list_item dropdown"><a
+                        class="nav-link dropdown-toggle d-inline-flex align-items-center" href=# data-bs-toggle=collapse
+                        data-bs-target=#newsMenu aria-expanded=false aria-controls=newsMenu>News <i
+                        class="icon-caret_down icon"></i></a>
+                    <div class="dropdown-menu collapse" id=newsMenu>
+                        <ul class=dropdown-list>
+                            <li class="list-item nav-item" data-page=news><a class=dropdown-item href=http://127.0.0.1:8000/news.html/>News
+                                01</a></li>
+                            <li class="list-item nav-item" data-page=news2><a class=dropdown-item href=news2.html>News
+                                02</a></li>
+                            <li class="list-item nav-item" data-page=post><a class=dropdown-item href=http://127.0.0.1:8000/post.html/>Single
+                                Post 01</a></li>
+                            <li class="list-item nav-item" data-page=post2><a class=dropdown-item href=post2.html>Single
+                                Post 02</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="header_nav-list_item dropdown"><a
+                        class="nav-link dropdown-toggle d-inline-flex align-items-center" href=# data-bs-toggle=collapse
+                        data-bs-target=#pagesMenu aria-expanded=false aria-controls=pagesMenu>Pages <i
+                        class="icon-caret_down icon"></i></a>
+                    <div class="dropdown-menu collapse" id=pagesMenu>
+                        <ul class=dropdown-list>
+                            <li class="list-item nav-item" data-page=about><a class=dropdown-item
+                                                                              href=http://127.0.0.1:8000/about.html/>About</a></li>
+                            <li class="list-item nav-item" data-page=team><a class=dropdown-item href=http://127.0.0.1:8000/team.html/>Team</a>
+                            </li>
+                            <li class="list-item nav-item" data-page=faq><a class=dropdown-item href=http://127.0.0.1:8000/faq.html/>FAQ</a>
+                            </li>
+                            <li class="list-item nav-item" data-page=contacts><a class=dropdown-item href=http://127.0.0.1:8000/contacts/>Contacts
+                                01</a></li>
+                            <li class="list-item nav-item" data-page=contacts2><a class=dropdown-item
+                                                                                  href=contacts2.html>Contacts 02</a>
+                            </li>
+                            <li class="list-item nav-item" data-page=404><a class=dropdown-item href=http://127.0.0.1:8000/404.html/>Error
+                                Page</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <span class="header_trigger d-inline-flex d-xl-none flex-column justify-content-between"><span
+                class="line line--short"></span> <span class="line line"></span> <span class="line line--short"></span> <span
+                class="line line"></span></span>
+        <div class="header_user d-flex justify-content-end align-items-center">
+            <form class=header_user-search action=# method=get data-type=searchForm><input
+                    class="header_user-search_field field required" type=text placeholder=Search...>
+                <button class="header_user-search_btn header_user-action d-inline-flex align-items-center justify-content-center"
+                        type=submit data-trigger=search><i class=icon-search></i></button>
+            </form>
+            <a class="header_user-action d-inline-flex align-items-center justify-content-center" href=http://127.0.0.1:8000/wishlist.html/><i
+                    class=icon-heart></i> </a><a
+                class="header_user-action d-inline-flex align-items-center justify-content-center"
+                data-bs-toggle=offcanvas data-bs-target=#cartOffcanvas aria-controls=cartOffcanvas><i
+                class=icon-basket></i></a></div>
+    </div>
+</header>
+<header class=page>
+    <div class="page_main container-fluid">
+        <div class=container><h1 class=page_header>Compare List</h1>
+            <p class=page_text>Nibh tellus molestie nunc non blandit. Mi tempus imperdiet nulla malesuada pellentesque
+                elit</p></div>
+    </div>
+    <div class=container>
+        <ul class="page_breadcrumbs d-flex flex-wrap">
+            <li class=page_breadcrumbs-item><a class=link href=http://127.0.0.1:8000/>Home</a></li>
+            <li class="page_breadcrumbs-item current"><span>Compare List</span></li>
+        </ul>
+    </div>
+</header>
+<main>
+    <section class="compare section">
+        <div class=container>
+            <div class="compare_header d-lg-flex flex-wrap justify-content-between align-items-center"><h2
+                    class=compare_header-title>Comparison of 3 Products</h2>
+                <div class="compare_header-action d-flex align-items-center">
+                    <div class=wrapper><a class="compare_header-action_add d-inline-flex align-items-center"
+                                          href=#><span
+                            class="icon-wrapper d-flex justify-content-center align-items-center"><i
+                            class=icon-plus></i> </span>Add Product</a></div>
+                    <a class="compare_header-action_clear btn--underline" href=#>Clear all</a></div>
+                <ul class="compare_header-list d-sm-flex flex-wrap flex-grow-1">
+                    <li class="compare_header-list_item col-sm-6 col-lg-4" data-order=1>
+                        <div class="wrapper d-flex flex-column flex-md-row">
+                            <div class=media>
+                                <picture>
+                                    <source data-srcset=img/compare/01.webp srcset=img/compare/01.webp type=image/webp>
+                                    <img class=lazy data-src=img/compare/01.jpg src=img/compare/01.jpg alt=media>
+                                </picture>
+                            </div>
+                            <div class="main d-flex flex-column justify-content-between"><a class=main_title
+                                                                                            href=http://127.0.0.1:8000/product.html/
+                                                                                            target=_blank
+                                                                                            rel="noopener norefferer">Pure
+                                Sun CBD Oil 1:10</a>
+                                <div class=main_price><span class=price>$36.87</span></div>
+                                <div><a class=btn--underline href=#>Remove Product</a></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="compare_header-list_item col-sm-6 col-lg-4" data-order=2>
+                        <div class="wrapper d-flex flex-column flex-md-row">
+                            <div class=media>
+                                <picture>
+                                    <source data-srcset=img/compare/02.webp srcset=img/compare/02.webp type=image/webp>
+                                    <img class=lazy data-src=img/compare/02.jpg src=img/compare/02.jpg alt=media>
+                                </picture>
+                            </div>
+                            <div class="main d-flex flex-column justify-content-between"><a class=main_title
+                                                                                            href=http://127.0.0.1:8000/product.html/
+                                                                                            target=_blank
+                                                                                            rel="noopener norefferer">Natures:
+                                CBD Tincture</a>
+                                <div class=main_price><span class="price price--old">$45.99</span> <span
+                                        class="price price--new">$30.99</span></div>
+                                <div><a class=btn--underline href=#>Remove Product</a></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="compare_header-list_item col-sm-6 col-lg-4" data-order=3>
+                        <div class="wrapper d-flex flex-column flex-md-row">
+                            <div class=media>
+                                <picture>
+                                    <source data-srcset=img/compare/03.webp srcset=img/compare/03.webp type=image/webp>
+                                    <img class=lazy data-src=img/compare/03.jpg src=img/compare/03.jpg alt=media>
+                                </picture>
+                            </div>
+                            <div class="main d-flex flex-column justify-content-between"><a class=main_title
+                                                                                            href=http://127.0.0.1:8000/product.html/
+                                                                                            target=_blank
+                                                                                            rel="noopener norefferer">House
+                                Shatter – Durban Poison</a>
+                                <div class=main_price><span class=price>$16.90</span></div>
+                                <div><a class=btn--underline href=#>Remove Product</a></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class=compare_main><h3 class=compare_main-header>Specifications</h3>
+                <ul class=compare_main-list>
+                    <li class=compare_main-list_item><h4 class=property-header>Category</h4>
+                        <ul class="value-list d-sm-flex flex-wrap">
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Pure Sun CBD Oil 1:10</span>
+                                <span class=product-value>Oil</span></li>
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Natures: CBD Tincture</span>
+                                <span class=product-value>Oil</span></li>
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>House Shatter – Durban Poison</span>
+                                <span class=product-value>Concentrates</span></li>
+                        </ul>
+                    </li>
+                    <li class=compare_main-list_item><h4 class=property-header>Size</h4>
+                        <ul class="value-list d-sm-flex flex-wrap">
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Pure Sun CBD Oil 1:10</span>
+                                <span class=product-value>30ml</span></li>
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Natures: CBD Tincture</span>
+                                <span class=product-value>30ml</span></li>
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>House Shatter – Durban Poison</span>
+                                <span class=product-value>1 Gram</span></li>
+                        </ul>
+                    </li>
+                    <li class=compare_main-list_item><h4 class=property-header>Plant Type</h4>
+                        <ul class="value-list d-sm-flex flex-wrap">
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Pure Sun CBD Oil 1:10</span>
+                                <span class=product-value>Hybrid</span></li>
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Natures: CBD Tincture</span>
+                                <span class=product-value>Sativa Dominant</span></li>
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>House Shatter – Durban Poison</span>
+                                <span class=product-value>Sativa</span></li>
+                        </ul>
+                    </li>
+                    <li class=compare_main-list_item><h4 class=property-header>THC</h4>
+                        <ul class="value-list d-sm-flex flex-wrap">
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Pure Sun CBD Oil 1:10</span>
+                                <span class=product-value>0.00 - 57.00 mg</span></li>
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Natures: CBD Tincture</span>
+                                <span class=product-value>—</span></li>
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>House Shatter – Durban Poison</span>
+                                <span class=product-value>80.5%</span></li>
+                        </ul>
+                    </li>
+                    <li class=compare_main-list_item><h4 class=property-header>CBD</h4>
+                        <ul class="value-list d-sm-flex flex-wrap">
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Pure Sun CBD Oil 1:10</span>
+                                <span class=product-value>10.00 - 11.06 mg/g</span></li>
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Natures: CBD Tincture</span>
+                                <span class=product-value>33.33 mg CBD per 1ml</span></li>
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>House Shatter – Durban Poison</span>
+                                <span class=product-value>0.33%</span></li>
+                        </ul>
+                    </li>
+                    <li class=compare_main-list_item><h4 class=property-header>Effects</h4>
+                        <ul class="value-list d-sm-flex flex-wrap">
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Pure Sun CBD Oil 1:10</span>
+                                <span class=product-value>Calm, Happy, Relaxed</span></li>
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Natures: CBD Tincture</span>
+                                <span class=product-value>Pain, Anxiety, Sleeping problems</span></li>
+                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>House Shatter – Durban Poison</span>
+                                <span class=product-value>Creative, Energizing, Euphoria, Focus</span></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <aside class="viewed section">
+        <div class=container><h2 class=viewed_header>Recently Viewed Products</h2>
+            <div class="viewed_slider swiper">
+                <div class=swiper-wrapper>
+                    <div class="viewed_slider-slide swiper-slide">
+                        <div class="wrapper d-flex flex-column">
+                            <div class=media>
+                                <div class="overlay d-flex flex-column align-items-center justify-content-center">
+                                    <ul class="action d-flex align-items-center justify-content-center">
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-trigger=compare><i class=icon-compare></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=#><i class=icon-basket></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-role=wishlist><i class=icon-heart></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-trigger=view><i class=icon-eye></i></a></li>
+                                    </ul>
+                                </div>
+                                <picture>
+                                    <source data-srcset=img/shop/07.webp srcset=img/shop/07.webp type=image/webp>
+                                    <img class=lazy data-src=img/shop/07.jpg src=img/shop/07.jpg alt=media></picture>
+                            </div>
+                            <div class="main d-flex flex-column">
+                                <div class=main_rating>
+                                    <ul class="main_rating-stars d-flex align-items-center accent">
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star></i></li>
+                                    </ul>
+                                </div>
+                                <h4 class=main_title>Witchcraft Cannabis</h4>
+                                <div class=main_price><span class=price>$7.97</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="viewed_slider-slide swiper-slide">
+                        <div class="wrapper d-flex flex-column">
+                            <div class=media>
+                                <div class="overlay d-flex flex-column align-items-center justify-content-center">
+                                    <ul class="action d-flex align-items-center justify-content-center">
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-trigger=compare><i class=icon-compare></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=#><i class=icon-basket></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-role=wishlist><i class=icon-heart></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-trigger=view><i class=icon-eye></i></a></li>
+                                    </ul>
+                                </div>
+                                <picture>
+                                    <source data-srcset=img/shop/10.webp srcset=img/shop/10.webp type=image/webp>
+                                    <img class=lazy data-src=img/shop/10.jpg src=img/shop/10.jpg alt=media></picture>
+                            </div>
+                            <div class="main d-flex flex-column">
+                                <div class=main_rating>
+                                    <ul class="main_rating-stars d-flex align-items-center accent">
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                    </ul>
+                                </div>
+                                <h4 class=main_title>Ice Wreck</h4>
+                                <div class=main_price><span class=price>$7.97</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="viewed_slider-slide swiper-slide">
+                        <div class="wrapper d-flex flex-column">
+                            <div class=media><span
+                                    class="sale d-flex align-items-center justify-content-center">-15%</span>
+                                <div class="overlay d-flex flex-column align-items-center justify-content-center">
+                                    <ul class="action d-flex align-items-center justify-content-center">
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-trigger=compare><i class=icon-compare></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=#><i class=icon-basket></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-role=wishlist><i class=icon-heart></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-trigger=view><i class=icon-eye></i></a></li>
+                                    </ul>
+                                </div>
+                                <picture>
+                                    <source data-srcset=img/shop/08.webp srcset=img/shop/08.webp type=image/webp>
+                                    <img class=lazy data-src=img/shop/08.jpg src=img/shop/08.jpg alt=media></picture>
+                            </div>
+                            <div class="main d-flex flex-column">
+                                <div class=main_rating>
+                                    <ul class="main_rating-stars d-flex align-items-center accent">
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                    </ul>
+                                </div>
+                                <h4 class=main_title>House Terp Sauce – 1 Gram</h4>
+                                <div class=main_price><span class="price price--old">$10.97</span> <span
+                                        class="price price--new">$6.97</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="viewed_slider-slide swiper-slide">
+                        <div class="wrapper d-flex flex-column">
+                            <div class=media><span
+                                    class="sale d-flex align-items-center justify-content-center">-15%</span>
+                                <div class="overlay d-flex flex-column align-items-center justify-content-center">
+                                    <ul class="action d-flex align-items-center justify-content-center">
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-trigger=compare><i class=icon-compare></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=#><i class=icon-basket></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-role=wishlist><i class=icon-heart></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-trigger=view><i class=icon-eye></i></a></li>
+                                    </ul>
+                                </div>
+                                <picture>
+                                    <source data-srcset=img/shop/14.webp srcset=img/shop/14.webp type=image/webp>
+                                    <img class=lazy data-src=img/shop/14.jpg src=img/shop/14.jpg alt=media></picture>
+                            </div>
+                            <div class="main d-flex flex-column">
+                                <div class=main_rating>
+                                    <ul class="main_rating-stars d-flex align-items-center accent">
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star></i></li>
+                                    </ul>
+                                </div>
+                                <h4 class=main_title>Chem Dawg</h4>
+                                <div class=main_price><span class="price price--old">$10.97</span> <span
+                                        class="price price--new">$6.97</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination--dots"></div>
+            </div>
+        </div>
+    </aside>
+</main>
+<footer class=footer>
+    <div class="footer_main section">
+        <div class="container d-flex flex-column flex-md-row flex-wrap flex-xl-nowrap justify-content-xl-between">
+            <div class="footer_main-about footer_main-block col-md-6 col-xl-auto"><a
+                    class="brand footer_main-about_brand d-flex align-items-center" href=http://127.0.0.1:8000/><span class=logo><svg
+                    width=48 height=45 viewBox="0 0 48 45" fill=none xmlns=http://www.w3.org/2000/svg><g
+                    clip-path=url(#logoFooter)><circle cx=23.5 cy=23.4998 r=17.5 fill=#EFC368/></g><defs><clipPath id=logoFooter><rect width=48 height=45
+                                                                          fill=white/></clipPath></defs></svg> </span><span
+                    class=accent>Herba</span> <span>list</span></a>
+                <div class=footer_main-about_wrapper><p class=text>Elementum nisi quis eleifend quam adipiscing. Cursus
+                    metus aliquam eleifend mi in nulla posuere sollicitudin</p>
+                    <ul class="socials d-flex align-items-center accent">
+                        <li class=list-item><a class=link href=https://facebook.com/ target=_blank
+                                               rel="noopener norefferer"><i class="icon-facebook icon"></i></a></li>
+                        <li class=list-item><a class=link href=https://instagram.com/ target=_blank
+                                               rel="noopener norefferer"><i class="icon-instagram icon"></i></a></li>
+                        <li class=list-item><a class=link href=https://twitter.com/ target=_blank
+                                               rel="noopener norefferer"><i class="icon-twitter icon"></i></a></li>
+                        <li class=list-item><a class=link href=https://whatsapp.com/ target=_blank
+                                               rel="noopener norefferer"><i class="icon-whatsapp icon"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer_main-contacts footer_main-block col-md-6 col-xl-auto"><h4
+                    class="footer_main-contacts_header footer_main-header">Contacts information</h4>
+                <ul class=footer_main-contacts_list>
+                    <li class="list-item d-flex align-items-center"><span
+                            class="icon d-flex justify-content-center align-items-center"><i class=icon-call></i></span>
+                        <div class="wrapper d-flex flex-column"><a class=link href=tel:+1234567890>+1-202-555-0133</a>
+                            <a class=link href=tel:+1234567890>+1-202-555-0133</a></div>
+                    </li>
+                    <li class="list-item d-flex align-items-center"><span
+                            class="icon d-flex justify-content-center align-items-center"><i
+                            class=icon-location></i></span>
+                        <div class="wrapper d-flex flex-column"><span>192 North Border Street</span> <span>Lithonia, GA 30038</span>
+                        </div>
+                    </li>
+                    <li class="list-item d-flex align-items-center"><span
+                            class="icon d-flex justify-content-center align-items-center"><i
+                            class=icon-clock></i></span>
+                        <div class="wrapper d-flex flex-column"><span>9:00 am to 5:00 pm</span>
+                            <span>Monday to Saturday</span></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer_main-nav footer_main-block col-md-6 col-xl-auto"><h4
+                    class="footer_main-nav_header footer_main-header">Shop Products</h4>
+                <ul class="footer_main-nav_list d-flex flex-wrap flex-md-column">
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Flower</a></li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Oils</a></li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Edibles</a></li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Concentrates</a></li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Seeds</a></li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Shop All</a></li>
+                </ul>
+            </div>
+            <div class="footer_main-instagram footer_main-block col-md-6 col-xl-auto"><h4
+                    class="footer_main-instagram_header footer_main-header">Instagram</h4>
+                <ul class="footer_main-instagram_list d-grid">
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/01.webp srcset=img/footer/01.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/01.jpg src=img/footer/01.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/02.webp srcset=img/footer/02.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/02.jpg src=img/footer/02.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/03.webp srcset=img/footer/03.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/03.jpg src=img/footer/03.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/04.webp srcset=img/footer/04.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/04.jpg src=img/footer/04.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/05.webp srcset=img/footer/05.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/05.jpg src=img/footer/05.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/06.webp srcset=img/footer/06.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/06.jpg src=img/footer/06.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class=footer_secondary>
+        <div class="container d-flex flex-column-reverse flex-md-row justify-content-center justify-content-md-between align-items-md-center">
+            <p class=footer_secondary-copyright>Merkulove &copy; Herbalist Template <span class=linebreak>All rights reserved Copyrights <span
+                    id=currentYear></span></span></p>
+            <ul class="footer_secondary-list d-flex justify-content-center align-items-center">
+                <li class=list-item><span class=vector><svg width=62 height=20 viewBox="0 0 62 20" fill=none
+                                                            xmlns=http://www.w3.org/2000/svg><path
+                        d="M40.3732 0.0307617C35.9754 0.0307617 32.0453 2.29548 32.0453 6.47972C32.0453 11.2783 39.0155 11.6097 39.0155 14.0203C39.0155 15.0354 37.8447 15.944 35.845 15.944C33.0071 15.944 30.886 14.6744 30.886 14.6744L29.9784 18.8967C29.9784 18.8967 32.4219 19.9692 35.6659 19.9692C40.4742 19.9692 44.2577 17.5932 44.2577 13.3375C44.2577 8.26694 37.2584 7.94535 37.2584 5.70787C37.2584 4.91274 38.2196 4.04153 40.2135 4.04153C42.4633 4.04153 44.2988 4.96487 44.2988 4.96487L45.187 0.886776C45.187 0.886776 43.1898 0.0307617 40.3732 0.0307617V0.0307617ZM0.137251 0.338543L0.0307617 0.954103C0.0307617 0.954103 1.88094 1.29052 3.54733 1.9616C5.69294 2.73113 5.84578 3.17912 6.20714 4.57052L10.1448 19.6518H15.4233L23.5552 0.338543H18.2888L13.0636 13.4697L10.9314 2.33912C10.7358 1.06523 9.74536 0.338543 8.53296 0.338543H0.137251V0.338543ZM25.6729 0.338543L21.5416 19.6518H26.5635L30.6803 0.338543H25.6729V0.338543ZM53.682 0.338543C52.471 0.338543 51.8294 0.982675 51.3586 2.10828L44.0011 19.6518H49.2675L50.2864 16.7279H56.7024L57.322 19.6518H61.9688L57.9149 0.338543H53.682V0.338543ZM54.3669 5.55638L55.9279 12.8037H51.7458L54.3669 5.55638V5.55638Z"
+                        fill=#1434CB/></svg></span></li>
+                <li class=list-item><span class=vector><svg width=49 height=30 viewBox="0 0 49 30" fill=none
+                                                            xmlns=http://www.w3.org/2000/svg><g
+                        clip-path=url(#clip0_276_198133)><path fill-rule=evenodd clip-rule=evenodd
+                                                               d="M18.1489 26.7542H30.9958V3.20239H18.1489V26.7542Z"
+                                                               fill=#FF5F00/><path fill-rule=evenodd clip-rule=evenodd
+                                                                                   d="M18.965 14.9784C18.965 10.2003 21.158 5.94476 24.5728 3.20246C22.0752 1.19661 18.9243 0 15.4992 0C7.39105 0 0.818359 6.70616 0.818359 14.9784C0.818359 23.2506 7.39105 29.9568 15.4992 29.9568C18.9243 29.9568 22.0752 28.7602 24.5728 26.7543C21.158 24.0116 18.965 19.7565 18.965 14.9784Z"
+                                                                                   fill=#EB001B/><path fill-rule=evenodd
+                                                                                                       clip-rule=evenodd
+                                                                                                       d="M47.8693 24.26V23.6787H47.7204L47.5495 24.0786L47.3782 23.6787H47.2294V24.26H47.3342V23.8215L47.4949 24.1997H47.6038L47.7645 23.8206V24.26H47.8693ZM46.9268 24.26V23.7778H47.1176V23.6796H46.6323V23.7778H46.8228V24.26H46.9268ZM48.3277 14.9784C48.3277 23.2506 41.7546 29.9568 33.6468 29.9568C30.2218 29.9568 27.0704 28.7602 24.5732 26.7543C27.9881 24.012 30.181 19.7565 30.181 14.9784C30.181 10.2007 27.9881 5.94517 24.5732 3.20246C27.0704 1.19661 30.2218 0 33.6468 0C41.7546 0 48.3277 6.70616 48.3277 14.9784Z"
+                                                                                                       fill=#F79E1B/></g><defs><clipPath
+                        id=clip0_276_198133><rect width=48 height=30 fill=white
+                                                  transform=translate(0.818359)/></clipPath></defs></svg></span></li>
+                <li class=list-item><span class=vector><svg width=79 height=21 viewBox="0 0 79 21" fill=none
+                                                            xmlns=http://www.w3.org/2000/svg><g
+                        clip-path=url(#clip0_276_198139)></g><defs><clipPath id=clip0_276_198139><rect width=78 height=21 fill=white
+                                                                                    transform=translate(0.568359)/></clipPath></defs></svg></span>
+                </li>
+                <li class=list-item><span class=vector><svg width=31 height=30 viewBox="0 0 31 30" fill=none
+                                                            xmlns=http://www.w3.org/2000/svg><g
+                        clip-path=url(#clip0_276_198146)><path
+                        d="M30.1197 18.6274C28.1155 26.6675 19.9697 31.5548 11.9412 29.5506C3.90097 27.5465 -0.986467 19.4009 1.01773 11.3726C3.02194 3.33254 11.1559 -1.55479 19.1962 0.449365C27.2247 2.4418 32.1239 10.5873 30.1197 18.6274Z"
+                        fill=url(#paint0_linear_276_198146)/><path
+                        d="M22.7109 13.1309C23.0039 11.1387 21.4922 10.0605 19.4062 9.3457L20.0859 6.63867L18.4453 6.22852L17.7891 8.86523C17.3555 8.75977 16.9102 8.6543 16.4648 8.56055L17.1211 5.91211L15.4805 5.50195L14.8125 8.19727C14.4492 8.11523 14.0977 8.0332 13.7578 7.95117V7.93945L11.4844 7.37695L11.0508 9.13477C11.0508 9.13477 12.2695 9.41602 12.2461 9.42773C12.9141 9.5918 13.0312 10.0371 13.0078 10.3887L12.2344 13.4707C12.2812 13.4824 12.3398 13.4941 12.4102 13.5293C12.3516 13.5176 12.293 13.5059 12.2344 13.4824L11.1562 17.7949C11.0742 17.9941 10.8633 18.2988 10.4062 18.1816C10.418 18.2051 9.21094 17.8887 9.21094 17.8887L8.39062 19.7754L10.5352 20.3145C10.9336 20.4199 11.3203 20.5137 11.707 20.6191L11.0273 23.3496L12.668 23.7598L13.3477 21.0527C13.793 21.1699 14.2383 21.2871 14.6602 21.3926L13.9922 24.0879L15.6328 24.498L16.3125 21.7676C19.125 22.2949 21.2344 22.084 22.1133 19.541C22.8281 17.502 22.0781 16.3184 20.6016 15.5449C21.6914 15.2988 22.5 14.584 22.7109 13.1309ZM18.9492 18.4043C18.4453 20.4434 15 19.3418 13.8867 19.0605L14.7891 15.4395C15.9023 15.7207 19.4883 16.2715 18.9492 18.4043ZM19.4648 13.0957C18.9961 14.959 16.1367 14.0098 15.2109 13.7754L16.0312 10.4941C16.957 10.7285 19.9453 11.1621 19.4648 13.0957Z"
+                        fill=white/></g><defs><linearGradient id=paint0_linear_276_198146 x1=15.5604 y1=-0.00706574
+                                                              x2=15.5604 y2=29.997 gradientUnits=userSpaceOnUse><stop
+                        offset=1 stop-color=#F7931A/></linearGradient><clipPath id=clip0_276_198146><rect width=30
+                                                                                                          height=30
+                                                                                                          fill=white
+                                                                                                          transform=translate(0.568359)/></clipPath></defs></svg></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<script src="{% static 'js/common.min.js' %}"></script>
+<div class="cartOffcanvas offcanvas offcanvas-end" tabindex=-1 id=cartOffcanvas>
+    <div class="cartOffcanvas_header d-flex align-items-center justify-content-between"><h2
+            class=cartOffcanvas_header-title id=cartOffcanvasLabel>Cart</h2>
+        <button class=cartOffcanvas_header-close type=button data-bs-dismiss=offcanvas aria-label=Close><i
+                class=icon-close></i></button>
+    </div>
+    <div class=cartOffcanvas_body>
+        <ul class=cartOffcanvas_body-list>
+            <li class="cartOffcanvas_body-list_item d-sm-flex align-items-center">
+                <div class=media><a href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
+                    <picture>
+                        <source data-srcset=img/cart/01.webp srcset=img/cart/01.webp type=image/webp>
+                        <img class=lazy data-src=img/cart/01.jpg src=img/cart/01.jpg alt=media></picture>
+                </a></div>
+                <div class="main d-flex flex-wrap justify-content-between align-items-end align-items-lg-center"><a
+                        class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer"><span
+                        class=main_title-product>Jonny Chronic - French Macaroon</span></a>
+                    <div class=main_price><span class=price>$14.98</span></div>
+                    <div class="qty d-flex align-items-center justify-content-between"><span
+                            class="qty_minus control disabled d-flex align-items-center"><i
+                            class=icon-minus></i> </span><input class=qty_amount type=number readonly=readonly value=1
+                                                                min=1 max=99> <span
+                            class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span></div>
+                    <a class=btn--underline href=#>Remove</a></div>
+            </li>
+            <li class="cartOffcanvas_body-list_item d-sm-flex align-items-center">
+                <div class=media><a href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
+                    <picture>
+                        <source data-srcset=img/cart/02.webp srcset=img/cart/02.webp type=image/webp>
+                        <img class=lazy data-src=img/cart/02.jpg src=img/cart/02.jpg alt=media></picture>
+                </a></div>
+                <div class="main d-flex flex-wrap justify-content-between align-items-end align-items-lg-center"><a
+                        class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer"><span
+                        class=main_title-product>House Shatter – Durban Poison</span></a>
+                    <div class=main_price><span class=price>$6.96</span></div>
+                    <div class="qty d-flex align-items-center justify-content-between"><span
+                            class="qty_minus control disabled d-flex align-items-center"><i
+                            class=icon-minus></i> </span><input class=qty_amount type=number readonly=readonly value=1
+                                                                min=1 max=99> <span
+                            class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span></div>
+                    <a class=btn--underline href=#>Remove</a></div>
+            </li>
+            <li class="cartOffcanvas_body-list_item d-sm-flex align-items-center">
+                <div class=media><a href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
+                    <picture>
+                        <source data-srcset=img/cart/03.webp srcset=img/cart/03.webp type=image/webp>
+                        <img class=lazy data-src=img/cart/03.jpg src=img/cart/03.jpg alt=media></picture>
+                </a></div>
+                <div class="main d-flex flex-wrap justify-content-between align-items-end align-items-lg-center"><a
+                        class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer"><span
+                        class=main_title-product>Natures: CBD Tincture</span></a>
+                    <div class=main_price><span class=price>$7.49</span></div>
+                    <div class="qty d-flex align-items-center justify-content-between"><span
+                            class="qty_minus control disabled d-flex align-items-center"><i
+                            class=icon-minus></i> </span><input class=qty_amount type=number readonly=readonly value=1
+                                                                min=1 max=99> <span
+                            class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span></div>
+                    <a class=btn--underline href=#>Remove</a></div>
+            </li>
+        </ul>
+        <div class="cartOffcanvas_body-total d-flex justify-content-between align-items-center"><span>Total</span> <span
+                class=cartTotal>$29.43</span></div>
+        <a class="cartOffcanvas_body-btn btn" href=http://127.0.0.1:8000/cart.html/>Proceed to checkout</a></div>
+</div>
+<script src="{% static 'js/compare.min.js' %}"></script>
+<script src="{% static 'js/demo.js' %}"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MZ1FBMV3CL"></script>
+<script>window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+    dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+gtag('config', 'G-MZ1FBMV3CL');</script>
+</body>
+
+</html>

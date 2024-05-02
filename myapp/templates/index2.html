@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang=en>
+<!-- Mirrored from html.merku.love/herbalist/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 20 Apr 2024 16:14:00 GMT -->
+<head>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1">
+    <meta http-equiv=X-UA-Compatible content="ie=edge">
+    <title>Home | Herbalist</title>
+    {% load static %}
+    <link rel="stylesheet preload" as=style href="{% static 'css/preload.min.css' %}">
+    <link rel="stylesheet preload" as=style href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet preload" as=style href="{% static 'css/libs.min.css' %}">
+    <link rel=stylesheet href="{% static 'css/index2.min.css' %}">
+    <link rel=stylesheet href="{% static 'css/floatbutton.min.css' %}">
+</head>
+<body>
+<header class="header d-flex flex-wrap align-items-center" data-page=home2 data-overlay=true>
+    <div class="container d-flex flex-wrap flex-xl-nowrap align-items-center justify-content-between"><a
+            class="brand header_logo d-flex align-items-center" href=index.html><span class=logo><svg width=48 height=45
+                                                                                                      viewBox="0 0 48 45"
+                                                                                                      fill=none
+                                                                                                      xmlns=http://www.w3.org/2000/svg><g
+            clip-path=url(#logoHeader)><circle cx=23.5 cy=23.4998 r=17.5 fill=#EFC368/></g><defs><clipPath id=logoHeader><rect width=48 height=45
+                                                                  fill=white/></clipPath></defs></svg> </span><span
+            class=accent>Herba</span> <span>list</span></a>
+        <nav class=header_nav>
+            <ul class=header_nav-list>
+                <li class="header_nav-list_item dropdown"><a
+                        class="nav-link dropdown-toggle d-inline-flex align-items-center" href=# data-bs-toggle=collapse
+                        data-bs-target=#homeMenu aria-expanded=false aria-controls=homeMenu>Home <i
+                        class="icon-caret_down icon"></i></a>
+                    <div class="dropdown-menu collapse" id=homeMenu>
+                        <ul class=dropdown-list>
+                            <li class="list-item nav-item" data-page=home><a class=dropdown-item href=index.html>Home
+                                01</a></li>
+                            <li class="list-item nav-item" data-page=home2><a class=dropdown-item href=index2.html>Home
+                                02</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="header_nav-list_item dropdown"><a
+                        class="nav-link dropdown-toggle d-inline-flex align-items-center" href=# data-bs-toggle=collapse
+                        data-bs-target=#shopMenu aria-expanded=false aria-controls=shopMenu>Shop <i
+                        class="icon-caret_down icon"></i></a>
+                    <div class="dropdown-menu collapse" id=shopMenu>
+                        <ul class=dropdown-list>
+                            <li class="list-item nav-item" data-page=shop><a class=dropdown-item href=shop.html>Shop
+                                01</a></li>
+                            <li class="list-item nav-item" data-page=shop2><a class=dropdown-item href=shop2.html>Shop
+                                02</a></li>
+                            <li class="list-item nav-item" data-page=product><a class=dropdown-item href=product.html>Single
+                                Product 01</a></li>
+                            <li class="list-item nav-item" data-page=product2><a class=dropdown-item href=product2.html>Single
+                                Product 02</a></li>
+                            <li class="list-item nav-item" data-page=compare><a class=dropdown-item href=compare.html>Compare
+                                List</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="header_nav-list_item dropdown"><a
+                        class="nav-link dropdown-toggle d-inline-flex align-items-center" href=# data-bs-toggle=collapse
+                        data-bs-target=#newsMenu aria-expanded=false aria-controls=newsMenu>News <i
+                        class="icon-caret_down icon"></i></a>
+                    <div class="dropdown-menu collapse" id=newsMenu>
+                        <ul class=dropdown-list>
+                            <li class="list-item nav-item" data-page=news><a class=dropdown-item href=news.html>News
+                                01</a></li>
+                            <li class="list-item nav-item" data-page=news2><a class=dropdown-item href=news2.html>News
+                                02</a></li>
+                            <li class="list-item nav-item" data-page=post><a class=dropdown-item href=post.html>Single
+                                Post 01</a></li>
+                            <li class="list-item nav-item" data-page=post2><a class=dropdown-item href=post2.html>Single
+                                Post 02</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="header_nav-list_item dropdown"><a
+                        class="nav-link dropdown-toggle d-inline-flex align-items-center" href=# data-bs-toggle=collapse
+                        data-bs-target=#pagesMenu aria-expanded=false aria-controls=pagesMenu>Pages <i
+                        class="icon-caret_down icon"></i></a>
+                    <div class="dropdown-menu collapse" id=pagesMenu>
+                        <ul class=dropdown-list>
+                            <li class="list-item nav-item" data-page=about><a class=dropdown-item
+                                                                              href=about.html>About</a></li>
+                            <li class="list-item nav-item" data-page=team><a class=dropdown-item href=team.html>Team</a>
+                            </li>
+                            <li class="list-item nav-item" data-page=faq><a class=dropdown-item href=faq.html>FAQ</a>
+                            </li>
+                            <li class="list-item nav-item" data-page=contacts><a class=dropdown-item href=contacts.html>Contacts
+                                01</a></li>
+                            <li class="list-item nav-item" data-page=contacts2><a class=dropdown-item
+                                                                                  href=contacts2.html>Contacts 02</a>
+                            </li>
+                            <li class="list-item nav-item" data-page=404><a class=dropdown-item href=404.html>Error
+                                Page</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <span class="header_trigger d-inline-flex d-xl-none flex-column justify-content-between"><span
+                class="line line--short"></span> <span class="line line"></span> <span class="line line--short"></span> <span
+                class="line line"></span></span>
+        <div class="header_user d-flex justify-content-end align-items-center">
+            <form class=header_user-search action=# method=get data-type=searchForm><input
+                    class="header_user-search_field field required" type=text placeholder=Search...>
+                <button class="header_user-search_btn header_user-action d-inline-flex align-items-center justify-content-center"
+                        type=submit data-trigger=search><i class=icon-search></i></button>
+            </form>
+            <a class="header_user-action d-inline-flex align-items-center justify-content-center" href=wishlist.html><i
+                    class=icon-heart></i> </a><a
+                class="header_user-action d-inline-flex align-items-center justify-content-center"
+                data-bs-toggle=offcanvas data-bs-target=#cartOffcanvas aria-controls=cartOffcanvas><i
+                class=icon-basket></i></a></div>
+    </div>
+</header>
+<main>
+    <section class="hero section">
+        <div class=container>
+            <div class="hero_content col-xl-6">
+                <div class=hero_content-header><h1 class=hero_content-header_title>Cannabis Oils: CBD Oil and THC Oil
+                    Available</h1>
+                    <p class=hero_content-header_text>Discover a diverse range of food, concentrates, cannabis oils,
+                        capsules, CBD oils, baked buns and dried flowers - available in indica, sativa and hybrid
+                        varieties with varying CBD and THC potencies. Cannabis accessories can also be purchased.</p>
+                </div>
+                <a class="hero_content-btn btn" href=shop.html>Shop Now</a>
+                <div class="features-list d-sm-flex flex-wrap">
+                    <div class="features-list_row d-sm-flex">
+                        <div class=features-list_item data-order=1 data-aos=fade-up>
+                            <div class="wrapper d-flex flex-column flex-sm-row align-items-center"><span
+                                    class="icon d-flex align-items-center justify-content-center"><svg width=50
+                                                                                                       height=35
+                                                                                                       viewBox="0 0 50 35"
+                                                                                                       fill=none
+                                                                                                       xmlns=http://www.w3.org/2000/svg></svg></span><h5 class=title>Free Shipping & Returns</h5></div>
+                        </div>
+                        <div class=features-list_item data-order=2 data-aos=fade-up>
+                            <div class="wrapper d-flex flex-column flex-sm-row align-items-center"><span
+                                    class="icon d-flex align-items-center justify-content-center"><svg width=50
+                                                                                                       height=50
+                                                                                                       viewBox="0 0 50 50"
+                                                                                                       fill=none
+                                                                                                       xmlns=http://www.w3.org/2000/svg></svg></span><h5 class=title>Money Back Guarantee</h5></div>
+                        </div>
+                    </div>
+                    <div class="features-list_row d-sm-flex">
+                        <div class=features-list_item data-order=3 data-aos=fade-up>
+                            <div class="wrapper d-flex flex-column flex-sm-row align-items-center"><span
+                                    class="icon d-flex align-items-center justify-content-center"><svg width=50
+                                                                                                       height=44
+                                                                                                       viewBox="0 0 50 44"
+                                                                                                       fill=none
+                                                                                                       xmlns=http://www.w3.org/2000/svg></svg></span><h5 class=title>100% Secure Payment</h5></div>
+                        </div>
+                        <div class=features-list_item data-order=4 data-aos=fade-up>
+                            <div class="wrapper d-flex flex-column flex-sm-row align-items-center"><span
+                                    class="icon d-flex align-items-center justify-content-center"><svg width=47
+                                                                                                       height=50
+                                                                                                       viewBox="0 0 47 50"
+                                                                                                       fill=none
+                                                                                                       xmlns=http://www.w3.org/2000/svg><path
+                                    fill-rule=evenodd clip-rule=evenodd
+                                    d="M41.2292 20.6684H41.3542C44.2277 20.6684 46.2265 23.8244 46.2264 26.485V34.2202C46.2264 36.6336 44.5398 38.3044 41.8538 38.49L40.6669 40.2227C38.3206 43.3138 34.6389 45.126 30.7349 45.1113C30.5595 46.2319 30.0354 47.2703 29.2356 48.0817C28.0503 49.2834 26.4339 49.9728 24.7381 50C21.3125 50.0002 18.5257 47.2672 18.4915 43.8738C18.5146 40.9805 20.5779 38.4977 23.4397 37.9196C26.7861 37.2434 30.0524 39.3828 30.7349 42.698C33.8524 42.7127 36.7936 41.2673 38.6681 38.7995L38.793 38.6139H37.3563C37.3328 38.6128 37.3092 38.611 37.2858 38.6086C36.634 38.5395 36.1622 37.9601 36.2319 37.3144V22.1535C36.2319 21.4108 36.6692 20.6683 37.3563 20.6683H38.7306V17.6361C38.7306 9.26299 31.8786 2.47514 23.4264 2.47514C14.9742 2.47514 8.12218 9.26299 8.12218 17.6361V20.6683H9.49645C10.1836 20.6683 10.6208 21.4109 10.6208 22.1535V37.3144C10.6233 37.3376 10.6251 37.361 10.6262 37.3843C10.6571 38.0329 10.1512 38.5836 9.49645 38.614H4.87398L4.85772 38.6138C4.84166 38.6136 4.82563 38.6133 4.80954 38.6128C2.08503 38.5442 -0.0676036 36.3007 0.00162401 33.6017V25.8665C0.00162401 23.0817 2.12544 20.6684 4.87398 20.6684H5.62353V17.6362C5.62353 7.89601 13.594 0 23.4264 0C33.2587 0 41.2292 7.89601 41.2292 17.6362V20.6684ZM4.87398 36.1387H8.12218V23.1436H4.87398C3.49971 23.1436 2.50027 24.4431 2.50027 25.8664V33.6015C2.4992 33.6236 2.49836 33.6455 2.49776 33.6674C2.465 34.9999 3.52888 36.1063 4.87398 36.1387ZM27.4242 46.3492C26.732 47.0928 25.7593 47.5186 24.7382 47.525C22.7059 47.493 21.0566 45.8864 20.9903 43.8739C20.9894 41.8575 22.6388 40.2222 24.6743 40.2214C26.7097 40.2206 28.3604 41.8545 28.3613 43.8709V43.8739C28.4133 44.7927 28.0732 45.6909 27.4242 46.3492ZM41.3542 36.1387C42.1037 36.1387 43.7279 35.8912 43.7279 34.2204V26.4852C43.7279 25.062 42.7284 23.1437 41.3542 23.1437H38.7306V36.1387H41.3542Z"
+                                    fill=currentColor/></svg></span><h5 class=title>Online Support</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=hero_media>
+            <picture>
+                <source data-srcset=img/index2/leaf.webp srcset=img/index2/leaf.webp type=image/webp>
+                <img class="lazy hero_media-leaf" data-src=img/index2/leaf.png src=img/index2/leaf.png alt=media>
+            </picture>
+        </div>
+    </section>
+    <div class="categories section--nopb">
+        <div class=container>
+            <ul class="categories_list d-flex flex-wrap">
+                <li class="categories_list-item col-6 col-md-4 col-xl-2" data-order=1><a
+                        class=categories_list-item_wrapper href=#>
+                    <div class=media><span class="overlay d-flex flex-column justify-content-end"><span
+                            class=overlay_content>24 Items</span></span>
+                        <picture>
+                            <source data-srcset=img/index2/category01.jpg srcset=img/index2/category01.jpg
+                                    type=image/webp>
+                            <img class=lazy data-src=img/index2/category01.jpg src=img/index2/category01.jpg alt=media>
+                        </picture>
+                    </div>
+                    <h4 class=title>Seeds</h4></a></li>
+                <li class="categories_list-item col-6 col-md-4 col-xl-2" data-order=2><a
+                        class=categories_list-item_wrapper href=#>
+                    <div class=media><span class="overlay d-flex flex-column justify-content-end"><span
+                            class=overlay_content>24 Items</span></span>
+                        <picture>
+                            <source data-srcset=img/index2/category02.jpg srcset=img/index2/category02.jpg
+                                    type=image/webp>
+                            <img class=lazy data-src=img/index2/category02.jpg src=img/index2/category02.jpg alt=media>
+                        </picture>
+                    </div>
+                    <h4 class=title>Flower</h4></a></li>
+                <li class="categories_list-item col-6 col-md-4 col-xl-2" data-order=3><a
+                        class=categories_list-item_wrapper href=#>
+                    <div class=media><span class="overlay d-flex flex-column justify-content-end"><span
+                            class=overlay_content>24 Items</span></span>
+                        <picture>
+                            <source data-srcset=img/index2/category03.jpg srcset=img/index2/category03.jpg
+                                    type=image/webp>
+                            <img class=lazy data-src=img/index2/category03.jpg src=img/index2/category03.jpg alt=media>
+                        </picture>
+                    </div>
+                    <h4 class=title>Cartridges</h4></a></li>
+                <li class="categories_list-item col-6 col-md-4 col-xl-2" data-order=4><a
+                        class=categories_list-item_wrapper href=#>
+                    <div class=media><span class="overlay d-flex flex-column justify-content-end"><span
+                            class=overlay_content>24 Items</span></span>
+                        <picture>
+                            <source data-srcset=img/index2/category04.jpg srcset=img/index2/category04.jpg
+                                    type=image/webp>
+                            <img class=lazy data-src=img/index2/category04.jpg src=img/index2/category04.jpg alt=media>
+                        </picture>
+                    </div>
+                    <h4 class=title>Concentrates</h4></a></li>
+                <li class="categories_list-item col-6 col-md-4 col-xl-2" data-order=5><a
+                        class=categories_list-item_wrapper href=#>
+                    <div class=media><span class="overlay d-flex flex-column justify-content-end"><span
+                            class=overlay_content>24 Items</span></span>
+                        <picture>
+                            <source data-srcset=img/index2/category05.jpg srcset=img/index2/category05.jpg
+                                    type=image/webp>
+                            <img class=lazy data-src=img/index2/category05.jpg src=img/index2/category05.jpg alt=media>
+                        </picture>
+                    </div>
+                    <h4 class=title>Oil</h4></a></li>
+                <li class="categories_list-item col-6 col-md-4 col-xl-2" data-order=6><a
+                        class=categories_list-item_wrapper href=#>
+                    <div class=media><span class="overlay d-flex flex-column justify-content-end"><span
+                            class=overlay_content>24 Items</span></span>
+                        <picture>
+                            <source data-srcset=img/index2/category06.jpg srcset=img/index2/category06.jpg
+                                    type=image/webp>
+                            <img class=lazy data-src=img/index2/category06.jpg src=img/index2/category06.jpg alt=media>
+                        </picture>
+                    </div>
+                    <h4 class=title>Edible</h4></a></li>
+            </ul>
+        </div>
+    </div>
+    <section class="popular section">
+        <div class=container>
+            <div class=popular_header><h2 class=popular_header-title>Popular Products</h2>
+                <p class=popular_header-text>Suscipit tellus mauris a diam maecenas sed enim ut sem. Turpis egestas
+                    maecenas pharetra convallis posuere</p></div>
+            <div class="popular_slider swiper">
+                <div class=swiper-wrapper>
+                    <div class="popular_slider-slide swiper-slide">
+                        <div class="wrapper d-flex flex-column">
+                            <div class=media>
+                                <div class="overlay d-flex flex-column align-items-center justify-content-center">
+                                    <ul class="action d-flex align-items-center justify-content-center">
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-trigger=compare><i class=icon-compare></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=#><i class=icon-basket></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-role=wishlist><i class=icon-heart></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-trigger=view><i class=icon-eye></i></a></li>
+                                    </ul>
+                                </div>
+                                <picture>
+                                    <source data-srcset=img/shop/07.webp srcset=img/shop/07.webp type=image/webp>
+                                    <img class=lazy data-src=img/shop/07.jpg src=img/shop/07.jpg alt=media></picture>
+                            </div>
+                            <div class="main d-flex flex-column">
+                                <div class=main_rating>
+                                    <ul class="main_rating-stars d-flex align-items-center accent">
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star></i></li>
+                                    </ul>
+                                </div>
+                                <a class=main_title href=product.html target=_blank rel="noopener norefferer">Witchcraft
+                                    Cannabis</a>
+                                <div class=main_price><span class=price>$7.97</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular_slider-slide swiper-slide">
+                        <div class="wrapper d-flex flex-column">
+                            <div class=media>
+                                <div class="overlay d-flex flex-column align-items-center justify-content-center">
+                                    <ul class="action d-flex align-items-center justify-content-center">
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-trigger=compare><i class=icon-compare></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=#><i class=icon-basket></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-role=wishlist><i class=icon-heart></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-trigger=view><i class=icon-eye></i></a></li>
+                                    </ul>
+                                </div>
+                                <picture>
+                                    <source data-srcset=img/shop/10.webp srcset=img/shop/10.webp type=image/webp>
+                                    <img class=lazy data-src=img/shop/10.jpg src=img/shop/10.jpg alt=media></picture>
+                            </div>
+                            <div class="main d-flex flex-column">
+                                <div class=main_rating>
+                                    <ul class="main_rating-stars d-flex align-items-center accent">
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                    </ul>
+                                </div>
+                                <a class=main_title href=product.html target=_blank rel="noopener norefferer">Ice
+                                    Wreck</a>
+                                <div class=main_price><span class=price>$7.97</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular_slider-slide swiper-slide">
+                        <div class="wrapper d-flex flex-column">
+                            <div class=media><span
+                                    class="sale d-flex align-items-center justify-content-center">-15%</span>
+                                <div class="overlay d-flex flex-column align-items-center justify-content-center">
+                                    <ul class="action d-flex align-items-center justify-content-center">
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-trigger=compare><i class=icon-compare></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=#><i class=icon-basket></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-role=wishlist><i class=icon-heart></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-trigger=view><i class=icon-eye></i></a></li>
+                                    </ul>
+                                </div>
+                                <picture>
+                                    <source data-srcset=img/shop/14.webp srcset=img/shop/14.webp type=image/webp>
+                                    <img class=lazy data-src=img/shop/14.jpg src=img/shop/14.jpg alt=media></picture>
+                            </div>
+                            <div class="main d-flex flex-column">
+                                <div class=main_rating>
+                                    <ul class="main_rating-stars d-flex align-items-center accent">
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star></i></li>
+                                    </ul>
+                                </div>
+                                <a class=main_title href=product.html target=_blank rel="noopener norefferer">Chem
+                                    Dawg</a>
+                                <div class=main_price><span class="price price--old">$10.97</span> <span
+                                        class="price price--new">$6.97</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular_slider-slide swiper-slide">
+                        <div class="wrapper d-flex flex-column">
+                            <div class=media>
+                                <div class="overlay d-flex flex-column align-items-center justify-content-center">
+                                    <ul class="action d-flex align-items-center justify-content-center">
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-trigger=compare><i class=icon-compare></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=#><i class=icon-basket></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-role=wishlist><i class=icon-heart></i></a></li>
+                                        <li class=list-item><a
+                                                class="action_link d-flex align-items-center justify-content-center"
+                                                href=# data-trigger=view><i class=icon-eye></i></a></li>
+                                    </ul>
+                                </div>
+                                <picture>
+                                    <source data-srcset=img/shop/13.webp srcset=img/shop/13.webp type=image/webp>
+                                    <img class=lazy data-src=img/shop/13.jpg src=img/shop/13.jpg alt=media></picture>
+                            </div>
+                            <div class="main d-flex flex-column">
+                                <div class=main_rating>
+                                    <ul class="main_rating-stars d-flex align-items-center accent">
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star></i></li>
+                                        <li class=main_rating-stars_star><i class=icon-star></i></li>
+                                    </ul>
+                                </div>
+                                <a class=main_title href=product.html target=_blank rel="noopener norefferer">Coconut
+                                    Based Tinctures</a>
+                                <div class=main_price><span class=price>$7.97</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination--dots"></div>
+            </div>
+        </div>
+    </section>
+    <div class=promo>
+        <div class="promo_fluid d-lg-flex align-items-center align-items-xxl-end">
+            <div class="wrapper section--nopb col-lg-6 col-xxl-auto">
+                <div class=promo_header><a class=promo_header-title href=product.html target=_blank
+                                           rel="noopener norefferer">CBD Facial Serum: Anti-Aging + Daily
+                    Moisturizer</a>
+                    <p class=promo_header-text>Accumsan sit amet nulla facilisi morbi tempus. Suscipit tellus mauris a
+                        diam maecenas sed enim ut sem. Turpis egestas maecenas pharetra convallis posuere</p></div>
+                <div class=promo_price><span class="price price--old">$48.97</span> <span class="price price--new">$27.97</span>
+                </div>
+                <div class="promo_timer timer d-flex justify-content-center justify-content-md-start">
+                    <div class="timer_block d-flex flex-column justify-content-center"><span class=timer_block-number
+                                                                                             id=days>25</span> days
+                    </div>
+                    <div class="timer_block d-flex flex-column justify-content-center"><span class=timer_block-number
+                                                                                             id=hours>13</span> hours
+                    </div>
+                    <div class="timer_block d-flex flex-column justify-content-center"><span class=timer_block-number
+                                                                                             id=minutes>18</span> mins
+                    </div>
+                    <div class="timer_block d-flex flex-column justify-content-center"><span class=timer_block-number
+                                                                                             id=seconds>23</span> secs
+                    </div>
+                </div>
+                <a class="promo_btn btn" href=shop.html>Shop Now</a></div>
+            <div class=media>
+                <picture>
+                    <source data-srcset=img/index2/serum.webp srcset=img/index2/serum.webp type=image/webp>
+                    <img class=lazy data-src=img/index2/serum.jpg src=img/index2/serum.jpg alt=media></picture>
+            </div>
+        </div>
+    </div>
+    <section class="reviews section--nopb">
+        <div class=container>
+            <div class=reviews_header><h2 class=reviews_header-title>Your Trust is Our Top Concern</h2>
+                <p class=reviews_header-text>Feugiat sed lectus vestibulum mattis ullamcorper velit. Sed pulvinar proin
+                    gravida hendrerit lectus</p></div>
+            <div class="reviews_slider swiper">
+                <div class=swiper-wrapper>
+                    <div class="reviews_slider-slide swiper-slide">
+                        <div class="reviews_slider-slide_wrapper d-flex flex-column align-items-center">
+                            <picture>
+                                <source data-srcset=img/index2/review01.webp srcset=img/index2/review01.webp
+                                        type=image/webp>
+                                <img class="lazy avatar" data-src=img/index2/review01.jpg src=img/index2/review01.jpg
+                                     alt=avatar></picture>
+                            <ul class="rating d-flex align-items-center accent">
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                            </ul>
+                            <p class=text>Amet facilisis magna etiam tempor orci eu lobortis elementum nibh. Tellus
+                                elementum sagittis vitae et leo.</p><h5 class=name>Maria Harmon</h5></div>
+                    </div>
+                    <div class="reviews_slider-slide swiper-slide">
+                        <div class="reviews_slider-slide_wrapper d-flex flex-column align-items-center">
+                            <picture>
+                                <source data-srcset=img/index2/review02.webp srcset=img/index2/review02.webp
+                                        type=image/webp>
+                                <img class="lazy avatar" data-src=img/index2/review02.jpg src=img/index2/review02.jpg
+                                     alt=avatar></picture>
+                            <ul class="rating d-flex align-items-center accent">
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                            </ul>
+                            <p class=text>Euismod quis viverra nibh cras pulvinar. Nulla malesuada pellentesque elit
+                                eget gravida cam sociis natoque</p><h5 class=name>Salvador Williams</h5></div>
+                    </div>
+                    <div class="reviews_slider-slide swiper-slide">
+                        <div class="reviews_slider-slide_wrapper d-flex flex-column align-items-center">
+                            <picture>
+                                <source data-srcset=img/index2/review03.webp srcset=img/index2/review03.webp
+                                        type=image/webp>
+                                <img class="lazy avatar" data-src=img/index2/review03.jpg src=img/index2/review03.jpg
+                                     alt=avatar></picture>
+                            <ul class="rating d-flex align-items-center accent">
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                            </ul>
+                            <p class=text>Pellentesque habitant morbi tristique senectus et netus et. Massa sapien
+                                faucibus et molestie. Sit amet facilisis</p><h5 class=name>Christina Phillips</h5></div>
+                    </div>
+                    <div class="reviews_slider-slide swiper-slide">
+                        <div class="reviews_slider-slide_wrapper d-flex flex-column align-items-center">
+                            <picture>
+                                <source data-srcset=img/index2/review04.webp srcset=img/index2/review04.webp
+                                        type=image/webp>
+                                <img class="lazy avatar" data-src=img/index2/review04.jpg src=img/index2/review04.jpg
+                                     alt=avatar></picture>
+                            <ul class="rating d-flex align-items-center accent">
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                            </ul>
+                            <p class=text>Amet facilisis magna etiam tempor orci eu lobortis elementum nibh. Tellus
+                                elementum sagittis vitae et leo.</p><h5 class=name>John Doe</h5></div>
+                    </div>
+                    <div class="reviews_slider-slide swiper-slide">
+                        <div class="reviews_slider-slide_wrapper d-flex flex-column align-items-center">
+                            <picture>
+                                <source data-srcset=img/index2/review05.webp srcset=img/index2/review05.webp
+                                        type=image/webp>
+                                <img class="lazy avatar" data-src=img/index2/review05.jpg src=img/index2/review05.jpg
+                                     alt=avatar></picture>
+                            <ul class="rating d-flex align-items-center accent">
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                            </ul>
+                            <p class=text>Euismod quis viverra nibh cras pulvinar. Nulla malesuada pellentesque elit
+                                eget gravida cam sociis natoque</p><h5 class=name>Sandy Smith</h5></div>
+                    </div>
+                    <div class="reviews_slider-slide swiper-slide">
+                        <div class="reviews_slider-slide_wrapper d-flex flex-column align-items-center">
+                            <picture>
+                                <source data-srcset=img/index2/review06.webp srcset=img/index2/review06.webp
+                                        type=image/webp>
+                                <img class="lazy avatar" data-src=img/index2/review06.jpg src=img/index2/review06.jpg
+                                     alt=avatar></picture>
+                            <ul class="rating d-flex align-items-center accent">
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                                <li class=rating_star><i class=icon-star_fill></i></li>
+                            </ul>
+                            <p class=text>Pellentesque habitant morbi tristique senectus et netus et. Massa sapien
+                                faucibus et molestie. Sit amet facilisis</p><h5 class=name>Lisa Levis</h5></div>
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination--dots"></div>
+            </div>
+        </div>
+        <div class=reviews_underlay><span class="reviews_underlay-circle reviews_underlay-circle--green"></span> <span
+                class="reviews_underlay-circle reviews_underlay-circle--yellow"></span></div>
+    </section>
+    <section class="newsletter section--nopb">
+        <div class=container>
+            <div class=wrapper>
+                <div class=newsletter_deco>
+                    <div class=newsletter_deco-wrapper>
+                        <picture>
+                            <source data-srcset=img/banners/leaf--left.webp srcset=img/banners/leaf--left.webp
+                                    type=image/webp>
+                            <img class="lazy leaf leaf--left" data-src=img/banners/leaf--left.png
+                                 src=img/banners/leaf--left.png alt=deco></picture>
+                    </div>
+                    <div class=newsletter_deco-wrapper>
+                        <picture>
+                            <source data-srcset=img/banners/leaf--right.webp srcset=img/banners/leaf--right.webp
+                                    type=image/webp>
+                            <img class="lazy leaf leaf--right" data-src=img/banners/leaf--right.png
+                                 src=img/banners/leaf--right.png alt=deco></picture>
+                    </div>
+                </div>
+                <div class=newsletter_highlight><span class="underlay underlay--left"><span
+                        class="underlay_circle underlay_circle--accent"></span> </span><span
+                        class="underlay underlay--right"><span
+                        class="underlay_circle underlay_circle--small underlay_circle--green"></span> <span
+                        class="underlay_circle underlay_circle--big underlay_circle--green"></span></span></div>
+                <div class=newsletter_content>
+                    <div class=newsletter_header><h2 class=newsletter_header-title>Sign Up for Our Newsletter</h2>
+                        <p class=newsletter_header-text>Accumsan sit amet nulla facilisi morbi tempus. Suscipit tellus
+                            mauris a diam maecenas sed enim ut sem</p></div>
+                    <form class="newsletter_form d-sm-flex" data-type=newsletter action=# method=post><input
+                            class="newsletter_form-field field required" type=text data-type=email placeholder=Email>
+                        <button class="newsletter_form-btn btn" type=submit>Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="faq section--nopb">
+        <div class="container d-flex flex-column-reverse flex-xl-row">
+            <div class=faq_media>
+                <picture>
+                    <source data-srcset=img/index2/faq.webp srcset=img/index2/faq.webp type=image/webp>
+                    <img class=lazy data-src=img/index2/faq.jpg src=img/index2/faq.jpg alt=media></picture>
+            </div>
+            <div class="faq_main col-xl-6">
+                <div class=faq_main-header><h2 class=faq_main-header_title>The Effects of Cannabis on Your Body</h2>
+                    <p class=faq_main-header_text>Elementum eu facilisis sed odio morbi quis commodo odio. Mauris
+                        rhoncus aenean vel elit scelerisque mauris pellentesque. Accumsan sit amet nulla facilisi morbi
+                        tempus</p></div>
+                <div class=accordion>
+                    <div class=accordion_component id=accordionComponent>
+                        <div class=accordion_component-item><h4
+                                class="accordion_component-item_header d-flex justify-content-between align-items-center collapsed"
+                                data-bs-toggle=collapse data-bs-target=#item-1>Reduce Inflammation and Relieve Pain
+                            <span class=wrapper><i class="icon-caret_down icon"></i></span></h4>
+                            <div id=item-1 class="accordion-collapse collapse" data-bs-parent=#accordionComponent>
+                                <div class=accordion_component-item_body>Placerat orci nulla pellentesque dignissim enim
+                                    sit amet venenatis urna. Tempus urna et pharetra pharetra massa massa ultricies mi.
+                                    Elementum sagittis vitae et leo duis ut diam quam
+                                </div>
+                            </div>
+                        </div>
+                        <div class=accordion_component-item><h4
+                                class="accordion_component-item_header d-flex justify-content-between align-items-center"
+                                data-bs-toggle=collapse data-bs-target=#item-2>Kill Cancer Cells and Slow Tumor Growth
+                            <span class=wrapper><i class="icon-caret_down transform icon"></i></span></h4>
+                            <div id=item-2 class="accordion-collapse collapse show" data-bs-parent=#accordionComponent>
+                                <div class=accordion_component-item_body>Consectetur a erat nam at. Sit amet tellus cras
+                                    adipiscing enim eu turpis egestas pretium. Vel pretium lectus quam id leo in.
+                                    Gravida quis blandit turpis cursus in hac habitasse platea dictumst. Elementum
+                                    pulvinar etiam non quam lacus. Eget nunc scelerisque viverra mauris in. Nam at
+                                </div>
+                            </div>
+                        </div>
+                        <div class=accordion_component-item><h4
+                                class="accordion_component-item_header d-flex justify-content-between align-items-center collapsed"
+                                data-bs-toggle=collapse data-bs-target=#item-3>Relax Tight Muscles in People with MS
+                            <span class=wrapper><i class="icon-caret_down icon"></i></span></h4>
+                            <div id=item-3 class="accordion-collapse collapse" data-bs-parent=#accordionComponent>
+                                <div class=accordion_component-item_body>Consectetur a erat nam at. Sit amet tellus cras
+                                    adipiscing enim eu turpis egestas pretium. Vel pretium lectus quam id leo in.
+                                    Gravida quis blandit turpis cursus in hac habitasse platea dictumst. Elementum
+                                    pulvinar etiam non quam lacus. Eget nunc scelerisque viverra mauris in.
+                                </div>
+                            </div>
+                        </div>
+                        <div class=accordion_component-item><h4
+                                class="accordion_component-item_header d-flex justify-content-between align-items-center collapsed"
+                                data-bs-toggle=collapse data-bs-target=#item-4>Stimulate Appetite and Improve Weight
+                            <span class=wrapper><i class="icon-caret_down icon"></i></span></h4>
+                            <div id=item-4 class="accordion-collapse collapse" data-bs-parent=#accordionComponent>
+                                <div class=accordion_component-item_body>Consectetur a erat nam at. Sit amet tellus cras
+                                    adipiscing enim eu turpis egestas pretium. Vel pretium lectus quam id leo in.
+                                    Gravida quis blandit turpis cursus in hac habitasse platea dictumst. Elementum
+                                    pulvinar etiam non quam lacus. Eget nunc scelerisque viverra mauris in. Elementum
+                                    pulvinar etiam non quam lacus. Eget nunc scelerisque viverra mauris in.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contacts section">
+        <div class=container>
+            <div class=contacts_header><h2 class=contacts_header-title>Have any Questions?</h2>
+                <p class=contacts_header-text>Elementum eu facilisis sed odio morbi quis commodo odio. Mauris rhoncus
+                    aenean vel elit scelerisque mauris pellentesque</p></div>
+            <ul class="contacts_cards d-md-flex flex-wrap">
+                <li class="contacts_cards-item col-md-6 col-xl-4" data-order=1 data-aos=fade-up>
+                    <div class="contacts_cards-item_wrapper d-xl-flex flex-column justify-content-between"><h4
+                            class=title>Our Office Location</h4>
+                        <div class="info flex-grow-1 flex-xxl-grow-0 d-flex flex-column flex-sm-row align-items-center">
+                            <i class="icon-location icon"></i> <span class=address>211 Lehner Valleys Apt. 287 <span
+                                class=linebreak>Harrisstad</span></span></div>
+                        <p class=text>Tincidunt vitae semper quis lectus nulla. Viverra accumsan in nisl nisi
+                            scelerisque eu ultrices</p></div>
+                </li>
+                <li class="contacts_cards-item col-md-6 col-xl-4" data-order=2 data-aos=fade-up>
+                    <div class=contacts_cards-item_wrapper><h4 class=title>How Can We Help?</h4>
+                        <ul class=list>
+                            <li class="list-item d-flex align-items-center"><i class="icon-check icon"></i> Orci nulla
+                                pellentesque dignissim
+                            </li>
+                            <li class="list-item d-flex align-items-center"><i class="icon-check icon"></i> Nam at
+                                lectus urna duis convallis
+                            </li>
+                            <li class="list-item d-flex align-items-center"><i class="icon-check icon"></i> Quis auctor
+                                elit sed vulputate
+                            </li>
+                            <li class="list-item d-flex align-items-center"><i class="icon-check icon"></i> Nam at
+                                lectus urna duis convallis
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="contacts_cards-item col-md-6 col-xl-4" data-order=3 data-aos=fade-up>
+                    <div class="contacts_cards-item_wrapper d-xl-flex flex-column justify-content-between"><h4
+                            class=title>Our Phone</h4>
+                        <div class="info flex-grow-1 flex-xxl-grow-0 d-flex flex-column flex-sm-row align-items-center">
+                            <i class="icon-call icon"></i>
+                            <div class="wrapper d-flex flex-column align-items-center"><a class=link
+                                                                                          href=tel:+1234567890>+1-896-882-3255</a>
+                                <a class=link href=tel:+1234567890>+1-249-342-7501</a></div>
+                        </div>
+                        <p class=text>Tincidunt vitae semper quis lectus nulla. Viverra accumsan in nisl nisi
+                            scelerisque eu ultrices</p></div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <div class=partners>
+        <div class="container-fluid container-xl">
+            <div class="partners_list swiper">
+                <ul class=swiper-wrapper>
+                    <li class="partners_list-item d-flex justify-content-center swiper-slide">
+                        <svg width=145 height=120 viewBox="0 0 145 120" fill=none xmlns=http://www.w3.org/2000/svg>
+
+                        </svg>
+                    </li>
+                    <li class="partners_list-item d-flex justify-content-center swiper-slide">
+                        <svg width=99 height=120 viewBox="0 0 99 120" fill=none xmlns=http://www.w3.org/2000/svg>
+
+                        </svg>
+                    </li>
+                    <li class="partners_list-item d-flex justify-content-center swiper-slide">
+                        <svg width=153 height=120 viewBox="0 0 153 120" fill=none xmlns=http://www.w3.org/2000/svg>
+
+                        </svg>
+                    </li>
+                    <li class="partners_list-item d-flex justify-content-center swiper-slide">
+                        <svg width=68 height=120 viewBox="0 0 68 120" fill=none xmlns=http://www.w3.org/2000/svg>
+
+                        </svg>
+                    </li>
+                    <li class="partners_list-item d-flex justify-content-center swiper-slide">
+                        <svg width=174 height=120 viewBox="0 0 174 120" fill=none xmlns=http://www.w3.org/2000/svg>
+                        </svg>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class=footer>
+    <div class="footer_main section">
+        <div class="container d-flex flex-column flex-md-row flex-wrap flex-xl-nowrap justify-content-xl-between">
+            <div class="footer_main-about footer_main-block col-md-6 col-xl-auto"><a
+                    class="brand footer_main-about_brand d-flex align-items-center" href=index.html><span class=logo><svg
+                    width=48 height=45 viewBox="0 0 48 45" fill=none xmlns=http://www.w3.org/2000/svg><g
+                    clip-path=url(#logoFooter)><circle cx=23.5 cy=23.4998 r=17.5 fill=#EFC368/></g><defs><clipPath id=logoFooter><rect width=48 height=45
+                                                                          fill=white/></clipPath></defs></svg> </span><span
+                    class=accent>Herba</span> <span>list</span></a>
+                <div class=footer_main-about_wrapper><p class=text>Elementum nisi quis eleifend quam adipiscing. Cursus
+                    metus aliquam eleifend mi in nulla posuere sollicitudin</p>
+                    <ul class="socials d-flex align-items-center accent">
+                        <li class=list-item><a class=link href=https://facebook.com/ target=_blank
+                                               rel="noopener norefferer"><i class="icon-facebook icon"></i></a></li>
+                        <li class=list-item><a class=link href=https://instagram.com/ target=_blank
+                                               rel="noopener norefferer"><i class="icon-instagram icon"></i></a></li>
+                        <li class=list-item><a class=link href=https://twitter.com/ target=_blank
+                                               rel="noopener norefferer"><i class="icon-twitter icon"></i></a></li>
+                        <li class=list-item><a class=link href=https://whatsapp.com/ target=_blank
+                                               rel="noopener norefferer"><i class="icon-whatsapp icon"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer_main-contacts footer_main-block col-md-6 col-xl-auto"><h4
+                    class="footer_main-contacts_header footer_main-header">Contacts information</h4>
+                <ul class=footer_main-contacts_list>
+                    <li class="list-item d-flex align-items-center"><span
+                            class="icon d-flex justify-content-center align-items-center"><i class=icon-call></i></span>
+                        <div class="wrapper d-flex flex-column"><a class=link href=tel:+1234567890>+1-202-555-0133</a>
+                            <a class=link href=tel:+1234567890>+1-202-555-0133</a></div>
+                    </li>
+                    <li class="list-item d-flex align-items-center"><span
+                            class="icon d-flex justify-content-center align-items-center"><i
+                            class=icon-location></i></span>
+                        <div class="wrapper d-flex flex-column"><span>192 North Border Street</span> <span>Lithonia, GA 30038</span>
+                        </div>
+                    </li>
+                    <li class="list-item d-flex align-items-center"><span
+                            class="icon d-flex justify-content-center align-items-center"><i
+                            class=icon-clock></i></span>
+                        <div class="wrapper d-flex flex-column"><span>9:00 am to 5:00 pm</span>
+                            <span>Monday to Saturday</span></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer_main-nav footer_main-block col-md-6 col-xl-auto"><h4
+                    class="footer_main-nav_header footer_main-header">Shop Products</h4>
+                <ul class="footer_main-nav_list d-flex flex-wrap flex-md-column">
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Flower</a></li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Oils</a></li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Edibles</a></li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Concentrates</a></li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Seeds</a></li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Shop All</a></li>
+                </ul>
+            </div>
+            <div class="footer_main-instagram footer_main-block col-md-6 col-xl-auto"><h4
+                    class="footer_main-instagram_header footer_main-header">Instagram</h4>
+                <ul class="footer_main-instagram_list d-grid">
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/01.webp srcset=img/footer/01.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/01.jpg src=img/footer/01.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/02.webp srcset=img/footer/02.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/02.jpg src=img/footer/02.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/03.webp srcset=img/footer/03.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/03.jpg src=img/footer/03.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/04.webp srcset=img/footer/04.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/04.jpg src=img/footer/04.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/05.webp srcset=img/footer/05.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/05.jpg src=img/footer/05.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/06.webp srcset=img/footer/06.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/06.jpg src=img/footer/06.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class=footer_secondary>
+        <div class="container d-flex flex-column-reverse flex-md-row justify-content-center justify-content-md-between align-items-md-center">
+            <p class=footer_secondary-copyright>Merkulove &copy; Herbalist Template <span class=linebreak>All rights reserved Copyrights <span
+                    id=currentYear></span></span></p>
+            <ul class="footer_secondary-list d-flex justify-content-center align-items-center">
+                <li class=list-item><span class=vector><svg width=62 height=20 viewBox="0 0 62 20" fill=none
+                                                            xmlns=http://www.w3.org/2000/svg><path
+                        d="M40.3732 0.0307617C35.9754 0.0307617 32.0453 2.29548 32.0453 6.47972C32.0453 11.2783 39.0155 11.6097 39.0155 14.0203C39.0155 15.0354 37.8447 15.944 35.845 15.944C33.0071 15.944 30.886 14.6744 30.886 14.6744L29.9784 18.8967C29.9784 18.8967 32.4219 19.9692 35.6659 19.9692C40.4742 19.9692 44.2577 17.5932 44.2577 13.3375C44.2577 8.26694 37.2584 7.94535 37.2584 5.70787C37.2584 4.91274 38.2196 4.04153 40.2135 4.04153C42.4633 4.04153 44.2988 4.96487 44.2988 4.96487L45.187 0.886776C45.187 0.886776 43.1898 0.0307617 40.3732 0.0307617V0.0307617ZM0.137251 0.338543L0.0307617 0.954103C0.0307617 0.954103 1.88094 1.29052 3.54733 1.9616C5.69294 2.73113 5.84578 3.17912 6.20714 4.57052L10.1448 19.6518H15.4233L23.5552 0.338543H18.2888L13.0636 13.4697L10.9314 2.33912C10.7358 1.06523 9.74536 0.338543 8.53296 0.338543H0.137251V0.338543ZM25.6729 0.338543L21.5416 19.6518H26.5635L30.6803 0.338543H25.6729V0.338543ZM53.682 0.338543C52.471 0.338543 51.8294 0.982675 51.3586 2.10828L44.0011 19.6518H49.2675L50.2864 16.7279H56.7024L57.322 19.6518H61.9688L57.9149 0.338543H53.682V0.338543ZM54.3669 5.55638L55.9279 12.8037H51.7458L54.3669 5.55638V5.55638Z"
+                        fill=#1434CB/></svg></span></li>
+                <li class=list-item><span class=vector><svg width=49 height=30 viewBox="0 0 49 30" fill=none
+                                                            xmlns=http://www.w3.org/2000/svg><g
+                        clip-path=url(#clip0_276_198133)></g><defs><clipPath
+                        id=clip0_276_198133><rect width=48 height=30 fill=white
+                                                  transform=translate(0.818359)/></clipPath></defs></svg></span></li>
+                <li class=list-item><span class=vector><svg width=79 height=21 viewBox="0 0 79 21" fill=none
+                                                            xmlns=http://www.w3.org/2000/svg><g
+                        clip-path=url(#clip0_276_198139)></g><defs><clipPath id=clip0_276_198139><rect width=78 height=21 fill=white
+                                                                                    transform=translate(0.568359)/></clipPath></defs></svg></span>
+                </li>
+                <li class=list-item><span class=vector><svg width=31 height=30 viewBox="0 0 31 30" fill=none
+                                                            xmlns=http://www.w3.org/2000/svg><g
+                        clip-path=url(#clip0_276_198146)></g><defs><linearGradient id=paint0_linear_276_198146 x1=15.5604 y1=-0.00706574
+                                                              x2=15.5604 y2=29.997 gradientUnits=userSpaceOnUse><stop
+                        offset=1 stop-color=#F7931A/></linearGradient><clipPath id=clip0_276_198146><rect width=30
+                                                                                                          height=30
+                                                                                                          fill=white
+                                                                                                          transform=translate(0.568359)/></clipPath></defs></svg></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<script src="{% static 'js/common.min.js' %}"></script>
+<div class="cartOffcanvas offcanvas offcanvas-end" tabindex=-1 id=cartOffcanvas>
+    <div class="cartOffcanvas_header d-flex align-items-center justify-content-between"><h2
+            class=cartOffcanvas_header-title id=cartOffcanvasLabel>Cart</h2>
+        <button class=cartOffcanvas_header-close type=button data-bs-dismiss=offcanvas aria-label=Close><i
+                class=icon-close></i></button>
+    </div>
+    <div class=cartOffcanvas_body>
+        <ul class=cartOffcanvas_body-list>
+            <li class="cartOffcanvas_body-list_item d-sm-flex align-items-center">
+                <div class=media><a href=product.html target=_blank rel="noopener norefferer">
+                    <picture>
+                        <source data-srcset=img/cart/01.webp srcset=img/cart/01.webp type=image/webp>
+                        <img class=lazy data-src=img/cart/01.jpg src=img/cart/01.jpg alt=media></picture>
+                </a></div>
+                <div class="main d-flex flex-wrap justify-content-between align-items-end align-items-lg-center"><a
+                        class=main_title href=product.html target=_blank rel="noopener norefferer"><span
+                        class=main_title-product>Jonny Chronic - French Macaroon</span></a>
+                    <div class=main_price><span class=price>$14.98</span></div>
+                    <div class="qty d-flex align-items-center justify-content-between"><span
+                            class="qty_minus control disabled d-flex align-items-center"><i
+                            class=icon-minus></i> </span><input class=qty_amount type=number readonly=readonly value=1
+                                                                min=1 max=99> <span
+                            class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span></div>
+                    <a class=btn--underline href=#>Remove</a></div>
+            </li>
+            <li class="cartOffcanvas_body-list_item d-sm-flex align-items-center">
+                <div class=media><a href=product.html target=_blank rel="noopener norefferer">
+                    <picture>
+                        <source data-srcset=img/cart/02.webp srcset=img/cart/02.webp type=image/webp>
+                        <img class=lazy data-src=img/cart/02.jpg src=img/cart/02.jpg alt=media></picture>
+                </a></div>
+                <div class="main d-flex flex-wrap justify-content-between align-items-end align-items-lg-center"><a
+                        class=main_title href=product.html target=_blank rel="noopener norefferer"><span
+                        class=main_title-product>House Shatter – Durban Poison</span></a>
+                    <div class=main_price><span class=price>$6.96</span></div>
+                    <div class="qty d-flex align-items-center justify-content-between"><span
+                            class="qty_minus control disabled d-flex align-items-center"><i
+                            class=icon-minus></i> </span><input class=qty_amount type=number readonly=readonly value=1
+                                                                min=1 max=99> <span
+                            class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span></div>
+                    <a class=btn--underline href=#>Remove</a></div>
+            </li>
+            <li class="cartOffcanvas_body-list_item d-sm-flex align-items-center">
+                <div class=media><a href=product.html target=_blank rel="noopener norefferer">
+                    <picture>
+                        <source data-srcset=img/cart/03.webp srcset=img/cart/03.webp type=image/webp>
+                        <img class=lazy data-src=img/cart/03.jpg src=img/cart/03.jpg alt=media></picture>
+                </a></div>
+                <div class="main d-flex flex-wrap justify-content-between align-items-end align-items-lg-center"><a
+                        class=main_title href=product.html target=_blank rel="noopener norefferer"><span
+                        class=main_title-product>Natures: CBD Tincture</span></a>
+                    <div class=main_price><span class=price>$7.49</span></div>
+                    <div class="qty d-flex align-items-center justify-content-between"><span
+                            class="qty_minus control disabled d-flex align-items-center"><i
+                            class=icon-minus></i> </span><input class=qty_amount type=number readonly=readonly value=1
+                                                                min=1 max=99> <span
+                            class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span></div>
+                    <a class=btn--underline href=#>Remove</a></div>
+            </li>
+        </ul>
+        <div class="cartOffcanvas_body-total d-flex justify-content-between align-items-center"><span>Total</span> <span
+                class=cartTotal>$29.43</span></div>
+        <a class="cartOffcanvas_body-btn btn" href=cart.html>Proceed to checkout</a></div>
+</div>
+<script src="{% static 'js/index.min.js' %}"></script>
+<script src="{% static 'js/demo.js' %}"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MZ1FBMV3CL"></script>
+<script>window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+    dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+gtag('config', 'G-MZ1FBMV3CL');</script>
+</body>
+<!-- Mirrored from html.merku.love/herbalist/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 20 Apr 2024 16:14:05 GMT -->
+</html>

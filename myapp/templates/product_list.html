@@ -1,0 +1,24 @@
+{% block content %}
+<h1>Product List</h1>
+<ul>
+    {% for product in products %}
+    <li>
+        <h2>{{ product.nom }}</h2>
+        <p>Category: {{ product.categorie.nom }}</p>
+        <p>Price: {{ product.prix }}</p>
+        <p>Quantity: {{ product.quantite }}</p>
+        <p>Image: <img src="{{ product.image.url }}" alt="{{ product.nom }}"></p>
+        <p>Size: {{ product.size }}</p>
+        <p>Type: {{ product.type }}</p>
+        <p>Effects: {{ product.effects }}</p>
+        <p>Tags: {{ product.tags }}</p>
+        <p>Reference: {{ product.reference }}</p>
+        <!-- Add other fields as needed -->
+        <p>Description: {{ product.description.descriptiontexte }}</p>
+        <p>Reviews: {{ product.reviews.reviewstexte }}</p>
+    </li>
+    {% empty %}
+    <li>No products available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

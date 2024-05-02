@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1">
+    <meta http-equiv=X-UA-Compatible content="ie=edge">
+    <title>News | Herbalist</title>
+    {% load static %}
+    <link rel="stylesheet preload" as=style href="{% static 'css/preload.min.css' %}">
+    <link rel="stylesheet preload" as=style href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet preload" as=style href="{% static 'css/libs.min.css' %}">
+    <link rel=stylesheet href="{% static 'css/news.min.css' %}">
+    <link rel=stylesheet href="{% static 'css/floatbutton.min.css' %}">
+</head>
+<body>
+<header class="header d-flex flex-wrap align-items-center" data-page=news data-overlay=@@overlay>
+    <div class="container d-flex flex-wrap flex-xl-nowrap align-items-center justify-content-between"><a
+            class="brand header_logo d-flex align-items-center" href=http://127.0.0.1:8000/><span class=logo><svg width=48 height=45
+                                                                                                      viewBox="0 0 48 45"
+                                                                                                      fill=none
+                                                                                                      xmlns=http://www.w3.org/2000/svg><g
+            clip-path=url(#logoHeader)><circle cx=23.5 cy=23.4998 r=17.5 fill=#EFC368/></g><defs><clipPath id=logoHeader><rect width=48 height=45
+                                                                  fill=white/></clipPath></defs></svg> </span><span
+            class=accent>Herba</span> <span>list</span></a>
+        <nav class=header_nav>
+            <ul class=header_nav-list>
+                <li class="header_nav-list_item dropdown"><a
+                        class="nav-link dropdown-toggle d-inline-flex align-items-center" href=# data-bs-toggle=collapse
+                        data-bs-target=#homeMenu aria-expanded=false aria-controls=homeMenu>Home <i
+                        class="icon-caret_down icon"></i></a>
+                    <div class="dropdown-menu collapse" id=homeMenu>
+                        <ul class=dropdown-list>
+                            <li class="list-item nav-item" data-page=home><a class=dropdown-item href=http://127.0.0.1:8000/>Home
+                                01</a></li>
+                            <li class="list-item nav-item" data-page=home2><a class=dropdown-item href=index2.html>Home
+                                02</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="header_nav-list_item dropdown"><a
+                        class="nav-link dropdown-toggle d-inline-flex align-items-center" href=# data-bs-toggle=collapse
+                        data-bs-target=#shopMenu aria-expanded=false aria-controls=shopMenu>Shop <i
+                        class="icon-caret_down icon"></i></a>
+                    <div class="dropdown-menu collapse" id=shopMenu>
+                        <ul class=dropdown-list>
+                            <li class="list-item nav-item" data-page=shop><a class=dropdown-item href=shophttp://127.0.0.1:8000/shop.html/
+>Shop
+                                01</a></li>
+                            <li class="list-item nav-item" data-page=shop2><a class=dropdown-item href=shop2.html>Shop
+                                02</a></li>
+                            <li class="list-item nav-item" data-page=product><a class=dropdown-item href=http://127.0.0.1:8000/product.html/
+>Single
+                                Product 01</a></li>
+                            <li class="list-item nav-item" data-page=product2><a class=dropdown-item href=product2.html>Single
+                                Product 02</a></li>
+                            <li class="list-item nav-item" data-page=compare><a class=dropdown-item href=http://127.0.0.1:8000/compare.html/>Compare
+                                List</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="header_nav-list_item dropdown"><a
+                        class="nav-link dropdown-toggle d-inline-flex align-items-center" href=# data-bs-toggle=collapse
+                        data-bs-target=#newsMenu aria-expanded=false aria-controls=newsMenu>News <i
+                        class="icon-caret_down icon"></i></a>
+                    <div class="dropdown-menu collapse" id=newsMenu>
+                        <ul class=dropdown-list>
+                            <li class="list-item nav-item" data-page=news><a class=dropdown-item href=http://127.0.0.1:8000/news.html/>News
+                                01</a></li>
+                            <li class="list-item nav-item" data-page=news2><a class=dropdown-item href=news2.html>News
+                                02</a></li>
+                            <li class="list-item nav-item" data-page=post><a class=dropdown-item href=http://127.0.0.1:8000/post.html/>Single
+                                Post 01</a></li>
+                            <li class="list-item nav-item" data-page=post2><a class=dropdown-item href=post2.html>Single
+                                Post 02</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="header_nav-list_item dropdown"><a
+                        class="nav-link dropdown-toggle d-inline-flex align-items-center" href=# data-bs-toggle=collapse
+                        data-bs-target=#pagesMenu aria-expanded=false aria-controls=pagesMenu>Pages <i
+                        class="icon-caret_down icon"></i></a>
+                    <div class="dropdown-menu collapse" id=pagesMenu>
+                        <ul class=dropdown-list>
+                            <li class="list-item nav-item" data-page=about><a class=dropdown-item
+                                                                              href=http://127.0.0.1:8000/about.html/
+>About</a></li>
+                            <li class="list-item nav-item" data-page=team><a class=dropdown-item href=http://127.0.0.1:8000/team.html/>Team</a>
+                            </li>
+                            <li class="list-item nav-item" data-page=faq><a class=dropdown-item href=http://127.0.0.1:8000/faq.html/>FAQ</a>
+                            </li>
+                            <li class="list-item nav-item" data-page=contacts><a class=dropdown-item href=contacts.htmlhttp://127.0.0.1:8000/contacts/>Contacts
+                                01</a></li>
+                            <li class="list-item nav-item" data-page=contacts2><a class=dropdown-item
+                                                                                  href=contacts2.html>Contacts 02</a>
+                            </li>
+                            <li class="list-item nav-item" data-page=404><a class=dropdown-item href=http://127.0.0.1:8000/404.html/>Error
+                                Page</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <span class="header_trigger d-inline-flex d-xl-none flex-column justify-content-between"><span
+                class="line line--short"></span> <span class="line line"></span> <span class="line line--short"></span> <span
+                class="line line"></span></span>
+        <div class="header_user d-flex justify-content-end align-items-center">
+            <form class=header_user-search action=# method=get data-type=searchForm><input
+                    class="header_user-search_field field required" type=text placeholder=Search...>
+                <button class="header_user-search_btn header_user-action d-inline-flex align-items-center justify-content-center"
+                        type=submit data-trigger=search><i class=icon-search></i></button>
+            </form>
+            <a class="header_user-action d-inline-flex align-items-center justify-content-center" href=http://127.0.0.1:8000/wishlist.html/><i
+                    class=icon-heart></i> </a><a
+                class="header_user-action d-inline-flex align-items-center justify-content-center"
+                data-bs-toggle=offcanvas data-bs-target=#cartOffcanvas aria-controls=cartOffcanvas><i
+                class=icon-basket></i></a></div>
+    </div>
+</header>
+<header class=page>
+    <div class="page_main container-fluid">
+        <div class=container><h1 class=page_header>News</h1>
+            <p class=page_text>Nibh tellus molestie nunc non blandit. Mi tempus imperdiet nulla malesuada pellentesque
+                elit</p></div>
+    </div>
+    <div class=container>
+        <ul class="page_breadcrumbs d-flex flex-wrap">
+            <li class=page_breadcrumbs-item><a class=link href=http://127.0.0.1:8000/>Home</a></li>
+            <li class="page_breadcrumbs-item current"><span>News</span></li>
+        </ul>
+    </div>
+</header>
+<main class="news section">
+    <div class="container d-md-flex justify-content-between">
+        <div class=news_wrapper>
+            <ul class=news_list>
+                <li class=news_list-item>
+                    <div class=media>
+                        <picture>
+                            <source data-srcset=img/news/news01.webp srcset=img/news/news01.webp type=image/webp>
+                            <img class=lazy data-src=img/news/news01.jpg src=img/news/news01.jpg alt=media></picture>
+                    </div>
+                    <div class=main>
+                        <div class=main_metadata><span class=main_metadata-item><i class="icon-sticky_note icon"></i> Sticky <span
+                                class="d-none d-lg-inline">Post</span> </span><span class=main_metadata-item><i
+                                class="icon-calendar_day icon"></i> September 30, 2021 </span><span
+                                class=main_metadata-item><i class="icon-comments icon"></i> <span
+                                class=d-md-none>0</span> <span class="text d-none d-md-inline">No Comments</span></span>
+                        </div>
+                        <h4 class=main_title>CBD Oil for Dogs: What You Need to Know</h4>
+                        <p class=main_text>Sed sed risus pretium quam vulputate dignissim suspendisse in. Sociis natoque
+                            penatibus et magnis dis parturient. Libero enim sed faucibus turpis. Curabitur gravida arcu
+                            ac tortor dignissim convallis aenean. Diam maecenas ultricies mi eget mauris pharetra et
+                            ultrices</p><a class="main_link btn--underline" href=http://127.0.0.1:8000/post.html/>Read more</a></div>
+                </li>
+                <li class=news_list-item>
+                    <div class=media>
+                        <picture>
+                            <source data-srcset=img/news/news02.webp srcset=img/news/news02.webp type=image/webp>
+                            <img class=lazy data-src=img/news/news02.jpg src=img/news/news02.jpg alt=media></picture>
+                    </div>
+                    <div class=main>
+                        <div class=main_metadata><span class=main_metadata-item><i class="icon-calendar_day icon"></i> September 30, 2021 </span><span
+                                class=main_metadata-item><i class="icon-comments icon"></i> <span
+                                class=d-md-none>0</span> <span class="text d-none d-md-inline">No Comments</span></span>
+                        </div>
+                        <h4 class=main_title>Edible Dosage Chart: Quick and Easy Guide to Taking Weed Edibles</h4>
+                        <p class=main_text>Sed sed risus pretium quam vulputate dignissim suspendisse in. Sociis natoque
+                            penatibus et magnis dis parturient. Libero enim sed faucibus turpis. Curabitur gravida arcu
+                            ac tortor dignissim convallis aenean. Diam maecenas ultricies mi eget mauris pharetra et
+                            ultrices</p><a class="main_link btn--underline" href=http://127.0.0.1:8000/post.html/>Read more</a></div>
+                </li>
+                <li class=news_list-item>
+                    <div class=media>
+                        <picture>
+                            <source data-srcset=img/news/news03.webp srcset=img/news/news03.webp type=image/webp>
+                            <img class=lazy data-src=img/news/news03.jpg src=img/news/news03.jpg alt=media></picture>
+                    </div>
+                    <div class=main>
+                        <div class=main_metadata><span class=main_metadata-item><i class="icon-calendar_day icon"></i> September 30, 2021 </span><span
+                                class=main_metadata-item><i class="icon-comments icon"></i> <span
+                                class=d-md-none>0</span> <span class="text d-none d-md-inline">No Comments</span></span>
+                        </div>
+                        <h4 class=main_title>The OCS Guide to Entertaining With Cannabis</h4>
+                        <p class=main_text>Sed sed risus pretium quam vulputate dignissim suspendisse in. Sociis natoque
+                            penatibus et magnis dis parturient. Libero enim sed faucibus turpis. Curabitur gravida arcu
+                            ac tortor dignissim convallis aenean. Diam maecenas ultricies mi eget mauris pharetra et
+                            ultrices</p><a class="main_link btn--underline" href=http://127.0.0.1:8000/post.html/>Read more</a></div>
+                </li>
+                <li class=news_list-item>
+                    <div class=media>
+                        <picture>
+                            <source data-srcset=img/news/news04.webp srcset=img/news/news04.webp type=image/webp>
+                            <img class=lazy data-src=img/news/news04.jpg src=img/news/news04.jpg alt=media></picture>
+                    </div>
+                    <div class=main>
+                        <div class=main_metadata><span class=main_metadata-item><i class="icon-calendar_day icon"></i> September 30, 2021 </span><span
+                                class=main_metadata-item><i class="icon-comments icon"></i> <span
+                                class=d-md-none>0</span> <span class="text d-none d-md-inline">No Comments</span></span>
+                        </div>
+                        <h4 class=main_title>Ways You Can Benefit From Taking Cannabis</h4>
+                        <p class=main_text>Sed sed risus pretium quam vulputate dignissim suspendisse in. Sociis natoque
+                            penatibus et magnis dis parturient. Libero enim sed faucibus turpis. Curabitur gravida arcu
+                            ac tortor dignissim convallis aenean. Diam maecenas ultricies mi eget mauris pharetra et
+                            ultrices</p><a class="main_link btn--underline" href=http://127.0.0.1:8000/post.html/>Read more</a></div>
+                </li>
+            </ul>
+            <ul class="pagination d-flex align-items-center">
+                <li class=pagination-page><a
+                        class="pagination-page_link d-flex align-items-center justify-content-center" href=#
+                        data-current=true>1</a></li>
+                <li class=pagination-page><a
+                        class="pagination-page_link d-flex align-items-center justify-content-center" href=#>2</a></li>
+                <li class=pagination-page><a
+                        class="pagination-page_link d-flex align-items-center justify-content-center" href=#>3</a></li>
+            </ul>
+        </div>
+        <div class=widgets>
+            <div class="widgets-item widgets-item--search"><h4 class=widgets-item_header>Search by Posts</h4>
+                <form class=form--search data-type=searchPosts action=# method=get><input class="field required"
+                                                                                          type=text
+                                                                                          placeholder="Type something...">
+                    <button class=btn type=submit>Search</button>
+                </form>
+            </div>
+            <div class="widgets-item widgets-item--categories">
+                <h4 class="widgets-item_header d-flex align-items-center"><span class=leaf><svg width=24 height=24
+                                                                                                viewBox="0 0 24 24"
+                                                                                                fill=none
+                                                                                                xmlns=http://www.w3.org/2000/svg></svg> </span>Categories List
+                </h4>
+                <nav class=widgets-item_nav>
+                    <div class=wrapper><a class="nav-link d-inline-flex align-items-center" href=#
+                                          data-bs-toggle=collapse data-bs-target=#healthSubmenu aria-expanded=true
+                                          aria-controls=healthSubmenu data-level=first><i
+                            class="icon-caret_right icon"></i> Health</a></div>
+                    <ul class="nav-list nav-list--main collapse show" id=healthSubmenu>
+                        <li><a class="nav-link d-inline-flex align-items-center" href=# data-bs-toggle=collapse
+                               data-bs-target=#depressionSubmenu aria-expanded=false aria-controls=depressionSubmenu
+                               data-level=second><i class="icon-caret_right icon"></i> Depression</a>
+                            <ul class="collapse nav-list--sub" id=depressionSubmenu>
+                                <li class=nav-item><a class=nav-link href=# data-level=third>Lorem</a></li>
+                                <li class=nav-item><a class=nav-link href=# data-level=third>Ipsum</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="nav-link d-inline-flex align-items-center" href=# data-bs-toggle=collapse
+                               data-bs-target=#eyeSubmenu aria-expanded=false aria-controls=eyeSubmenu
+                               data-level=second><i class="icon-caret_right icon"></i> Eye Disease</a>
+                            <ul class="collapse nav-list" id=eyeSubmenu>
+                                <li class=nav-item><a class="nav-link d-inline-flex align-items-center" href=#
+                                                      data-bs-toggle=collapse data-bs-target=#glaucomaSubmenu
+                                                      aria-expanded=false aria-controls=glaucomaSubmenu
+                                                      data-level=third><i class="icon-caret_right icon"></i>
+                                    Glaucoma</a>
+                                    <ul class="collapse nav-list" id=glaucomaSubmenu>
+                                        <li class=nav-item><a class=nav-link href=# data-level=fourth>Lorem</a></li>
+                                        <li class=nav-item><a class=nav-link href=# data-level=fourth>Ipsum</a></li>
+                                        <li class=nav-item><a class=nav-link href=# data-level=fourth>Dolor sit amet</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class=nav-item><a class="nav-link d-inline-flex align-items-center" href=#
+                                                      data-bs-toggle=collapse data-bs-target=#blindnessSubmenu
+                                                      aria-expanded=false aria-controls=blindnessSubmenu
+                                                      data-level=third><i class="icon-caret_right icon"></i>
+                                    Neurodegenerative Blindness</a>
+                                    <ul class="collapse nav-list" id=blindnessSubmenu>
+                                        <li class=nav-item><a class=nav-link href=# data-level=fourth>Lorem</a></li>
+                                        <li class=nav-item><a class=nav-link href=# data-level=fourth>Ipsum</a></li>
+                                        <li class=nav-item><a class=nav-link href=# data-level=fourth>Dolor sit amet</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class=nav-item><a class="nav-link d-inline-flex align-items-center" href=#
+                                                      data-bs-toggle=collapse data-bs-target=#diabeticSubmenu
+                                                      aria-expanded=false aria-controls=diabeticSubmenu
+                                                      data-level=third><i class="icon-caret_right icon"></i> Diabetic
+                                    Retinopathy</a>
+                                    <ul class="collapse nav-list" id=diabeticSubmenu>
+                                        <li class=nav-item><a class=nav-link href=# data-level=fourth>Lorem</a></li>
+                                        <li class=nav-item><a class=nav-link href=# data-level=fourth>Ipsum</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class=nav-item><a class="nav-link d-inline-flex align-items-center" href=#
+                                              data-bs-toggle=collapse data-bs-target=#epilepsySubmenu
+                                              aria-expanded=false aria-controls=epilepsySubmenu data-level=second><i
+                                class="icon-caret_right icon"></i> Epilepsy</a>
+                            <ul class="collapse nav-list" id=epilepsySubmenu>
+                                <li class=nav-item><a class=nav-link href=# data-level=third>Lorem</a></li>
+                                <li class=nav-item><a class=nav-link href=# data-level=third>Ipsum</a></li>
+                            </ul>
+                        </li>
+                        <li class=nav-item><a class="nav-link d-inline-flex align-items-center" href=#
+                                              data-bs-toggle=collapse data-bs-target=#cancerSubmenu aria-expanded=false
+                                              aria-controls=cancerSubmenu data-level=second><i
+                                class="icon-caret_right icon"></i> Cancer</a>
+                            <ul class="collapse nav-list" id=cancerSubmenu>
+                                <li class=nav-item><a class=nav-link href=# data-level=third>Lorem</a></li>
+                                <li class=nav-item><a class=nav-link href=# data-level=third>Ipsum</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <a class="nav-link d-inline-flex align-items-center" href=# data-bs-toggle=collapse
+                       data-bs-target=#ediblesSubmenu aria-expanded=false aria-controls=ediblesSubmenu data-level=first><i
+                            class="icon-caret_right icon"></i> Edibles</a>
+                    <ul class="collapse nav-list" id=ediblesSubmenu>
+                        <li class=nav-item><a class=nav-link href=# data-level=second>Lorem</a></li>
+                        <li class=nav-item><a class=nav-link href=# data-level=second>Ipsum</a></li>
+                        <li class=nav-item><a class=nav-link href=# data-level=second>Dolor sit amet</a></li>
+                        <li class=nav-item><a class=nav-link href=# data-level=second>Massa ultricies mi quis</a></li>
+                        <li class=nav-item><a class=nav-link href=# data-level=second>Nunc non blandit</a></li>
+                    </ul>
+                    <div class=wrapper><a class="nav-link d-inline-flex align-items-center" href=#
+                                          data-bs-toggle=collapse data-bs-target=#growSubmenu aria-expanded=false
+                                          aria-controls=growSubmenu data-level=first><i
+                            class="icon-caret_right icon"></i> Grow</a></div>
+                    <ul class=collapse id=growSubmenu>
+                        <li class=nav-item><a class=nav-link href=# data-level=second>Dolor sit amet</a></li>
+                        <li class=nav-item><a class=nav-link href=# data-level=second>Massa ultricies mi quis</a></li>
+                        <li class=nav-item><a class=nav-link href=# data-level=second>Nunc non blandit</a></li>
+                    </ul>
+                    <div class=wrapper><a class="nav-link d-inline-flex align-items-center" href=#
+                                          data-bs-toggle=collapse data-bs-target=#cbdSubmenu aria-expanded=false
+                                          aria-controls=cbdSubmenu data-level=first><i
+                            class="icon-caret_right icon"></i> CBD</a></div>
+                    <ul class="collapse nav-list" id=cbdSubmenu>
+                        <li class=nav-item><a class=nav-link href=# data-level=second>Dolor sit amet</a></li>
+                        <li class=nav-item><a class=nav-link href=# data-level=second>Massa ultricies mi quis</a></li>
+                        <li class=nav-item><a class=nav-link href=# data-level=second>Nunc non blandit</a></li>
+                        <li class=nav-item><a class=nav-link href=# data-level=second>Ut lectus arcu</a></li>
+                        <li class=nav-item><a class=nav-link href=# data-level=second>Facilisi cras fermentum</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="widgets-item widgets-item--recent">
+                <h4 class="widgets-item_header d-flex align-items-center"><span class=leaf><svg width=24 height=24
+                                                                                                viewBox="0 0 24 24"
+                                                                                                fill=none
+                                                                                                xmlns=http://www.w3.org/2000/svg></svg> </span>Recent Posts
+                </h4>
+                <ul class=list>
+                    <li class=list-item><a class="d-flex flex-column flex-sm-row align-items-sm-center"
+                                           href=http://127.0.0.1:8000/post.html/><span class=media><picture><source
+                            data-srcset=img/news/aside/recent01.webp srcset=img/news/aside/recent01.webp
+                            type=image/webp><img class=preview data-src=img/news/aside/recent01.jpg
+                                                 src=img/news/aside/recent01.jpg alt=post></picture></span><span
+                            class=wrapper><span class=title>Best Weed Strains For Anxiety</span> <span
+                            class="metadata d-flex align-items-center"><i class="icon-calendar_day icon"></i>September 30, 2021</span></span></a>
+                    </li>
+                    <li class=list-item><a class="d-flex flex-column flex-sm-row align-items-sm-center"
+                                           href=http://127.0.0.1:8000/post.html/><span class=media><picture><source
+                            data-srcset=img/shop/04.webp srcset=img/shop/04.webp type=image/webp><img class=preview
+                                                                                                      data-src=img/shop/04.jpg
+                                                                                                      src=img/shop/04.jpg
+                                                                                                      alt=post></picture></span><span
+                            class=wrapper><span class=title>7 Things You Need to Know About Edibles</span> <span
+                            class="metadata d-flex align-items-center"><i class="icon-calendar_day icon"></i>September 30, 2021</span></span></a>
+                    </li>
+                    <li class=list-item><a class="d-flex flex-column flex-sm-row align-items-sm-center"
+                                           href=http://127.0.0.1:8000/post.html/><span class=media><picture><source
+                            data-srcset=img/news/aside/recent03.webp srcset=img/news/aside/recent03.webp
+                            type=image/webp><img class=preview data-src=img/news/aside/recent03.jpg
+                                                 src=img/news/aside/recent03.jpg alt=post></picture></span><span
+                            class=wrapper><span class=title>Vaporizers vs. Vapes: What’s the Difference?</span> <span
+                            class="metadata d-flex align-items-center"><i class="icon-calendar_day icon"></i>September 30, 2021</span></span></a>
+                    </li>
+                    <li class=list-item><a class="d-flex flex-column flex-sm-row align-items-sm-center"
+                                           href=http://127.0.0.1:8000/post.html/><span class=media><picture><source
+                            data-srcset=img/index/latest01.webp srcset=img/index/latest01.webp type=image/webp><img
+                            class=preview data-src=img/index/latest01.jpg src=img/index/latest01.jpg alt=post></picture></span><span
+                            class=wrapper><span class=title>Factors in Choosing Cannabis Products</span> <span
+                            class="metadata d-flex align-items-center"><i class="icon-calendar_day icon"></i>September 30, 2021</span></span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="widgets-item widgets-item--tags">
+                <h4 class="widgets-item_header d-flex align-items-center"><span class=leaf><svg width=24 height=24
+                                                                                                viewBox="0 0 24 24"
+                                                                                                fill=none
+                                                                                                xmlns=http://www.w3.org/2000/svg></svg> </span>Tags
+                </h4>
+                <ul class="list d-flex flex-wrap">
+                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Vaping</a>
+                    </li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Cannabis</a>
+                    </li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Flower</a>
+                    </li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Health</a>
+                    </li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Nature</a>
+                    </li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Help</a>
+                    </li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Facts</a>
+                    </li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Medicine</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="widgets-item widgets-item--comments">
+                <h4 class="widgets-item_header d-flex align-items-center"><span class=leaf><svg width=24 height=24
+                                                                                                viewBox="0 0 24 24"
+                                                                                                fill=none
+                                                                                                xmlns=http://www.w3.org/2000/svg></svg> </span>Recent Comments
+                </h4>
+                <ul class=list>
+                    <li class="list-item d-flex align-items-baseline"><i class="icon-commenting icon"></i> <span
+                            class=comment><span class=author>Admin</span> in tempor eros tortor, a ornare</span></li>
+                    <li class="list-item d-flex"><i class="icon-commenting icon"></i> <span class=comment><span
+                            class=author>Admin</span> in tempor eros tortor, a ornare</span></li>
+                    <li class="list-item d-flex"><i class="icon-commenting icon"></i> <span class=comment><span
+                            class=author>Admin</span> in tempor eros tortor, a ornare</span></li>
+                </ul>
+            </div>
+            <div class="widgets-item widgets-item--calendar">
+                <h4 class="widgets-item_header d-flex align-items-center"><span class=leaf><svg width=24 height=24
+                                                                                                viewBox="0 0 24 24"
+                                                                                                fill=none
+                                                                                                xmlns=http://www.w3.org/2000/svg></svg> </span>Calendar
+                </h4>
+                <table class=table>
+                    <caption class=table_header>October 2021</caption>
+                    <tbody class=table_body>
+                    <tr class=table_body-week>
+                        <th class=table_body-week_day>S</th>
+                        <th class=table_body-week_day>M</th>
+                        <th class=table_body-week_day>T</th>
+                        <th class=table_body-week_day>W</th>
+                        <th class=table_body-week_day>T</th>
+                        <th class=table_body-week_day>F</th>
+                        <th class=table_body-week_day>S</th>
+                    </tr>
+                    <tr class=table_body-dates>
+                        <td class=table_body-dates_date></td>
+                        <td class=table_body-dates_date></td>
+                        <td class=table_body-dates_date></td>
+                        <td class=table_body-dates_date>1</td>
+                        <td class=table_body-dates_date>2</td>
+                        <td class=table_body-dates_date>3</td>
+                        <td class=table_body-dates_date>4</td>
+                    </tr>
+                    <tr class=table_body-dates>
+                        <td class=table_body-dates_date>5</td>
+                        <td class=table_body-dates_date>6</td>
+                        <td class=table_body-dates_date>7</td>
+                        <td class=table_body-dates_date>8</td>
+                        <td class=table_body-dates_date>9</td>
+                        <td class=table_body-dates_date>10</td>
+                        <td class=table_body-dates_date>11</td>
+                    </tr>
+                    <tr class=table_body-dates>
+                        <td class=table_body-dates_date>12</td>
+                        <td class=table_body-dates_date>13</td>
+                        <td class=table_body-dates_date>14</td>
+                        <td class=table_body-dates_date>15</td>
+                        <td class="table_body-dates_date table_body-dates_date--current">16</td>
+                        <td class=table_body-dates_date>17</td>
+                        <td class=table_body-dates_date>18</td>
+                    </tr>
+                    <tr class=table_body-dates>
+                        <td class=table_body-dates_date>19</td>
+                        <td class=table_body-dates_date>20</td>
+                        <td class=table_body-dates_date>21</td>
+                        <td class=table_body-dates_date>22</td>
+                        <td class=table_body-dates_date>23</td>
+                        <td class=table_body-dates_date>24</td>
+                        <td class=table_body-dates_date>25</td>
+                    </tr>
+                    <tr class=table_body-dates>
+                        <td class=table_body-dates_date>26</td>
+                        <td class=table_body-dates_date>27</td>
+                        <td class=table_body-dates_date>28</td>
+                        <td class=table_body-dates_date>29</td>
+                        <td class=table_body-dates_date>30</td>
+                        <td class=table_body-dates_date>31</td>
+                        <td class=table_body-dates_date></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="navigation d-flex align-items-center justify-content-between"><a
+                        class="navigation_control navigation_control--prev d-inline-flex align-items-center" href=#><i
+                        class="icon-caret_left icon"></i> Previous </a><a
+                        class="navigation_control navigation_control--next d-inline-flex align-items-center" href=#>Next
+                    <i class="icon-caret_right icon"></i></a></div>
+            </div>
+            <div class="widgets-item widgets-item--archives">
+                <h4 class="widgets-item_header d-flex align-items-center"><span class=leaf><svg width=24 height=24
+                                                                                                viewBox="0 0 24 24"
+                                                                                                fill=none
+                                                                                                xmlns=http://www.w3.org/2000/svg></svg> </span>Archives
+                </h4>
+                <ul class=list>
+                    <li class="list-item d-flex align-items-center justify-content-between"><span
+                            class="month d-flex align-items-center"><i class="icon-calendar_month icon"></i> <span
+                            class=month_name>January</span> </span><a class=link href=#>(12)</a></li>
+                    <li class="list-item d-flex align-items-center justify-content-between"><span
+                            class="month d-flex align-items-center"><i class="icon-calendar_month icon"></i> <span
+                            class=month_name>February</span> </span><a class=link href=#>(14)</a></li>
+                    <li class="list-item d-flex align-items-center justify-content-between"><span
+                            class="month d-flex align-items-center"><i class="icon-calendar_month icon"></i> <span
+                            class=month_name>March</span> </span><a class=link href=#>(16)</a></li>
+                    <li class="list-item d-flex align-items-center justify-content-between"><span
+                            class="month d-flex align-items-center"><i class="icon-calendar_month icon"></i> <span
+                            class=month_name>April</span> </span><a class=link href=#>(23)</a></li>
+                </ul>
+            </div>
+            <div class="widgets-item widgets-item--sale">
+                <div class=content><h4 class=content_header>Everything is 20% off for this special day! Save now or miss
+                    out on this great deal!</h4>
+                    <p class=content_text>Excluding items already on sale</p>
+                    <div class="content_timer timer d-flex justify-content-start">
+                        <div class="timer_block d-flex flex-column justify-content-center"><span
+                                class=timer_block-number id=hours>22</span></div>
+                        <div class="timer_separator d-flex flex-column justify-content-center align-items-center"><span
+                                class=dot></span> <span class=dot></span></div>
+                        <div class="timer_block d-flex flex-column justify-content-center"><span
+                                class=timer_block-number id=minutes>00</span></div>
+                        <div class="timer_separator d-flex flex-column justify-content-center align-items-center"><span
+                                class=dot></span> <span class=dot></span></div>
+                        <div class="timer_block d-flex flex-column justify-content-center"><span
+                                class=timer_block-number id=seconds>59</span></div>
+                    </div>
+                    <a href=# class=btn>Shop Now</a></div>
+                <div class=media>
+                    <picture>
+                        <source data-srcset=img/news/aside/leaf.webp srcset=img/news/aside/leaf.webp type=image/webp>
+                        <img class="lazy leaf" data-src=img/news/aside/leaf.png src=img/news/aside/leaf.png alt=media>
+                    </picture>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class=footer>
+    <div class="footer_main section">
+        <div class="container d-flex flex-column flex-md-row flex-wrap flex-xl-nowrap justify-content-xl-between">
+            <div class="footer_main-about footer_main-block col-md-6 col-xl-auto"><a
+                    class="brand footer_main-about_brand d-flex align-items-center" href=http://127.0.0.1:8000/><span class=logo><svg
+                    width=48 height=45 viewBox="0 0 48 45" fill=none xmlns=http://www.w3.org/2000/svg><g
+                    clip-path=url(#logoFooter)><circle cx=23.5 cy=23.4998 r=17.5 fill=#EFC368/></g><defs><clipPath id=logoFooter><rect width=48 height=45
+                                                                          fill=white/></clipPath></defs></svg> </span><span
+                    class=accent>Herba</span> <span>list</span></a>
+                <div class=footer_main-about_wrapper><p class=text>Elementum nisi quis eleifend quam adipiscing. Cursus
+                    metus aliquam eleifend mi in nulla posuere sollicitudin</p>
+                    <ul class="socials d-flex align-items-center accent">
+                        <li class=list-item><a class=link href=https://facebook.com/ target=_blank
+                                               rel="noopener norefferer"><i class="icon-facebook icon"></i></a></li>
+                        <li class=list-item><a class=link href=https://instagram.com/ target=_blank
+                                               rel="noopener norefferer"><i class="icon-instagram icon"></i></a></li>
+                        <li class=list-item><a class=link href=https://twitter.com/ target=_blank
+                                               rel="noopener norefferer"><i class="icon-twitter icon"></i></a></li>
+                        <li class=list-item><a class=link href=https://whatsapp.com/ target=_blank
+                                               rel="noopener norefferer"><i class="icon-whatsapp icon"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer_main-contacts footer_main-block col-md-6 col-xl-auto"><h4
+                    class="footer_main-contacts_header footer_main-header">Contacts information</h4>
+                <ul class=footer_main-contacts_list>
+                    <li class="list-item d-flex align-items-center"><span
+                            class="icon d-flex justify-content-center align-items-center"><i class=icon-call></i></span>
+                        <div class="wrapper d-flex flex-column"><a class=link href=tel:+1234567890>+1-202-555-0133</a>
+                            <a class=link href=tel:+1234567890>+1-202-555-0133</a></div>
+                    </li>
+                    <li class="list-item d-flex align-items-center"><span
+                            class="icon d-flex justify-content-center align-items-center"><i
+                            class=icon-location></i></span>
+                        <div class="wrapper d-flex flex-column"><span>192 North Border Street</span> <span>Lithonia, GA 30038</span>
+                        </div>
+                    </li>
+                    <li class="list-item d-flex align-items-center"><span
+                            class="icon d-flex justify-content-center align-items-center"><i
+                            class=icon-clock></i></span>
+                        <div class="wrapper d-flex flex-column"><span>9:00 am to 5:00 pm</span>
+                            <span>Monday to Saturday</span></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer_main-nav footer_main-block col-md-6 col-xl-auto"><h4
+                    class="footer_main-nav_header footer_main-header">Shop Products</h4>
+                <ul class="footer_main-nav_list d-flex flex-wrap flex-md-column">
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Flower</a></li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Oils</a></li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Edibles</a></li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Concentrates</a></li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Seeds</a></li>
+                    <li class=list-item><a class="link d-inline-flex align-items-center" href=#><i
+                            class="icon-caret_right accent icon"></i> Shop All</a></li>
+                </ul>
+            </div>
+            <div class="footer_main-instagram footer_main-block col-md-6 col-xl-auto"><h4
+                    class="footer_main-instagram_header footer_main-header">Instagram</h4>
+                <ul class="footer_main-instagram_list d-grid">
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/01.webp srcset=img/footer/01.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/01.jpg src=img/footer/01.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/02.webp srcset=img/footer/02.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/02.jpg src=img/footer/02.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/03.webp srcset=img/footer/03.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/03.jpg src=img/footer/03.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/04.webp srcset=img/footer/04.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/04.jpg src=img/footer/04.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/05.webp srcset=img/footer/05.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/05.jpg src=img/footer/05.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                    <li class=list-item><a class=link href=# target=_blank rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset=img/footer/06.webp srcset=img/footer/06.webp type=image/webp>
+                            <img class="lazy preview" data-src=img/footer/06.jpg src=img/footer/06.jpg
+                                 alt="instagram post"></picture>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class=footer_secondary>
+        <div class="container d-flex flex-column-reverse flex-md-row justify-content-center justify-content-md-between align-items-md-center">
+            <p class=footer_secondary-copyright>Merkulove &copy; Herbalist Template <span class=linebreak>All rights reserved Copyrights <span
+                    id=currentYear></span></span></p>
+            <ul class="footer_secondary-list d-flex justify-content-center align-items-center">
+                <li class=list-item><span class=vector><svg width=62 height=20 viewBox="0 0 62 20" fill=none
+                                                            xmlns=http://www.w3.org/2000/svg><path
+                        d="M40.3732 0.0307617C35.9754 0.0307617 32.0453 2.29548 32.0453 6.47972C32.0453 11.2783 39.0155 11.6097 39.0155 14.0203C39.0155 15.0354 37.8447 15.944 35.845 15.944C33.0071 15.944 30.886 14.6744 30.886 14.6744L29.9784 18.8967C29.9784 18.8967 32.4219 19.9692 35.6659 19.9692C40.4742 19.9692 44.2577 17.5932 44.2577 13.3375C44.2577 8.26694 37.2584 7.94535 37.2584 5.70787C37.2584 4.91274 38.2196 4.04153 40.2135 4.04153C42.4633 4.04153 44.2988 4.96487 44.2988 4.96487L45.187 0.886776C45.187 0.886776 43.1898 0.0307617 40.3732 0.0307617V0.0307617ZM0.137251 0.338543L0.0307617 0.954103C0.0307617 0.954103 1.88094 1.29052 3.54733 1.9616C5.69294 2.73113 5.84578 3.17912 6.20714 4.57052L10.1448 19.6518H15.4233L23.5552 0.338543H18.2888L13.0636 13.4697L10.9314 2.33912C10.7358 1.06523 9.74536 0.338543 8.53296 0.338543H0.137251V0.338543ZM25.6729 0.338543L21.5416 19.6518H26.5635L30.6803 0.338543H25.6729V0.338543ZM53.682 0.338543C52.471 0.338543 51.8294 0.982675 51.3586 2.10828L44.0011 19.6518H49.2675L50.2864 16.7279H56.7024L57.322 19.6518H61.9688L57.9149 0.338543H53.682V0.338543ZM54.3669 5.55638L55.9279 12.8037H51.7458L54.3669 5.55638V5.55638Z"
+                        fill=#1434CB/></svg></span></li>
+                <li class=list-item><span class=vector><svg width=49 height=30 viewBox="0 0 49 30" fill=none
+                                                            xmlns=http://www.w3.org/2000/svg><g
+                        clip-path=url(#clip0_276_198133)><path fill-rule=evenodd clip-rule=evenodd
+                                                               d="M18.1489 26.7542H30.9958V3.20239H18.1489V26.7542Z"
+                                                               fill=#FF5F00/></g><defs><clipPath
+                        id=clip0_276_198133><rect width=48 height=30 fill=white
+                                                  transform=translate(0.818359)/></clipPath></defs></svg></span></li>
+                <li class=list-item><span class=vector><svg width=79 height=21 viewBox="0 0 79 21" fill=none
+                                                            xmlns=http://www.w3.org/2000/svg><g
+                        clip-path=url(#clip0_276_198139)></g><defs><clipPath id=clip0_276_198139><rect width=78 height=21 fill=white
+                                                                                    transform=translate(0.568359)/></clipPath></defs></svg></span>
+                </li>
+                <li class=list-item><span class=vector><svg width=31 height=30 viewBox="0 0 31 30" fill=none
+                                                            xmlns=http://www.w3.org/2000/svg><g
+                        clip-path=url(#clip0_276_198146)></g><defs><linearGradient id=paint0_linear_276_198146 x1=15.5604 y1=-0.00706574
+                                                              x2=15.5604 y2=29.997 gradientUnits=userSpaceOnUse><stop
+                        offset=1 stop-color=#F7931A/></linearGradient><clipPath id=clip0_276_198146><rect width=30
+                                                                                                          height=30
+                                                                                                          fill=white
+                                                                                                          transform=translate(0.568359)/></clipPath></defs></svg></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<script src="{% static 'js/common.min.js' %}"></script>
+<div class="cartOffcanvas offcanvas offcanvas-end" tabindex=-1 id=cartOffcanvas>
+    <div class="cartOffcanvas_header d-flex align-items-center justify-content-between"><h2
+            class=cartOffcanvas_header-title id=cartOffcanvasLabel>Cart</h2>
+        <button class=cartOffcanvas_header-close type=button data-bs-dismiss=offcanvas aria-label=Close><i
+                class=icon-close></i></button>
+    </div>
+    <div class=cartOffcanvas_body>
+        <ul class=cartOffcanvas_body-list>
+            <li class="cartOffcanvas_body-list_item d-sm-flex align-items-center">
+                <div class=media><a href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
+                    <picture>
+                        <source data-srcset=img/cart/01.webp srcset=img/cart/01.webp type=image/webp>
+                        <img class=lazy data-src=img/cart/01.jpg src=img/cart/01.jpg alt=media></picture>
+                </a></div>
+                <div class="main d-flex flex-wrap justify-content-between align-items-end align-items-lg-center"><a
+                        class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer"><span
+                        class=main_title-product>Jonny Chronic - French Macaroon</span></a>
+                    <div class=main_price><span class=price>$14.98</span></div>
+                    <div class="qty d-flex align-items-center justify-content-between"><span
+                            class="qty_minus control disabled d-flex align-items-center"><i
+                            class=icon-minus></i> </span><input class=qty_amount type=number readonly=readonly value=1
+                                                                min=1 max=99> <span
+                            class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span></div>
+                    <a class=btn--underline href=#>Remove</a></div>
+            </li>
+            <li class="cartOffcanvas_body-list_item d-sm-flex align-items-center">
+                <div class=media><a href=http://127.0.0.1:8000/product.html/product.html target=_blank rel="noopener norefferer">
+                    <picture>
+                        <source data-srcset=img/cart/02.webp srcset=img/cart/02.webp type=image/webp>
+                        <img class=lazy data-src=img/cart/02.jpg src=img/cart/02.jpg alt=media></picture>
+                </a></div>
+                <div class="main d-flex flex-wrap justify-content-between align-items-end align-items-lg-center"><a
+                        class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer"><span
+                        class=main_title-product>House Shatter – Durban Poison</span></a>
+                    <div class=main_price><span class=price>$6.96</span></div>
+                    <div class="qty d-flex align-items-center justify-content-between"><span
+                            class="qty_minus control disabled d-flex align-items-center"><i
+                            class=icon-minus></i> </span><input class=qty_amount type=number readonly=readonly value=1
+                                                                min=1 max=99> <span
+                            class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span></div>
+                    <a class=btn--underline href=#>Remove</a></div>
+            </li>
+            <li class="cartOffcanvas_body-list_item d-sm-flex align-items-center">
+                <div class=media><a href=product.html target=_blank rel="noopener norefferer">
+                    <picture>
+                        <source data-srcset=img/cart/03.webp srcset=img/cart/03.webp type=image/webp>
+                        <img class=lazy data-src=img/cart/03.jpg src=img/cart/03.jpg alt=media></picture>
+                </a></div>
+                <div class="main d-flex flex-wrap justify-content-between align-items-end align-items-lg-center"><a
+                        class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer"><span
+                        class=main_title-product>Natures: CBD Tincture</span></a>
+                    <div class=main_price><span class=price>$7.49</span></div>
+                    <div class="qty d-flex align-items-center justify-content-between"><span
+                            class="qty_minus control disabled d-flex align-items-center"><i
+                            class=icon-minus></i> </span><input class=qty_amount type=number readonly=readonly value=1
+                                                                min=1 max=99> <span
+                            class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span></div>
+                    <a class=btn--underline href=#>Remove</a></div>
+            </li>
+        </ul>
+        <div class="cartOffcanvas_body-total d-flex justify-content-between align-items-center"><span>Total</span> <span
+                class=cartTotal>$29.43</span></div>
+        <a class="cartOffcanvas_body-btn btn" href=http://127.0.0.1:8000/cart.html/>Proceed to checkout</a></div>
+</div>
+<script src="{% static 'js/demo.js></script' %}">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MZ1FBMV3CL"></script>
+<script>window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+    dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+gtag('config', 'G-MZ1FBMV3CL');</script>
+</body>
+
+</html>
