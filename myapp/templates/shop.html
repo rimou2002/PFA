@@ -157,9 +157,10 @@
                                 <img src="{{ product.image.url }}" alt="{{ product.nom }}">
                             </div>
                             <div class="main d-flex flex-column">
-                                <a class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
+                                <a class="main_title" href="http://127.0.0.1:8000/product.html?id={{ product.id }}" target="_blank" rel="noopener noreferrer">
                                     {{ product.nom }}
                                 </a>
+
                                 <div class=main_price>
                                     {{ product.prix }}
                                 </div>

@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from django.utils import timezone
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User  # Import the User model
-from .models import Product
 from myapp.models import Client, User
 
 # Create your views here.
@@ -40,8 +39,9 @@ def post(request):
  return render(request, templates)
 
 def product(request):
- templates = "product.html"
- return render(request, templates)
+ product_id = request.GET.get('id')  # Get the product ID from the URL
+ product = get_object_or_404(Product, pk=product_id)  # Fetch the product from the database
+ return render(request, 'product.html', {'product': product})  # Pass the product to the template
 
 
 def shop(request):
@@ -65,6 +65,11 @@ def err(request):
 def product_detail(request, product_id):
  product = get_object_or_404(Product, pk=product_id)
  return render(request, 'product.html', {'product': product})
+
+def product_view(request):
+ product_id = request.GET.get('id')
+ product = Product.objects.get(id=product_id)
+ return render(request, 'product.html', {'product':product})
 ############################################################################################################
 
 

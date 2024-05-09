@@ -209,8 +209,7 @@
                     </div>
                 </div>
                 <div class=about_main-info>
-                    <div class="about_main-info_product d-sm-flex align-items-center justify-content-between"><h2
-                            class=title>Pure Sun CBD Oil 30 ml</h2>
+                    <div class="about_main-info_product d-sm-flex align-items-center justify-content-between"><h2>{% if product.nom %}{{ product.nom }}{% else %}Product name not available{% endif %}</h2>
                         <div class="action d-flex"><a
                                 class="action_link d-flex align-items-center justify-content-center" href=#
                                 data-role=wishlist><i class=icon-heart></i> </a><a
@@ -226,10 +225,8 @@
                             <li class=stars_star><i class=icon-star_fill></i></li>
                         </ul>
                         <a class=reviews-amount href=#reviews>(2 customer reviews)</a></div>
-                    <p class=about_main-info_description>Elementum eu facilisis sed odio morbi quis commodo odio. Mauris
-                        rhoncus aenean vel elit scelerisque mauris pellentesque. Arcu felis bibendum ut tristique et
-                        egestas. Id semper risus in hendrerit gravida rutrum. Eu mi bibendum neque egestas congue</p>
-                    <span class=about_main-info_price>$14.89</span>
+                    <p class=about_main-info_description>{{ product.description.descriptiontexte }}</p>
+                    <span class=about_main-info_price>{{ product.prix }} Mad</span>
                     <div class="about_main-info_buy d-flex align-items-center">
                         <div class="qty d-flex align-items-center justify-content-between"><span
                                 class="qty_minus control disabled d-flex align-items-center"><i
@@ -238,17 +235,15 @@
                                 class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span></div>
                         <a class=btn href=#>Add to Cart</a></div>
                     <ul class=about_main-info_list>
-                        <li class=list-item><span class=property>Category:</span> <span class=value>Oil</span></li>
-                        <li class=list-item><span class=property>Size:</span> <span class=value>30ml</span></li>
-                        <li class=list-item><span class=property>Plant Type:</span> <span
-                                class=value>Sativa Dominant</span></li>
-                        <li class=list-item><span class=property>THC:</span> <span class=value>10.3mg/g</span></li>
-                        <li class=list-item><span class=property>CBD:</span> <span class=value>0.33%</span></li>
+                        <li class=list-item><span class=property>Category:</span> <span class=value>{{ product.categorie.nom }}</span></li>
+                        <li class=list-item><span class=property>Size:</span> <span class=value>{{ product.size }} ml</span></li>
+                        <li class=list-item><span class=property> Type:</span> <span
+                                class=value>{{ product.type }}</span></li>
                         <li class=list-item><span class=property>Effects:</span> <span
-                                class=value>Calm, Happy, Relaxed</span></li>
-                        <li class=list-item><span class=property>Tags:</span> <span class=value>Cannabis, oil</span>
+                                class=value>{{ product.effects }}</span></li>
+                        <li class=list-item><span class=property>Tags:</span> <span class=value>{{ product.tags }}</span>
                         </li>
-                        <li class=list-item><span class=property>SKU:</span> <span class=value>1234567</span></li>
+                        <li class=list-item><span class=property>Reference:</span> <span class=value>{{ product.reference }}</span></li>
                     </ul>
                 </div>
             </div>
@@ -277,14 +272,8 @@
                                 data-bs-toggle=collapse data-bs-target=#description aria-expanded=true>Description <i
                                 class="icon-caret_down transform icon"></i></h4>
                             <div class="tab-pane collapse show active" id=description role=tabpanel
-                                 aria-labelledby=description-tab data-bs-parent=#productTabs><p class=text>Elementum eu
-                                facilisis sed odio morbi quis commodo odio. Mauris rhoncus aenean vel elit scelerisque
-                                mauris pellentesque. Arcu felis bibendum ut tristique et egestas. Id semper risus in
-                                hendrerit gravida rutrum. Eu mi bibendum neque egestas congue.</p>
-                                <p class=text>Dignissim enim sit amet venenatis. At tellus at urna condimentum mattis
-                                    pellentesque id nibh. Sollicitudin ac orci phasellus egestas tellus rutrum. Eget mi
-                                    proin sed libero enim sed. Quisque non tellus orci ac auctor augue mauris. Sit amet
-                                    luctus venenatis lectus magna fringilla.</p></div>
+                                 aria-labelledby=description-tab data-bs-parent=#productTabs><p class=text>{{ product.description.descriptiontexte }}</p>
+                                <p class=text>{{ product.description.descriptiontexte }}</p></div>
                         </div>
                         <div class=wrapper><h4
                                 class="accordion_component-item_header d-flex justify-content-between align-items-center"
@@ -385,18 +374,16 @@
                                     <tbody>
                                     <tr class="table_row d-flex flex-column flex-lg-row">
                                         <th class=table_row-header>Ingredients:</th>
-                                        <td class=table_row-cell>Organic MCT Oil, CBD Isolate</td>
+                                        <td class=table_row-cell>{{ product.description.Ingredients }}</td>
                                     </tr>
                                     <tr class="table_row d-flex flex-column flex-lg-row">
                                         <th class=table_row-header>Flavors:</th>
-                                        <td class=table_row-cell>Natural 1500mg, Calm 750mg, Focus 750mg, Energize
-                                            750mg, Sleep 750mg, Recover 750mg
+                                        <td class=table_row-cell>{{ product.description.Flavors }}
                                         </td>
                                     </tr>
                                     <tr class="table_row d-flex flex-column flex-lg-row">
                                         <th class=table_row-header>Recommended Usage:</th>
-                                        <td class=table_row-cell>Once a day, place a full dropper under your tongue and
-                                            hold for a minute. Repeat as necessary
+                                        <td class=table_row-cell>{{ product.description.Recommendedusage }}
                                         </td>
                                     </tr>
                                     </tbody>

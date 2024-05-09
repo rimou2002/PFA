@@ -41,6 +41,7 @@ urlpatterns = [
     path('login/', views.login,name='login'),
     path('managerdashboard/', views.managerdashboard, name='managerdashboard'),
     path('products/', views.product_list, name='product_list'),
+    path('product.html/<int:product_id>/', views.product_detail, name='product_detail'),
     #path('product/<int:product_id>/', views.product, name="product"),
     #path('product_detail/', views.product_detail, name='product_detail'),
     path('', include('myapp.urls'))
