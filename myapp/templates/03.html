@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang=en>
-
 <head>
     <meta charset=UTF-8>
     <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1">
     <meta http-equiv=X-UA-Compatible content="ie=edge">
     <title>Home | Herbalist</title>
-    <link rel="stylesheet preload" as=style href=css/preload.min.css>
-    <link rel="stylesheet preload" as=style href=css/icomoon.css>
-    <link rel="stylesheet preload" as=style href=css/libs.min.css>
-    <link rel=stylesheet href=css/index.min.css>
-    <link rel=stylesheet href=css/floatbutton.min.css>
+    {% load static %}
+    <link rel="stylesheet preload" as=style href="{% static 'css/preload.min.css' %}">
+    <link rel="stylesheet preload" as=style href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet preload" as=style href="{% static 'css/libs.min.css' %}">
+    <link rel=stylesheet href="{% static 'css/index.min.css' %}">
+    <link rel=stylesheet href="{% static 'css/floatbutton.min.css' %}">
 </head>
 <body>
 <header class="header d-flex flex-wrap align-items-center" data-page=home data-overlay=true>
     <div class="container d-flex flex-wrap flex-xl-nowrap align-items-center justify-content-between">
-        <a class="brand header_logo d-flex align-items-center" href=index.html><span class=logo>
+        <a class="brand header_logo d-flex align-items-center" href=http://127.0.0.1:8000/><span class=logo>
             <svg width=48 height=45 viewBox="0 0 48 45" fill=none xmlns=http://www.w3.org/2000/svg>
                 <g clip-path=url(#logoHeader)><circle cx=23.5 cy=23.4998 r=17.5 fill=#EFC368/>
 
@@ -29,10 +29,10 @@
                         <i class="icon-caret_down icon"></i></a>
                     <div class="dropdown-menu collapse" id=homeMenu>
                         <ul class=dropdown-list>
-                            <li class="list-item nav-item" data-page=home><a class=dropdown-item href=index.html>Home
-                                01</a></li>
-                            <li class="list-item nav-item" data-page=home2><a class=dropdown-item href=index2.html>Home
-                                02</a></li>
+                            <li class="list-item nav-item" data-page=home><a class=dropdown-item href=http://127.0.0.1:8000/>Home
+                            </a></li>
+                            <!-- <li class="list-item nav-item" data-page=home2><a class=dropdown-item href=index2.html>Home
+                                 02</a></li> -->
                         </ul>
                     </div>
                 </li>
@@ -42,15 +42,18 @@
                     <i class="icon-caret_down icon"></i></a>
                     <div class="dropdown-menu collapse" id=shopMenu>
                         <ul class=dropdown-list>
-                            <li class="list-item nav-item" data-page=shop><a class=dropdown-item href=shop.html>Shop
-                                01</a></li>
-                            <li class="list-item nav-item" data-page=shop2><a class=dropdown-item href=shop2.html>Shop
-                                02</a></li>
-                            <li class="list-item nav-item" data-page=product><a class=dropdown-item href=product.html>Single
-                                Product 01</a></li>
-                            <li class="list-item nav-item" data-page=product2><a class=dropdown-item href=product2.html>Single
-                                Product 02</a></li>
-                            <li class="list-item nav-item" data-page=compare><a class=dropdown-item href=compare.html>Compare
+                            <li class="list-item nav-item" data-page=shop><a class=dropdown-item
+                                                                             href=http://127.0.0.1:8000/shop.html>Shop
+                            </a></li>
+                            <!-- <li class="list-item nav-item" data-page=shop2><a class=dropdown-item href=shop2.html>Shop
+                                 02</a></li>-->
+                            <li class="list-item nav-item" data-page=product><a class=dropdown-item
+                                                                                href=http://127.0.0.1:8000/product.html>Single
+                                Product</a></li>
+                            <!--<li class="list-item nav-item" data-page=product2><a class=dropdown-item href=product2.html>Single
+                                Product 02</a></li>-->
+                            <li class="list-item nav-item" data-page=compare><a class=dropdown-item
+                                                                                href=http://127.0.0.1:8000/compare.html>Compare
                                 List</a></li>
                         </ul>
                     </div>
@@ -61,14 +64,14 @@
                         <i class="icon-caret_down icon"></i></a>
                     <div class="dropdown-menu collapse" id=newsMenu>
                         <ul class=dropdown-list>
-                            <li class="list-item nav-item" data-page=news><a class=dropdown-item href=news.html>News
-                                01</a></li>
-                            <li class="list-item nav-item" data-page=news2><a class=dropdown-item href=news2.html>News
-                                02</a></li>
-                            <li class="list-item nav-item" data-page=post><a class=dropdown-item href=post.html>Single
-                                Post 01</a></li>
-                            <li class="list-item nav-item" data-page=post2><a class=dropdown-item href=post2.html>Single
-                                Post 02</a></li>
+                            <li class="list-item nav-item" data-page=news><a class=dropdown-item href=http://127.0.0.1:8000/news.html>News
+                            </a></li>
+                            <!--   <li class="list-item nav-item" data-page=news2><a class=dropdown-item href=news2.html>News
+                                   02</a></li> -->
+                            <li class="list-item nav-item" data-page=post><a class=dropdown-item href=http://127.0.0.1:8000/post.html/>Single
+                                Post </a></li>
+                            <!--<li class="list-item nav-item" data-page=post2><a class=dropdown-item href=post2.html>Single
+                                Post 02</a></li> -->
                         </ul>
                     </div>
                 </li>
@@ -79,39 +82,41 @@
                     <div class="dropdown-menu collapse" id=pagesMenu>
                         <ul class=dropdown-list>
                             <li class="list-item nav-item" data-page=about><a class=dropdown-item
-                                                                              href=about.html>About</a></li>
-                            <li class="list-item nav-item" data-page=team><a class=dropdown-item href=team.html>Team</a>
+                                                                              href=http://127.0.0.1:8000/about.html/>About</a>
                             </li>
-                            <li class="list-item nav-item" data-page=faq><a class=dropdown-item href=faq.html>FAQ</a>
+                            <li class="list-item nav-item" data-page=team><a class=dropdown-item href=http://127.0.0.1:8000/team.html/>Team</a>
                             </li>
-                            <li class="list-item nav-item" data-page=contacts><a class=dropdown-item href=contacts.html>Contacts
-                                01</a></li>
-                            <li class="list-item nav-item" data-page=contacts2><a class=dropdown-item
-                                                                                  href=contacts2.html>Contacts 02</a>
+                            <li class="list-item nav-item" data-page=faq><a class=dropdown-item href=http://127.0.0.1:8000/faq.html/>FAQ</a>
                             </li>
-                            <li class="list-item nav-item" data-page=404><a class=dropdown-item href=404.html>Error
-                                Page</a></li>
-                        </ul>
-                    </div>
+                            <li class="list-item nav-item" data-page=contacts><a class=dropdown-item
+                                                                                 href=http://127.0.0.1:8000/contacts/>Contacts
+                            </a></li>
+                            <!--  <li class="list-item nav-item" data-page=contacts2><a class=dropdown-item
+                                                                                   href=contacts2.html>Contacts 02</a> -->
                 </li>
+                <!-- <li class="list-item nav-item" data-page=404><a class=dropdown-item href=http://127.0.0.1:8000/404.html>Error
+                    Page</a></li> -->
             </ul>
-        </nav>
-        <span class="header_trigger d-inline-flex d-xl-none flex-column justify-content-between"><span
-                class="line line--short"></span>
-            <span class="line line"></span> <span class="line line--short"></span> <span
-                    class="line line"></span></span>
-        <div class="header_user d-flex justify-content-end align-items-center">
-            <form class=header_user-search action=# method=get data-type=searchForm>
-                <input class="header_user-search_field field required" type=text placeholder=Search...>
-                <button class="header_user-search_btn header_user-action d-inline-flex align-items-center justify-content-center"
-                        type=submit data-trigger=search>
-                    <i class=icon-search></i></button>
-            </form>
-            <a class="header_user-action d-inline-flex align-items-center justify-content-center" href=wishlist.html>
-                <i class=icon-heart></i> </a>
-            <a class="header_user-action d-inline-flex align-items-center justify-content-center"
-               data-bs-toggle=offcanvas data-bs-target=#cartOffcanvas aria-controls=cartOffcanvas>
-                <i class=icon-basket></i></a></div>
+    </div>
+    </li>
+    </ul>
+    </nav>
+    <span class="header_trigger d-inline-flex d-xl-none flex-column justify-content-between"><span
+            class="line line--short"></span>
+             <span class="line line"></span> <span class="line line--short"></span> <span
+                class="line line"></span></span>
+    <div class="header_user d-flex justify-content-end align-items-center">
+        <form class=header_user-search action=# method=get data-type=searchForm>
+            <input class="header_user-search_field field required" type=text placeholder=Search...>
+            <button class="header_user-search_btn header_user-action d-inline-flex align-items-center justify-content-center"
+                    type=submit data-trigger=search>
+                <i class=icon-search></i></button>
+        </form>
+        <a class="header_user-action d-inline-flex align-items-center justify-content-center" href=http://127.0.0.1:8000/wishlist.html/>
+            <i class=icon-heart></i> </a>
+        <a class="header_user-action d-inline-flex align-items-center justify-content-center"
+           data-bs-toggle=offcanvas data-bs-target=#cartOffcanvas aria-controls=cartOffcanvas>
+            <i class=icon-basket></i></a></div>
     </div>
 </header>
 <main>
@@ -119,16 +124,14 @@
         <div class="container d-xl-flex align-items-start">
             <div class="hero_about col-xl-6">
                 <div class=hero_header>
-                    <h1 class=hero_header-title>Highest Quality Marijuana Seeds</h1>
-                    <p class=hero_header-text>Habitasse platea dictumst quisque sagittis purus sit. Dignissim enim sit
-                        amet venenatis. In est ante in nibh mauris cursus mattis. Euismod elementum nisi quis eleifend
-                        quam adipiscing</p>
-                    <a class="hero_header-btn btn" href=shop.html>Our Products</a></div>
+                    <h1 class=hero_header-title>MIX PROTEIN WAY TO GROWTH</h1>
+                    <p class=hero_header-text>Wiam wiam............</p>
+                    <a class="hero_header-btn btn" href=http://127.0.0.1:8000/shop/>Our Products</a></div>
                 <div class=hero_contacts>
                     <p class=hero_contacts-text>Our support team is available 24/7 to resolve any product issues</p>
                     <span class="hero_contacts-data d-flex flex-column flex-sm-row align-items-center">
-            <span class="icon d-flex align-items-center justify-content-center"><i class=icon-call></i> </span>
-            <span class="d-flex flex-column"><span>Phone number</span> <a class=link href=tel:+1234567890>+1-202-555-0133</a></span></span>
+             <span class="icon d-flex align-items-center justify-content-center"><i class=icon-call></i> </span>
+             <span class="d-flex flex-column"><span>Phone number</span> <a class=link href=tel:+1234567890>+1-202-555-0133</a></span></span>
                 </div>
             </div>
             <div class="hero_promo col-xl-6">
@@ -140,36 +143,35 @@
                         <div class="hero_slider-slide d-flex flex-column flex-md-row justify-content-between justify-content-md-start align-items-md-center swiper-slide">
                             <div class=hero_slider-slide_media>
                                 <picture>
-                                    <source data-srcset=img/index/hero01.webp srcset=img/index/hero01.webp
+                                    <source data-srcset=static/img/index/banner_img.webp srcset=static/img/index/banner_img.webp
                                             type=image/webp>
-                                    <img class=lazy data-src=img/index/hero01.png src=img/index/hero01.png alt=media>
-                                </picture>
-                            </div>
+                                    <img class=lazy data-src=static/img/index/banner_img.png src=static/img/index/banner_img.png alt=media>
+                                </picture></div>
                             <div class=hero_slider-slide_main><h2 class=title>Purple Hawaiian Haze</h2>
-                                <p class=text>Nisl vel pretium lectus quam id leo in vitae. Pellentesque adipiscing
-                                    commodo elit at imperdiet</p>
-                                <ul class=list>
+                                <p class=text>Nisl vel pretium lectus quam id leo in vitae. Pellentesque adipiscing commodo elit at imperdiet</p>
+                                <ul class=list><li class=" list-item d-flex align-items-center justify-content-center
+                                          justify-content-sm-start">
+                                     <span class="icon d-flex align-items-center justify-content-center"><i
+                                             class=icon-check></i>
+                         </span>Sativa-Dominant</li>
                                     <li class="list-item d-flex align-items-center justify-content-center justify-content-sm-start">
-                        <span class="icon d-flex align-items-center justify-content-center"><i class=icon-check></i>
-                        </span>Sativa-Dominant
+                                         <span class="icon d-flex align-items-center justify-content-center"><i
+                                                 class=icon-check></i> </span>THC 110.0-160.0mg/g
                                     </li>
                                     <li class="list-item d-flex align-items-center justify-content-center justify-content-sm-start">
-                                        <span class="icon d-flex align-items-center justify-content-center"><i
-                                                class=icon-check></i> </span>THC 110.0-160.0mg/g
-                                    </li>
-                                    <li class="list-item d-flex align-items-center justify-content-center justify-content-sm-start">
-                                        <span class="icon d-flex align-items-center justify-content-center"><i
-                                                class=icon-check></i> </span>CBD 0.0-1.0mg/g
+                                         <span class="icon d-flex align-items-center justify-content-center"><i
+                                                 class=icon-check></i> </span>CBD 0.0-1.0mg/g
                                     </li>
                                 </ul>
-                                <a class=btn--underline href=#>About Product</a></div>
+                                <a class=btn--underline href=#>About Product</a>
+                            </div>
                         </div>
                         <div class="hero_slider-slide d-flex flex-column flex-md-row justify-content-between justify-content-md-start align-items-md-center swiper-slide">
                             <div class=hero_slider-slide_media>
                                 <picture>
-                                    <source data-srcset=img/index/hero02.webp srcset=img/index/hero02.webp
+                                    <source data-srcset=static/img/index/banner_img2.webp srcset=static/img/index/banner_img2.webp
                                             type=image/webp>
-                                    <img class=lazy data-src=img/index/hero02.png src=img/index/hero02.png alt=media>
+                                    <img class=lazy data-src=static/img/index/banner_img2.png src=static/img/index/banner_img2.png alt=media>
                                 </picture>
                             </div>
                             <div class=hero_slider-slide_main><h2 class=title>Sour Diesel</h2>
@@ -177,17 +179,17 @@
                                     quam id leo in vitae.</p>
                                 <ul class=list>
                                     <li class="list-item d-flex align-items-center justify-content-center justify-content-sm-start">
-                                        <span class="icon d-flex align-items-center justify-content-center"><i
-                                                class=icon-check></i> </span>Sativa-Dominant
+                                         <span class="icon d-flex align-items-center justify-content-center"><i
+                                                 class=icon-check></i> </span>Sativa-Dominant
                                     </li>
                                     <li class="list-item d-flex align-items-center justify-content-center justify-content-sm-start">
-                                <span class="icon d-flex align-items-center justify-content-center"><i
-                                        class=icon-check></i>
-                                </span>THC 110.0-160.0mg/g
+                                 <span class="icon d-flex align-items-center justify-content-center"><i
+                                         class=icon-check></i>
+                                 </span>THC 110.0-160.0mg/g
                                     </li>
                                     <li class="list-item d-flex align-items-center justify-content-center justify-content-sm-start">
-                                        <span class="icon d-flex align-items-center justify-content-center"><i
-                                                class=icon-check></i> </span>CBD 0.0-1.0mg/g
+                                         <span class="icon d-flex align-items-center justify-content-center"><i
+                                                 class=icon-check></i> </span>CBD 0.0-1.0mg/g
                                     </li>
                                 </ul>
                                 <a class=btn--underline href=#>About Product</a></div>
@@ -195,9 +197,9 @@
                         <div class="hero_slider-slide d-flex flex-column flex-md-row justify-content-between justify-content-md-start align-items-md-center swiper-slide">
                             <div class=hero_slider-slide_media>
                                 <picture>
-                                    <source data-srcset=img/index/hero03.webp srcset=img/index/hero03.webp
+                                    <source data-srcset=static/img/index/banner_img3.webp srcset=static/img/index/banner_img3.webp
                                             type=image/webp>
-                                    <img class=lazy data-src=img/index/hero03.png src=img/index/hero03.png alt=media>
+                                    <img class=lazy data-src=static/img/index/banner_img3.png src=static/img/index/banner_img3.png alt=media>
                                 </picture>
                             </div>
                             <div class=hero_slider-slide_main><h2 class=title>Northern Lights</h2>
@@ -205,17 +207,17 @@
                                     quam id leo in vitae.</p>
                                 <ul class=list>
                                     <li class="list-item d-flex align-items-center justify-content-center justify-content-sm-start">
-                                        <span class="icon d-flex align-items-center justify-content-center"><i
-                                                class=icon-check></i> </span>Sativa-Dominant
+                                         <span class="icon d-flex align-items-center justify-content-center"><i
+                                                 class=icon-check></i> </span>Sativa-Dominant
                                     </li>
                                     <li class="list-item d-flex align-items-center justify-content-center justify-content-sm-start">
-                                <span class="icon d-flex align-items-center justify-content-center"><i
-                                        class=icon-check></i>
-                                </span>THC 110.0-160.0mg/g
+                                 <span class="icon d-flex align-items-center justify-content-center"><i
+                                         class=icon-check></i>
+                                 </span>THC 110.0-160.0mg/g
                                     </li>
                                     <li class="list-item d-flex align-items-center justify-content-center justify-content-sm-start">
-                                        <span class="icon d-flex align-items-center justify-content-center"><i
-                                                class=icon-check></i> </span>CBD 0.0-1.0mg/g
+                                         <span class="icon d-flex align-items-center justify-content-center"><i
+                                                 class=icon-check></i> </span>CBD 0.0-1.0mg/g
                                     </li>
                                 </ul>
                                 <a class=btn--underline href=#>About Product</a></div>
@@ -235,7 +237,7 @@
             <div class="products_list d-grid">
                 <div class=products_list-item>
                     <div class="products_list-item_wrapper d-flex flex-column">
-                        <div class=media><a href=product.html target=_blank rel="noopener norefferer">
+                        <div class=media><a href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
                             <picture>
                                 <source data-srcset=img/wishlist/04.webp srcset=img/wishlist/04.webp type=image/webp>
                                 <img class="lazy preview" data-src=img/wishlist/04.jpg src=img/wishlist/04.jpg
@@ -265,7 +267,7 @@
                                     </i></li>
                                 </ul>
                             </div>
-                            <a class=main_title href=product.html target=_blank rel="noopener norefferer">Tangerine
+                            <a class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">Tangerine
                                 Dream</a>
                             <ul class="main_table d-flex flex-column align-items-center">
                                 <li class=list-item><span class=property>THC</span>
@@ -281,7 +283,7 @@
                 <div class=products_list-item>
                     <div class="products_list-item_wrapper d-flex flex-column">
                         <div class=media>
-                            <a href=product.html target=_blank rel="noopener norefferer">
+                            <a href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
                                 <picture>
                                     <source data-srcset=img/wishlist/03.webp srcset=img/wishlist/03.webp
                                             type=image/webp>
@@ -311,7 +313,7 @@
                                         <i class=icon-star></i></li>
                                 </ul>
                             </div>
-                            <a class=main_title href=product.html target=_blank rel="noopener norefferer">Tangerine
+                            <a class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">Tangerine
                                 Dream</a>
                             <ul class="main_table d-flex flex-column align-items-center">
                                 <li class=list-item><span class=property>THC</span>
@@ -326,7 +328,7 @@
                 <div class=products_list-item>
                     <div class="products_list-item_wrapper d-flex flex-column">
                         <div class=media>
-                            <a href=product.html target=_blank rel="noopener norefferer">
+                            <a href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
                                 <picture>
                                     <source data-srcset=img/wishlist/01.webp srcset=img/wishlist/01.webp
                                             type=image/webp>
@@ -354,7 +356,7 @@
                                     <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
                                 </ul>
                             </div>
-                            <a class=main_title href=product.html target=_blank rel="noopener norefferer">High CBD 50
+                            <a class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">High CBD 50
                                 Oil</a>
                             <ul class="main_table d-flex flex-column align-items-center">
                                 <li class=list-item><span class=property>THC</span>
@@ -370,7 +372,7 @@
                 <div class=products_list-item>
                     <div class="products_list-item_wrapper d-flex flex-column">
                         <div class=media>
-                            <a href=product.html target=_blank rel="noopener norefferer">
+                            <a href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
                                 <picture>
                                     <source data-srcset=img/index/04.webp srcset=img/index/04.webp type=image/webp>
                                     <img class="lazy preview" data-src=img/index/04.jpg src=img/index/04.jpg
@@ -399,7 +401,7 @@
                                         <i class=icon-star_fill></i></li>
                                 </ul>
                             </div>
-                            <a class=main_title href=product.html target=_blank rel="noopener norefferer">CBD Plus
+                            <a class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">CBD Plus
                                 Formula Oil</a>
                             <ul class="main_table d-flex flex-column align-items-center">
                                 <li class=list-item><span class=property>THC</span>
@@ -415,7 +417,7 @@
                 <div class=products_list-item>
                     <div class="products_list-item_wrapper d-flex flex-column">
                         <div class=media>
-                            <a href=product.html target=_blank rel="noopener norefferer">
+                            <a href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
                                 <picture>
                                     <source data-srcset=img/index/05.webp srcset=img/index/05.webp type=image/webp>
                                     <img class="lazy preview" data-src=img/index/05.jpg src=img/index/05.jpg
@@ -444,7 +446,7 @@
                                         <i class=icon-star_fill></i></li>
                                 </ul>
                             </div>
-                            <a class=main_title href=product.html target=_blank rel="noopener norefferer">Tangerine
+                            <a class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">Tangerine
                                 Dream
                             </a>
                             <ul class="main_table d-flex flex-column align-items-center">
@@ -461,7 +463,7 @@
                 <div class=products_list-item>
                     <div class="products_list-item_wrapper d-flex flex-column">
                         <div class=media>
-                            <a href=product.html target=_blank rel="noopener norefferer">
+                            <a href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
                                 <picture>
                                     <source data-srcset=img/index/06.webp srcset=img/index/06.webp type=image/webp>
                                     <img class="lazy preview" data-src=img/index/06.jpg src=img/index/06.jpg
@@ -490,7 +492,7 @@
                                     <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
                                 </ul>
                             </div>
-                            <a class=main_title href=product.html target=_blank rel="noopener norefferer">Limelight
+                            <a class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">Limelight
                                 (Ultra Sour)</a>
                             <ul class="main_table d-flex flex-column align-items-center">
                                 <li class=list-item><span class=property>THC</span>
@@ -524,7 +526,7 @@
                     </div>
                 </div>
             </div>
-            <a class="featured_btn btn" href=shop.html>All Products</a></div>
+            <a class="featured_btn btn" href=http://127.0.0.1:8000/shop/>All Products</a></div>
     </section>
     <section class="about section--nopb">
         <div class=container>
@@ -545,28 +547,28 @@
             <ul class="about_numbers d-flex flex-wrap">
                 <li class="about_numbers-group col-sm-6 col-lg-3" data-order=1>
                     <div class="wrapper d-flex flex-column align-items-center align-items-sm-start">
-                        <span class="countNum number d-flex align-items-center secondary" data-suffix=+
-                              data-value=180>0</span>
+                         <span class="countNum number d-flex align-items-center secondary" data-suffix=+
+                               data-value=180>0</span>
                         <p class=number-label>New products to explore. Arcu vitae elementum curabitur vitae nunc sed</p>
                     </div>
                 </li>
                 <li class="about_numbers-group col-sm-6 col-lg-3" data-order=2>
                     <div class="wrapper d-flex flex-column align-items-center align-items-sm-start">
-                        <span class="countNum number d-flex align-items-center secondary" data-suffix=X
-                              data-value=3>0</span>
+                         <span class="countNum number d-flex align-items-center secondary" data-suffix=X
+                               data-value=3>0</span>
                         <p class=number-label>Quis risus sed vulputate odio ut. Arcu vitae elementum curabitur vitae
                             nunc</p></div>
                 </li>
                 <li class="about_numbers-group col-sm-6 col-lg-3" data-order=3>
                     <div class="wrapper d-flex flex-column align-items-center align-items-sm-start">
-                        <span class="countNum number d-flex align-items-center secondary" data-suffix=%
-                              data-value=100>0</span>
+                         <span class="countNum number d-flex align-items-center secondary" data-suffix=%
+                               data-value=100>0</span>
                         <p class=number-label>Mauris a diam maecenas sed enim ut sem curabitur vitae nunc sed</p></div>
                 </li>
                 <li class="about_numbers-group col-sm-6 col-lg-3" data-order=4>
                     <div class="wrapper d-flex flex-column align-items-center align-items-sm-start">
-                        <span class="countNum number d-flex align-items-center secondary" data-suffix=K
-                              data-value=11>0</span>
+                         <span class="countNum number d-flex align-items-center secondary" data-suffix=K
+                               data-value=11>0</span>
                         <p class=number-label>Quis risus sed vulputate odio ut. Arcu vitae elementum curabitur vitae
                             nunc</p></div>
                 </li>
@@ -582,7 +584,7 @@
                          alt="CBD Facial Serum: Anti-Aging + Daily Moisturizer">
                 </picture>
             </div>
-            <div class="product_main col-lg-6"><a class=product_main-title href=product.html target=_blank
+            <div class="product_main col-lg-6"><a class=product_main-title href=http://127.0.0.1:8000/product.html/ target=_blank
                                                   rel="noopener norefferer">CBD Facial Serum: Anti-Aging + Daily
                 Moisturizer</a>
                 <div class="product_main-rating d-flex align-items-center">
@@ -642,34 +644,34 @@
         <div class=info_highlight><span class="underlay underlay--left"><span
                 class="underlay_circle underlay_circle--accent">
 
-    </span> </span><span class="underlay underlay--right"><span
+     </span> </span><span class="underlay underlay--right"><span
                 class="underlay_circle underlay_circle--small underlay_circle--green">
 
-    </span> <span class="underlay_circle underlay_circle--big underlay_circle--green"></span></span></div>
+     </span> <span class="underlay_circle underlay_circle--big underlay_circle--green"></span></span></div>
         <div class=container>
             <div class="info_content d-flex flex-column align-items-center">
-            <span class=info_content-logo><svg width=48 height=45 viewBox="0 0 48 45" fill=none
-                                               xmlns=http://www.w3.org/2000/svg>
-                <g clip-path=url(#infoLogo)><circle cx=23.5 cy=23.4998 r=17.5 fill=#EFC368/>
-                </g><defs><clipPath id=infoLogo><rect width=48 height=45 fill=white/></clipPath></defs></svg></span>
+             <span class=info_content-logo><svg width=48 height=45 viewBox="0 0 48 45" fill=none
+                                                xmlns=http://www.w3.org/2000/svg>
+                 <g clip-path=url(#infoLogo)><circle cx=23.5 cy=23.4998 r=17.5 fill=#EFC368/>
+                 </g><defs><clipPath id=infoLogo><rect width=48 height=45 fill=white/></clipPath></defs></svg></span>
                 <h2 class=info_content-header>Our doctors recommend the best THC to CBD ratio to look for in a marijuana
                     strain and suggest the recommended dosage and route of administration</h2></div>
         </div>
     </section>
     <section class="effects section--nopb"><span class=effects_underlay><span
             class="effects_underlay-circle effects_underlay-circle--accent"></span>
-        <span class="effects_underlay-circle effects_underlay-circle--green"></span></span>
+         <span class="effects_underlay-circle effects_underlay-circle--green"></span></span>
         <div class="container d-md-flex flex-wrap flex-xxl-nowrap justify-content-between align-items-center">
             <div class="effects_header d-lg-flex flex-xxl-column col-md-12 col-xxl-auto">
                 <div class="main col-lg-6 col-xl-12">
                     <h2 class=effects_header-title>Therapeutic Effects of Cannabis and Cannabinoids</h2>
                     <p class=effects_header-text>Accumsan sit amet nulla facilisi morbi tempus. Suscipit tellus mauris a
                         diam maecenas sed enim ut sem. Turpis egestas maecenas pharetra convallis posuere</p>
-                    <a class="effects_header-btn btn" href=shop.html>Our Products</a></div>
+                    <a class="effects_header-btn btn" href=http://127.0.0.1:8000/shop/>Our Products</a></div>
                 <span class="effects_header-formula col-lg-6 col-xl-12">
-                    <svg width=281 height=157 viewBox="0 0 281 157" fill=none xmlns=http://www.w3.org/2000/svg>
+                     <svg width=281 height=157 viewBox="0 0 281 157" fill=none xmlns=http://www.w3.org/2000/svg>
 
-                       </svg></span></div>
+                        </svg></span></div>
             <div class=effects_media>
                 <picture>
                     <source data-srcset=img/index/effects.webp srcset=img/index/effects.webp type=image/webp>
@@ -687,8 +689,8 @@
                 </li>
                 <li class="effects_list-item d-flex flex-column align-items-center flex-sm-row align-items-sm-start"
                     data-aos=fade-up>
-                    <span class="icon d-flex align-items-center justify-content-center"><i
-                            class=icon-heartbeat></i></span>
+                     <span class="icon d-flex align-items-center justify-content-center"><i
+                             class=icon-heartbeat></i></span>
                     <div class=wrapper>
                         <h4 class=effects_list-item_header>Fight cancer</h4>
                         <p class=effects_list-item_text>Feugiat in fermentum posuere urna nec tincidunt praesent semper
@@ -720,57 +722,57 @@
                 </div>
                 <ul class="latest_list col-lg-7 col-xl-6">
                     <li class="list-item d-flex flex-column flex-sm-row" data-aos=fade-up>
-                <span class=latest_list-preview><picture><source data-srcset=img/index/latest01.webp
-                                                                 srcset=img/index/latest01.webp type=image/webp>
-                    <img class="lazy preview-img" data-src=img/index/latest01.jpg src=img/index/latest01.jpg
-                         alt="Top 15 Best Strain Of Weed For Anxiety"></picture></span>
+                 <span class=latest_list-preview><picture><source data-srcset=img/index/latest01.webp
+                                                                  srcset=img/index/latest01.webp type=image/webp>
+                     <img class="lazy preview-img" data-src=img/index/latest01.jpg src=img/index/latest01.jpg
+                          alt="Top 15 Best Strain Of Weed For Anxiety"></picture></span>
                         <div class="latest_list-main d-sm-flex flex-column justify-content-between flex-grow-1"><span
                                 class=metadata>
-                    <span class="metadata_item d-inline-flex align-items-center"><i
-                            class="icon-calendar_day icon secondary">
+                     <span class="metadata_item d-inline-flex align-items-center"><i
+                             class="icon-calendar_day icon secondary">
 
-                    </i> September 30, 2021 </span><span class="metadata_item d-inline-flex align-items-center">
-                    <i class="icon-comments icon secondary"></i> <span class="number d-md-none">0</span> <span
+                     </i> September 30, 2021 </span><span class="metadata_item d-inline-flex align-items-center">
+                     <i class="icon-comments icon secondary"></i> <span class="number d-md-none">0</span> <span
                                 class="text d-none d-md-inline">No Comments</span>
-                </span></span><a class=title href=post.html>Top 15 Best Strain Of Weed For Anxiety</a>
+                 </span></span><a class=title href=http://127.0.0.1:8000/post.html/>Top 15 Best Strain Of Weed For Anxiety</a>
                             <p class=text>Felis eget velit aliquet sagittis id consectetur. Eleifend donec pretium
                                 vulputate sapien nec sagittis</p>
                         </div>
                     </li>
                     <li class="list-item d-flex flex-column flex-sm-row" data-aos=fade-up><span
                             class=latest_list-preview><picture>
-                <source data-srcset=img/index/latest02.webp srcset=img/index/latest02.webp type=image/webp>
-                <img class="lazy preview-img" data-src=img/index/latest02.jpg src=img/index/latest02.jpg
-                     alt="Raw Cannabis Seeds Promote Health">
-            </picture></span>
+                 <source data-srcset=img/index/latest02.webp srcset=img/index/latest02.webp type=image/webp>
+                 <img class="lazy preview-img" data-src=img/index/latest02.jpg src=img/index/latest02.jpg
+                      alt="Raw Cannabis Seeds Promote Health">
+             </picture></span>
                         <div class="latest_list-main d-sm-flex flex-column justify-content-between flex-grow-1"><span
                                 class=metadata>
-                <span class="metadata_item d-inline-flex align-items-center"><i
-                        class="icon-calendar_day icon secondary">
+                 <span class="metadata_item d-inline-flex align-items-center"><i
+                         class="icon-calendar_day icon secondary">
 
-                </i> September 30, 2021 </span><span class="metadata_item d-inline-flex align-items-center">
-                <i class="icon-comments icon secondary"></i> <span class="number d-md-none">0</span>
-                <span class="text d-none d-md-inline">No Comments</span> </span></span>
-                            <a class=title href=post.html>Raw Cannabis Seeds Promote Health</a>
+                 </i> September 30, 2021 </span><span class="metadata_item d-inline-flex align-items-center">
+                 <i class="icon-comments icon secondary"></i> <span class="number d-md-none">0</span>
+                 <span class="text d-none d-md-inline">No Comments</span> </span></span>
+                            <a class=title href=http://127.0.0.1:8000/post.html/>Raw Cannabis Seeds Promote Health</a>
                             <p class=text>Felis eget velit aliquet sagittis id consectetur. Eleifend donec pretium
                                 vulputate sapien nec sagittis</p>
                         </div>
                     </li>
                     <li class="list-item d-flex flex-column flex-sm-row" data-aos=fade-up><span
                             class=latest_list-preview><picture>
-                <source data-srcset=img/index/latest03.webp srcset=img/index/latest03.webp type=image/webp>
-                <img class="lazy preview-img" data-src=img/index/latest03.jpg src=img/index/latest03.jpg
-                     alt="How Many Autoflowers In a Tent?"></picture>
-            </span>
+                 <source data-srcset=img/index/latest03.webp srcset=img/index/latest03.webp type=image/webp>
+                 <img class="lazy preview-img" data-src=img/index/latest03.jpg src=img/index/latest03.jpg
+                      alt="How Many Autoflowers In a Tent?"></picture>
+             </span>
                         <div class="latest_list-main d-sm-flex flex-column justify-content-between flex-grow-1"><span
                                 class=metadata>
-                <span class="metadata_item d-inline-flex align-items-center"><i
-                        class="icon-calendar_day icon secondary">
+                 <span class="metadata_item d-inline-flex align-items-center"><i
+                         class="icon-calendar_day icon secondary">
 
-                </i> September 30, 2021 </span><span class="metadata_item d-inline-flex align-items-center">
-                <i class="icon-comments icon secondary"></i> <span class="number d-md-none">0</span>
-                <span class="text d-none d-md-inline">No Comments</span> </span></span>
-                            <a class=title href=post.html>How Many Autoflowers In a Tent?</a>
+                 </i> September 30, 2021 </span><span class="metadata_item d-inline-flex align-items-center">
+                 <i class="icon-comments icon secondary"></i> <span class="number d-md-none">0</span>
+                 <span class="text d-none d-md-inline">No Comments</span> </span></span>
+                            <a class=title href=http://127.0.0.1:8000/post.html/>How Many Autoflowers In a Tent?</a>
                             <p class=text>Felis eget velit aliquet sagittis id consectetur. Eleifend donec pretium
                                 vulputate sapien nec sagittis</p></div>
                     </li>
@@ -835,11 +837,11 @@
     <div class="footer_main section">
         <div class="container d-flex flex-column flex-md-row flex-wrap flex-xl-nowrap justify-content-xl-between">
             <div class="footer_main-about footer_main-block col-md-6 col-xl-auto"><a
-                    class="brand footer_main-about_brand d-flex align-items-center" href=index.html>
-            <span class=logo><svg width=48 height=45 viewBox="0 0 48 45" fill=none xmlns=http://www.w3.org/2000/svg>
-                <g clip-path=url(#logoFooter)><circle cx=23.5 cy=23.4998 r=17.5 fill=#EFC368/>
-                    </g><defs><clipPath id=logoFooter><rect width=48 height=45
-                                                            fill=white/></clipPath></defs></svg> </span>
+                    class="brand footer_main-about_brand d-flex align-items-center" href=http://127.0.0.1:8000/>
+             <span class=logo><svg width=48 height=45 viewBox="0 0 48 45" fill=none xmlns=http://www.w3.org/2000/svg>
+                 <g clip-path=url(#logoFooter)><circle cx=23.5 cy=23.4998 r=17.5 fill=#EFC368/>
+                     </g><defs><clipPath id=logoFooter><rect width=48 height=45
+                                                             fill=white/></clipPath></defs></svg> </span>
                 <span class=accent>Herba</span> <span>list</span></a>
                 <div class=footer_main-about_wrapper>
                     <p class=text>Elementum nisi quis eleifend quam adipiscing. Cursus metus aliquam eleifend mi in
@@ -865,8 +867,8 @@
                 <h4 class="footer_main-contacts_header footer_main-header">Contacts information</h4>
                 <ul class=footer_main-contacts_list>
                     <li class="list-item d-flex align-items-center">
-                        <span class="icon d-flex justify-content-center align-items-center"><i
-                                class=icon-call></i></span>
+                         <span class="icon d-flex justify-content-center align-items-center"><i
+                                 class=icon-call></i></span>
                         <div class="wrapper d-flex flex-column"><a class=link href=tel:+1234567890>+1-202-555-0133</a>
                             <a class=link href=tel:+1234567890>+1-202-555-0133</a></div>
                     </li>
@@ -877,7 +879,7 @@
                     </li>
                     <li class="list-item d-flex align-items-center"><span
                             class="icon d-flex justify-content-center align-items-center">
-                <i class=icon-clock></i></span>
+                 <i class=icon-clock></i></span>
                         <div class="wrapper d-flex flex-column"><span>9:00 am to 5:00 pm</span>
                             <span>Monday to Saturday</span></div>
                     </li>
@@ -958,38 +960,38 @@
     <div class=footer_secondary>
         <div class="container d-flex flex-column-reverse flex-md-row justify-content-center justify-content-md-between align-items-md-center">
             <p class=footer_secondary-copyright>Merkulove &copy; Herbalist Template <span class=linebreak>All rights reserved Copyrights
-            <span id=currentYear></span></span></p>
+             <span id=currentYear></span></span></p>
             <ul class="footer_secondary-list d-flex justify-content-center align-items-center">
                 <li class=list-item><span class=vector><svg width=62 height=20 viewBox="0 0 62 20" fill=none
                                                             xmlns=http://www.w3.org/2000/svg>
 
-        </svg></span></li>
+         </svg></span></li>
                 <li class=list-item><span class=vector><svg width=49 height=30 viewBox="0 0 49 30" fill=none
                                                             xmlns=http://www.w3.org/2000/svg>
-        <g clip-path=url(#clip0_276_198133)>
+         <g clip-path=url(#clip0_276_198133)>
 
-        </g><defs><clipPath id=clip0_276_198133><rect width=48 height=30 fill=white
-                                                      transform=translate(0.818359)/></clipPath></defs>
-    </svg></span></li>
+         </g><defs><clipPath id=clip0_276_198133><rect width=48 height=30 fill=white
+                                                       transform=translate(0.818359)/></clipPath></defs>
+     </svg></span></li>
                 <li class=list-item>
-        <span class=vector><svg width=79 height=21 viewBox="0 0 79 21" fill=none xmlns=http://www.w3.org/2000/svg>
-            <g clip-path=url(#clip0_276_198139)>
+         <span class=vector><svg width=79 height=21 viewBox="0 0 79 21" fill=none xmlns=http://www.w3.org/2000/svg>
+             <g clip-path=url(#clip0_276_198139)>
 
-            </g><defs><clipPath id=clip0_276_198139><rect width=78 height=21 fill=white transform=translate(0.568359)/></clipPath></defs></svg></span>
+             </g><defs><clipPath id=clip0_276_198139><rect width=78 height=21 fill=white transform=translate(0.568359)/></clipPath></defs></svg></span>
                 </li>
                 <li class=list-item><span class=vector><svg width=31 height=30 viewBox="0 0 31 30" fill=none
                                                             xmlns=http://www.w3.org/2000/svg>
-            <g clip-path=url(#clip0_276_198146)>
+             <g clip-path=url(#clip0_276_198146)>
 
-            </g><defs><linearGradient id=paint0_linear_276_198146 x1=15.5604 y1=-0.00706574 x2=15.5604 y2=29.997
-                                      gradientUnits=userSpaceOnUse>
-            <stop offset=1 stop-color=#F7931A/></linearGradient><clipPath id=clip0_276_198146>
-            <rect width=30 height=30 fill=white transform=translate(0.568359)/></clipPath></defs></svg></span></li>
+             </g><defs><linearGradient id=paint0_linear_276_198146 x1=15.5604 y1=-0.00706574 x2=15.5604 y2=29.997
+                                       gradientUnits=userSpaceOnUse>
+             <stop offset=1 stop-color=#F7931A/></linearGradient><clipPath id=clip0_276_198146>
+             <rect width=30 height=30 fill=white transform=translate(0.568359)/></clipPath></defs></svg></span></li>
             </ul>
         </div>
     </div>
 </footer>
-<script src=js/common.min.js></script>
+<script src="{% static 'js/common.min.js' %}"></script>
 <div class="cartOffcanvas offcanvas offcanvas-end" tabindex=-1 id=cartOffcanvas>
     <div class="cartOffcanvas_header d-flex align-items-center justify-content-between">
         <h2 class=cartOffcanvas_header-title id=cartOffcanvasLabel>Cart</h2>
@@ -1001,55 +1003,55 @@
         <ul class=cartOffcanvas_body-list>
             <li class="cartOffcanvas_body-list_item d-sm-flex align-items-center">
                 <div class=media>
-                    <a href=product.html target=_blank rel="noopener norefferer">
+                    <a href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
                         <picture>
                             <source data-srcset=img/cart/01.webp srcset=img/cart/01.webp type=image/webp>
                             <img class=lazy data-src=img/cart/01.jpg src=img/cart/01.jpg alt=media></picture>
                     </a></div>
                 <div class="main d-flex flex-wrap justify-content-between align-items-end align-items-lg-center">
-                    <a class=main_title href=product.html target=_blank rel="noopener norefferer">
+                    <a class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
                         <span class=main_title-product>Jonny Chronic - French Macaroon</span></a>
                     <div class=main_price><span class=price>$14.98</span></div>
                     <div class="qty d-flex align-items-center justify-content-between">
-                        <span class="qty_minus control disabled d-flex align-items-center"><i
-                                class=icon-minus></i> </span>
+                         <span class="qty_minus control disabled d-flex align-items-center"><i
+                                 class=icon-minus></i> </span>
                         <input class=qty_amount type=number readonly=readonly value=1 min=1 max=99>
                         <span class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span></div>
                     <a class=btn--underline href=#>Remove</a></div>
             </li>
             <li class="cartOffcanvas_body-list_item d-sm-flex align-items-center">
-                <div class=media><a href=product.html target=_blank rel="noopener norefferer">
+                <div class=media><a href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
                     <picture>
                         <source data-srcset=img/cart/02.webp srcset=img/cart/02.webp type=image/webp>
                         <img class=lazy data-src=img/cart/02.jpg src=img/cart/02.jpg alt=media></picture>
                 </a></div>
                 <div class="main d-flex flex-wrap justify-content-between align-items-end align-items-lg-center">
-                    <a class=main_title href=product.html target=_blank rel="noopener norefferer">
+                    <a class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
                         <span class=main_title-product>House Shatter – Durban Poison</span></a>
                     <div class=main_price>
                         <span class=price>$6.96</span></div>
                     <div class="qty d-flex align-items-center justify-content-between">
-                        <span class="qty_minus control disabled d-flex align-items-center"><i
-                                class=icon-minus></i> </span>
+                         <span class="qty_minus control disabled d-flex align-items-center"><i
+                                 class=icon-minus></i> </span>
                         <input class=qty_amount type=number readonly=readonly value=1 min=1 max=99>
                         <span class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span></div>
                     <a class=btn--underline href=#>Remove</a></div>
             </li>
             <li class="cartOffcanvas_body-list_item d-sm-flex align-items-center">
                 <div class=media>
-                    <a href=product.html target=_blank rel="noopener norefferer">
+                    <a href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
                         <picture>
                             <source data-srcset=img/cart/03.webp srcset=img/cart/03.webp type=image/webp>
                             <img class=lazy data-src=img/cart/03.jpg src=img/cart/03.jpg alt=media></picture>
                     </a></div>
                 <div class="main d-flex flex-wrap justify-content-between align-items-end align-items-lg-center">
-                    <a class=main_title href=product.html target=_blank rel="noopener norefferer">
+                    <a class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
                         <span class=main_title-product>Natures: CBD Tincture</span></a>
                     <div class=main_price>
                         <span class=price>$7.49</span></div>
                     <div class="qty d-flex align-items-center justify-content-between">
-                        <span class="qty_minus control disabled d-flex align-items-center"><i
-                                class=icon-minus></i> </span>
+                         <span class="qty_minus control disabled d-flex align-items-center"><i
+                                 class=icon-minus></i> </span>
                         <input class=qty_amount type=number readonly=readonly value=1 min=1 max=99>
                         <span class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span></div>
                     <a class=btn--underline href=#>Remove</a></div>
@@ -1057,11 +1059,11 @@
         </ul>
         <div class="cartOffcanvas_body-total d-flex justify-content-between align-items-center">
             <span>Total</span> <span class=cartTotal>$29.43</span></div>
-        <a class="cartOffcanvas_body-btn btn" href=cart.html>Proceed to checkout</a></div>
+        <a class="cartOffcanvas_body-btn btn" href=http://127.0.0.1:8000/cart/>Proceed to checkout</a></div>
 </div>
-<script src=js/index.min.js></script>
-<script src=js/demo.js></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MZ1FBMV3CL"></script>
+<script src="{% static 'js/index.min.js' %}"></script>
+<script src="{% static 'js/demo.js' %}"></script>
+<script async src="{% static 'https://www.googletagmanager.com/gtag/js?id=G-MZ1FBMV3CL' %}"></script>
 <script>window.dataLayer = window.dataLayer || [];
 
 function gtag() {

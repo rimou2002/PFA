@@ -156,23 +156,23 @@
                         <div class=swiper-wrapper>
                             <div class=swiper-slide><a href=img/product/slide01--full.jpg data-role=gallery>
                                 <picture>
-                                    <source data-srcset=img/product/slide01.webp srcset=img/product/slide01.webp
+                                    <source data-srcset="{{ product.image.url }}" srcset="{{ product.image.url }}"
                                             type=image/webp>
-                                    <img class=lazy data-src=img/product/slide01.jpg src=img/product/slide01.jpg
+                                    <img class=lazy data-src="{{ product.image.url }}" src="{{ product.image.url }}" style="height:400px;"
                                          alt=media></picture>
                             </a></div>
-                            <div class=swiper-slide><a href=img/product/slide02--full.jpg data-role=gallery>
+                            <div class=swiper-slide><a href="img/product/slide02--full.jpg" data-role=gallery>
                                 <picture>
-                                    <source data-srcset=img/product/slide02.webp srcset=img/product/slide02.webp
+                                    <source data-srcset="{{ product.image2.url }}" srcset="{{ product.image2.url }}"
                                             type=image/webp>
-                                    <img class=lazy data-src=img/product/slide02.jpg src=img/product/slide02.jpg
+                                    <img class=lazy data-src="{{ product.image2.url }}" src="{{ product.image2.url }}" style="height:400px;"
                                          alt=media></picture>
                             </a></div>
                             <div class=swiper-slide><a href=img/product/slide03--full.jpg data-role=gallery>
                                 <picture>
-                                    <source data-srcset=img/product/slide03.webp srcset=img/product/slide03.webp
+                                    <source data-srcset="{{ product.image3.url }}" srcset="{{ product.image3.url }}"
                                             type=image/webp>
-                                    <img class=lazy data-src=img/product/slide03.jpg src=img/product/slide03.jpg
+                                    <img class=lazy data-src="{{ product.image3.url }}" src="{{ product.image3.url }}" style="height:400px;"
                                          alt=media></picture>
                             </a></div>
                         </div>
@@ -186,24 +186,23 @@
                         <div class=swiper-wrapper>
                             <div class=swiper-slide>
                                 <picture>
-                                    <source data-srcset=img/product/slide01.webp srcset=img/product/slide01.webp
+                                    <source data-srcset="{{ product.image.url }}" srcset="{{ product.image.url }}"
                                             type=image/webp>
-                                    <img class=lazy data-src=img/product/slide01.jpg src=img/product/slide01.jpg
+                                    <img class=lazy data-src="{{ product.image.url }}" src="{{ product.image.url }}"
                                          alt=media></picture>
                             </div>
                             <div class=swiper-slide>
                                 <picture>
-                                    <source data-srcset=img/product/slide02.webp srcset=img/product/slide02.webp
+                                    <source data-srcset="{{ product.image2.url }}" srcset="{{ product.image2.url }}"
                                             type=image/webp>
-                                    <img class=lazy data-src=img/product/slide02.jpg src=img/product/slide02.jpg
+                                    <img class=lazy data-src="{{ product.image2.url }}" src="{{ product.image2.url }}"
                                          alt=media></picture>
                             </div>
                             <div class=swiper-slide>
                                 <picture>
-                                    <source data-srcset=img/product/slide03.webp srcset=img/product/slide03.webp
+                                    <source data-srcset="{{ product.image3.url }}" srcset="{{ product.image3.url }}"
                                             type=image/webp>
-                                    <img class=lazy data-src=img/product/slide03.jpg src=img/product/slide03.jpg
-                                         alt=media></picture>
+                                    <img class=lazy data-src="{{ product.image3.url }}" src="{{ product.image3D.url }}" alt="media"></picture>
                             </div>
                         </div>
                     </div>

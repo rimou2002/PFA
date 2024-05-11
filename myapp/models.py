@@ -9,6 +9,8 @@ class Product(models.Model):
     prix = models.DecimalField(max_digits=10, decimal_places=2)
     quantite = models.IntegerField()
     image = models.ImageField(upload_to='produits/')
+    image2 = models.ImageField(upload_to='produits/')
+    image3 = models.ImageField(upload_to='produits/')
     size = models.CharField(max_length=50)
     type = models.CharField(max_length=50)
     effects = models.CharField(max_length=255)

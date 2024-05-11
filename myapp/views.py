@@ -6,9 +6,14 @@ from django.contrib.auth.models import User  # Import the User model
 from myapp.models import Client, User
 
 # Create your views here.
+#def index(request):
+# templates = "index.html"
+# return render(request, templates)
+
 def index(request):
- templates = "index.html"
- return render(request, templates)
+ # Get the last 6 products added
+ latest_products = Product.objects.order_by('-id')[:8]
+ return render(request, 'index.html', {'latest_products': latest_products})
 
 def about(request):
  templates = "about.html"
@@ -133,5 +138,18 @@ from django.shortcuts import render
 from .models import Product
 
 def product_list(request):
+ # Retrieve the last 6 products ordered by their primary key (assuming the primary key is the ID)
+ latest_products = Product.objects.order_by('-id')[:6]
+ return render(request, 'product_list.html', {'latest_products': latest_products})
+
+def product_list(request):
  products = Product.objects.select_related('categorie', 'reviews', 'description').all()
  return render(request, 'product_list.html', {'products': products})
+
+from django.shortcuts import render
+from .models import Product
+
+def product_list(request):
+ # Retrieve the last 6 products ordered by their primary key (assuming the primary key is the ID)
+ latest_products = Product.objects.order_by('-id')[:6]
+ return render(request, 'product_list.html', {'latest_products': latest_products})
