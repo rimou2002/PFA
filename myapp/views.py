@@ -4,6 +4,8 @@ from django.utils import timezone
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User  # Import the User model
 from myapp.models import Client, User
+from django.http import JsonResponse
+from django.template.loader import render_to_string
 
 # Create your views here.
 #def index(request):
@@ -153,3 +155,12 @@ def product_list(request):
  # Retrieve the last 6 products ordered by their primary key (assuming the primary key is the ID)
  latest_products = Product.objects.order_by('-id')[:6]
  return render(request, 'product_list.html', {'latest_products': latest_products})
+
+
+def search_products(request):
+ query = request.GET.get('query', '')
+ products = Product.objects.filter(nom__icontains=query)
+ # Render the products using a template
+ products_html = render_to_string('products_partial.html', {'products': products})
+ # Return the rendered HTML as JSON response
+ return JsonResponse({'products_html': products_html})

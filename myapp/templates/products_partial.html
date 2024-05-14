@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for product in products %}
+<li class="shop_products-list_item col-sm-6 col-md-4 col-lg-6 col-xl-4">
+    <div class="wrapper d-flex flex-column">
+        <div class="media">
+            <img src="{{ product.image.url }}" alt="{{ product.nom }}">
+        </div>
+        <div class="main d-flex flex-column">
+            <a class="main_title" href="{% url 'product_detail' product.id %}" target="_blank" rel="noopener noreferrer">
+                {{ product.nom }}
+            </a>
+            <div class="main_price">
+                {{ product.prix }}
+            </div>
+        </div>
+    </div>
+</li>
+{% empty %}
+<li>No products available.</li>
+{% endfor %}
+
+
+</body>
+</html>

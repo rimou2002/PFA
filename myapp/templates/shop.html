@@ -183,10 +183,11 @@
                                                                                                             xmlns=http://www.w3.org/2000/svg><
                                 fill=#214842/></svg> </span>Search by Products
                         </h4>
-                        <form class="form form--search" data-type=searchProducts action=# method=get><input
-                                class="field required" type=text placeholder=Search...>
-                            <button class=btn type=submit>Search</button>
+                        <form id="searchForm" class="form form--search" data-type="searchProducts" action="#" method="get">
+                            <input id="searchInput" class="field required" type="text" placeholder="Search...">
+                            <button id="searchButton" class="btn" type="submit">Search</button>
                         </form>
+
                     </div>
                     <div class="shop_aside-block shop_aside-block--categories">
                         <h4 class="shop_aside-block_header d-flex align-items-center"><span class=leaf><svg width=24
@@ -336,7 +337,7 @@
 
             </div>
         </div>
-    </div>-->
+    </div>
     <div class="promo section--nopb">
         <div class="container d-flex flex-column flex-md-row">
             <div class="promo_banner promo_banner--big" data-aos=fade-right><h3 class=promo_banner-header>Browse our
@@ -714,7 +715,6 @@
         </div>
     </div>
 </footer>
-<script src="{% static 'js/common.min.js' %}"></script>
 <div class="cartOffcanvas offcanvas offcanvas-end" tabindex=-1 id=cartOffcanvas>
     <div class="cartOffcanvas_header d-flex align-items-center justify-content-between"><h2
             class=cartOffcanvas_header-title id=cartOffcanvasLabel>Cart</h2>
@@ -779,6 +779,26 @@
                 class=cartTotal>$29.43</span></div>
         <a class="cartOffcanvas_body-btn btn" href=http://127.0.0.1:8000/cart.html/>Proceed to checkout</a></div>
 </div>
+<script>
+    document.getElementById('searchButton').addEventListener('click', function(event) {
+        event.preventDefault();
+        var searchInput = document.getElementById('searchInput').value;
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/search_products/?query=' + encodeURIComponent(searchInput), true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    document.querySelector('.shop_products-list').innerHTML = response.products_html;
+                } else {
+                    console.error('Error fetching products: ' + xhr.status);
+                }
+            }
+        };
+        xhr.send();
+    });
+</script>
+
 <script src="{% static 'js/demo.js' %}"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZ1FBMV3CL"></script>
 <script>window.dataLayer = window.dataLayer || [];
