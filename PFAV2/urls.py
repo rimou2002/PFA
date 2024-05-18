@@ -43,8 +43,13 @@ urlpatterns = [
     path('managerdashboard/', views.managerdashboard, name='managerdashboard'),
     path('products/', views.product_list, name='product_list'),
     path('product.html/<int:product_id>/', views.product_detail, name='product_detail'),
+    path('get_products/', views.get_products, name='get_products'),
+    path('get_products_by_effect/', views.get_products_by_effect, name='get_products_by_effect'),
+
     #path('product/<int:product_id>/', views.product, name="product"),
     #path('product_detail/', views.product_detail, name='product_detail'),
     path('', include('myapp.urls'))
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

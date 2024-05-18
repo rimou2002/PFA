@@ -14,7 +14,7 @@
 </head>
 <body>
 <header class="header d-flex flex-wrap align-items-center" data-page=home data-overlay=true>
-    <div class="container d-flex flex-wrap flex-xl-nowrap align-items-center justify-content-between">
+    <div class="container d-flex flex-wrap flex-xl-nowrap align-items-center justify-content-between" style="margin-left:0; !important">
         <a class="brand header_logo d-flex align-items-center" href=http://127.0.0.1:8000/><span class=logo>
             <svg width=48 height=45 viewBox="0 0 48 45" fill=none xmlns=http://www.w3.org/2000/svg>
                 <g clip-path=url(#logoHeader)><circle cx=23.5 cy=23.4998 r=17.5 fill=#EFC368/>
@@ -23,6 +23,28 @@
             <span class=accent>Herba</span> <span>list</span></a>
         <nav class=header_nav>
             <ul class=header_nav-list>
+                <li class="header_nav-list_item dropdown"><a
+                        class="nav-link dropdown-toggle d-inline-flex align-items-center" href=# data-bs-toggle=collapse
+                        data-bs-target=#shopMenu aria-expanded=false aria-controls=shopMenu>cnx/reg
+                    <i class="icon-caret_down icon"></i></a>
+                    <div class="dropdown-menu collapse" id=shopMenu>
+                        <ul class=dropdown-list>
+                            <li class="list-item nav-item" data-page=shop><a class=dropdown-item
+                                                                             href=http://127.0.0.1:8000/shop.html>Shop
+                            </a></li>
+                            <!-- <li class="list-item nav-item" data-page=shop2><a class=dropdown-item href=shop2.html>Shop
+                                 02</a></li>-->
+                            <li class="list-item nav-item" data-page=product><a class=dropdown-item
+                                                                                href=http://127.0.0.1:8000/product.html>Single
+                                Product</a></li>
+                            <!--<li class="list-item nav-item" data-page=product2><a class=dropdown-item href=product2.html>Single
+                                Product 02</a></li>-->
+                            <li class="list-item nav-item" data-page=compare><a class=dropdown-item
+                                                                                href=http://127.0.0.1:8000/compare.html>Compare
+                                List</a></li>
+                        </ul>
+                    </div>
+                </li>
                 <li class="header_nav-list_item dropdown">
                     <a class="nav-link dropdown-toggle d-inline-flex align-items-center" href=# data-bs-toggle=collapse
                        data-bs-target=#homeMenu aria-expanded=false aria-controls=homeMenu>Home

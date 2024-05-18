@@ -16,6 +16,7 @@ class Product(models.Model):
     effects = models.CharField(max_length=255)
     tags = models.CharField(max_length=255)
     reference = models.CharField(max_length=255)
+    salesnumber = models.CharField(max_length=50, default='0')
 
 class Categorie(models.Model):
     id = models.AutoField(primary_key=True)
