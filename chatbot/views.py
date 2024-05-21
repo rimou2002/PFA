@@ -13,13 +13,16 @@ def chatbot(request):
         data = json.loads(request.body)
         user_message = data.get('message')
 
-        response = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=user_message,
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": user_message}
+            ],
             max_tokens=150
         )
 
-        chatbot_message = response.choices[0].text.strip()
+        chatbot_message = response.choices[0].message['content'].strip()
         return JsonResponse({'message': chatbot_message})
 
     return JsonResponse({'error': 'Invalid request method'}, status=405)
