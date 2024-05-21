@@ -20,6 +20,7 @@ from myapp import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
@@ -45,6 +46,7 @@ urlpatterns = [
     path('product.html/<int:product_id>/', views.product_detail, name='product_detail'),
     path('get_products/', views.get_products, name='get_products'),
     path('get_products_by_effect/', views.get_products_by_effect, name='get_products_by_effect'),
+    path('chat/', include('chatbot.urls')),  # Inclusion des URLs de l'application chatbot
 
     #path('product/<int:product_id>/', views.product, name="product"),
     #path('product_detail/', views.product_detail, name='product_detail'),

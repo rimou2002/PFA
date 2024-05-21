@@ -220,3 +220,5 @@ def get_products_by_effect(request):
 
     # Render the products to HTML
     return render(request, 'products_partial.html', {'products': products})
+
+

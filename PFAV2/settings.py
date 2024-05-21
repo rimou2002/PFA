@@ -29,6 +29,17 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+import environ
+
+# Initialize environment variables
+env = environ.Env()
+environ.Env.read_env()
+from dotenv import load_dotenv
+load_dotenv()
+
+# rest of your settings.py file
+# Use the environment variables
+OPENAI_API_KEY = env('OPENAI_API_KEY')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,7 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "myapp"
+    'myapp',
+    'chatbot',
 ]
 
 MIDDLEWARE = [
@@ -137,4 +149,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Set the STATIC_ROOT setting to a filesystem path where you want to collect static files
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+
+
 
