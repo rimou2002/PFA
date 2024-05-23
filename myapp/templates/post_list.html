@@ -1,0 +1,19 @@
+<!-- post_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post List</title>
+</head>
+<body>
+<h1>Post List</h1>
+{% for post in posts %}
+<div>
+    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+    <p>{{ post.published_date }}</p>
+    <p>{{ post.author }}</p>
+</div>
+{% endfor %}
+</body>
+</html>

@@ -54,3 +54,19 @@ class Client(User):
     tel = models.CharField(max_length=20)
     username = models.CharField(max_length=255)
     account_creation_date = models.DateField()
+
+class Author(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='authors/')
+    bio = models.TextField()
+
+class Post(models.Model):
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='posts/')
+    image2 = models.ImageField(upload_to='posts/')
+    content = models.TextField()
+    tags = models.CharField(max_length=255)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    date = models.DateField()

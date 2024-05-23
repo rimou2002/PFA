@@ -12,7 +12,7 @@
 <script>
     function sendMessage() {
         const userInput = document.getElementById('user-input').value;
-        fetch('/chat/chat/', {  // Updated URL
+        fetch('/chat/chat/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -23,8 +23,18 @@
             .then(data => {
                 const chatbox = document.getElementById('chatbox');
                 chatbox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
-                chatbox.innerHTML += `<p><strong>Bot:</strong> ${data.message}</p>`;
+                if (data.message) {
+                    chatbox.innerHTML += `<p><strong>Bot:</strong> ${data.message}</p>`;
+                } else if (data.error) {
+                    chatbox.innerHTML += `<p><strong>Error:</strong> ${data.error}</p>`;
+                } else {
+                    chatbox.innerHTML += `<p><strong>Bot:</strong> Undefined response</p>`;
+                }
                 document.getElementById('user-input').value = '';
+            })
+            .catch(error => {
+                const chatbox = document.getElementById('chatbox');
+                chatbox.innerHTML += `<p><strong>Error:</strong> ${error.message}</p>`;
             });
     }
 </script>
