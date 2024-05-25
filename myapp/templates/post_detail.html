@@ -1,15 +1,14 @@
-<!-- post_detail.html -->
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>{{ post.title }}</title>
 </head>
 <body>
 <h1>{{ post.title }}</h1>
-<p>{{ post.published_date }}</p>
-<p>{{ post.author }}</p>
-<div>{{ post.content|safe }}</div>
+<img src="{{ post.image.url }}" alt="Image 1">
+<img src="{{ post.image2.url }}" alt="Image 2">
+<p>{{ post.date }}</p>
+<p>{{ post.author.name }}</p>
+<p>{{ post.content }}</p>
 </body>
 </html>

@@ -221,4 +221,15 @@ def get_products_by_effect(request):
     # Render the products to HTML
     return render(request, 'products_partial.html', {'products': products})
 
+from django.shortcuts import render, get_object_or_404
+from .models import Post
 
+# Vue pour lister tous les posts
+def post_list(request):
+    posts = Post.objects.all()
+    return render(request, 'post_list.html', {'posts': posts})
+
+# Vue pour afficher le contenu d'un post spécifique
+def post_detail(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    return render(request, 'post_detail.html', {'post': post})
