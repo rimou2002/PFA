@@ -12,19 +12,22 @@
 <script>
     function sendMessage() {
         const userInput = document.getElementById('user-input').value;
-        fetch('/chat/chat/', {
+        fetch('https://71d8-34-30-132-200.ngrok-free.app/predict', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({message: userInput})
+            body: JSON.stringify({
+                "instruction": userInput,
+                "input": ""
+            })
         })
             .then(response => response.json())
             .then(data => {
                 const chatbox = document.getElementById('chatbox');
                 chatbox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
-                if (data.message) {
-                    chatbox.innerHTML += `<p><strong>Bot:</strong> ${data.message}</p>`;
+                if (data.response) {
+                    chatbox.innerHTML += `<p><strong>Bot:</strong> ${data.response}</p>`;
                 } else if (data.error) {
                     chatbox.innerHTML += `<p><strong>Error:</strong> ${data.error}</p>`;
                 } else {
