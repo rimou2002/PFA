@@ -65,7 +65,7 @@
                         class="icon-caret_down icon"></i></a>
                     <div class="dropdown-menu collapse" id=newsMenu>
                         <ul class=dropdown-list>
-                            <li class="list-item nav-item" data-page=news><a class=dropdown-item href=http://127.0.0.1:8000/news.html/>News
+                            <li class="list-item nav-item" data-page=news><a class=dropdown-item href=http://127.0.0.1:8000/news//>News
                                 01</a></li>
                             <li class="list-item nav-item" data-page=news2><a class=dropdown-item href=news2.html>News
                                 02</a></li>
@@ -120,8 +120,7 @@
 <header class=page>
     <div class="page_main container-fluid">
         <div class=container><h1 class=page_header>News</h1>
-            <p class=page_text>Nibh tellus molestie nunc non blandit. Mi tempus imperdiet nulla malesuada pellentesque
-                elit</p></div>
+            <p class=page_text>nbdlo ta hadi nktbo chi 7aja</p></div>
     </div>
     <div class=container>
         <ul class="page_breadcrumbs d-flex flex-wrap">
@@ -132,408 +131,39 @@
 </header>
 <main class="news section">
     <div class="container d-md-flex justify-content-between">
-        <div class=news_wrapper>
-            <ul class=news_list>
-                <li class=news_list-item>
-                    <div class=media>
+        <div class="news_wrapper">
+            <ul class="news_list">
+                <!-- Start of a post -->
+                {% if posts %}
+                {% for post in posts %}
+                <li class="news_list-item">
+                    <div class="media">
                         <picture>
-                            <source data-srcset=img/news/news01.webp srcset=img/news/news01.webp type=image/webp>
-                            <img class=lazy data-src=img/news/news01.jpg src=img/news/news01.jpg alt=media></picture>
+                            <source data-srcset="{{ post.image.url }}" srcset="{{ post.image.url }}" type="image/webp">
+                            <img class="lazy" data-src="{{ post.image.url }}" src="{{ post.image.url }}" alt="media">
+                        </picture>
                     </div>
-                    <div class=main>
-                        <div class=main_metadata><span class=main_metadata-item><i class="icon-sticky_note icon"></i> Sticky <span
-                                class="d-none d-lg-inline">Post</span> </span><span class=main_metadata-item><i
-                                class="icon-calendar_day icon"></i> September 30, 2021 </span><span
-                                class=main_metadata-item><i class="icon-comments icon"></i> <span
-                                class=d-md-none>0</span> <span class="text d-none d-md-inline">No Comments</span></span>
+                    <div class="main">
+                        <div class="main_metadata">
+                            <span class="main_metadata-item"><i class="icon-calendar_day icon"></i> {{ post.date|date:"F j, Y" }} </span>
+                            <!-- You can replace 'No Comments' with the actual number of comments if you have that data -->
+                            <span class="main_metadata-item"><i class="icon-comments icon"></i> No Comments</span>
                         </div>
-                        <h4 class=main_title>CBD Oil for Dogs: What You Need to Know</h4>
-                        <p class=main_text>Sed sed risus pretium quam vulputate dignissim suspendisse in. Sociis natoque
-                            penatibus et magnis dis parturient. Libero enim sed faucibus turpis. Curabitur gravida arcu
-                            ac tortor dignissim convallis aenean. Diam maecenas ultricies mi eget mauris pharetra et
-                            ultrices</p><a class="main_link btn--underline" href=http://127.0.0.1:8000/post.html/>Read more</a></div>
-                </li>
-                <li class=news_list-item>
-                    <div class=media>
-                        <picture>
-                            <source data-srcset=img/news/news02.webp srcset=img/news/news02.webp type=image/webp>
-                            <img class=lazy data-src=img/news/news02.jpg src=img/news/news02.jpg alt=media></picture>
+                        <h4 class="main_title">{{ post.title }}</h4>
+                        <p class="main_text">{{ post.content|truncatewords:30 }}</p>
+                        <a class="main_link btn--underline" href="{% url 'post_detail' post.id %}">Read more</a>
                     </div>
-                    <div class=main>
-                        <div class=main_metadata><span class=main_metadata-item><i class="icon-calendar_day icon"></i> September 30, 2021 </span><span
-                                class=main_metadata-item><i class="icon-comments icon"></i> <span
-                                class=d-md-none>0</span> <span class="text d-none d-md-inline">No Comments</span></span>
-                        </div>
-                        <h4 class=main_title>Edible Dosage Chart: Quick and Easy Guide to Taking Weed Edibles</h4>
-                        <p class=main_text>Sed sed risus pretium quam vulputate dignissim suspendisse in. Sociis natoque
-                            penatibus et magnis dis parturient. Libero enim sed faucibus turpis. Curabitur gravida arcu
-                            ac tortor dignissim convallis aenean. Diam maecenas ultricies mi eget mauris pharetra et
-                            ultrices</p><a class="main_link btn--underline" href=http://127.0.0.1:8000/post.html/>Read more</a></div>
                 </li>
-                <li class=news_list-item>
-                    <div class=media>
-                        <picture>
-                            <source data-srcset=img/news/news03.webp srcset=img/news/news03.webp type=image/webp>
-                            <img class=lazy data-src=img/news/news03.jpg src=img/news/news03.jpg alt=media></picture>
-                    </div>
-                    <div class=main>
-                        <div class=main_metadata><span class=main_metadata-item><i class="icon-calendar_day icon"></i> September 30, 2021 </span><span
-                                class=main_metadata-item><i class="icon-comments icon"></i> <span
-                                class=d-md-none>0</span> <span class="text d-none d-md-inline">No Comments</span></span>
-                        </div>
-                        <h4 class=main_title>The OCS Guide to Entertaining With Cannabis</h4>
-                        <p class=main_text>Sed sed risus pretium quam vulputate dignissim suspendisse in. Sociis natoque
-                            penatibus et magnis dis parturient. Libero enim sed faucibus turpis. Curabitur gravida arcu
-                            ac tortor dignissim convallis aenean. Diam maecenas ultricies mi eget mauris pharetra et
-                            ultrices</p><a class="main_link btn--underline" href=http://127.0.0.1:8000/post.html/>Read more</a></div>
-                </li>
-                <li class=news_list-item>
-                    <div class=media>
-                        <picture>
-                            <source data-srcset=img/news/news04.webp srcset=img/news/news04.webp type=image/webp>
-                            <img class=lazy data-src=img/news/news04.jpg src=img/news/news04.jpg alt=media></picture>
-                    </div>
-                    <div class=main>
-                        <div class=main_metadata><span class=main_metadata-item><i class="icon-calendar_day icon"></i> September 30, 2021 </span><span
-                                class=main_metadata-item><i class="icon-comments icon"></i> <span
-                                class=d-md-none>0</span> <span class="text d-none d-md-inline">No Comments</span></span>
-                        </div>
-                        <h4 class=main_title>Ways You Can Benefit From Taking Cannabis</h4>
-                        <p class=main_text>Sed sed risus pretium quam vulputate dignissim suspendisse in. Sociis natoque
-                            penatibus et magnis dis parturient. Libero enim sed faucibus turpis. Curabitur gravida arcu
-                            ac tortor dignissim convallis aenean. Diam maecenas ultricies mi eget mauris pharetra et
-                            ultrices</p><a class="main_link btn--underline" href=http://127.0.0.1:8000/post.html/>Read more</a></div>
-                </li>
+                {% endfor %}
+                {% else %}
+                <p>No posts available.</p>
+                {% endif %}
+                <!-- End of a post -->
             </ul>
-            <ul class="pagination d-flex align-items-center">
-                <li class=pagination-page><a
-                        class="pagination-page_link d-flex align-items-center justify-content-center" href=#
-                        data-current=true>1</a></li>
-                <li class=pagination-page><a
-                        class="pagination-page_link d-flex align-items-center justify-content-center" href=#>2</a></li>
-                <li class=pagination-page><a
-                        class="pagination-page_link d-flex align-items-center justify-content-center" href=#>3</a></li>
-            </ul>
-        </div>
-        <div class=widgets>
-            <div class="widgets-item widgets-item--search"><h4 class=widgets-item_header>Search by Posts</h4>
-                <form class=form--search data-type=searchPosts action=# method=get><input class="field required"
-                                                                                          type=text
-                                                                                          placeholder="Type something...">
-                    <button class=btn type=submit>Search</button>
-                </form>
-            </div>
-            <div class="widgets-item widgets-item--categories">
-                <h4 class="widgets-item_header d-flex align-items-center"><span class=leaf><svg width=24 height=24
-                                                                                                viewBox="0 0 24 24"
-                                                                                                fill=none
-                                                                                                xmlns=http://www.w3.org/2000/svg></svg> </span>Categories List
-                </h4>
-                <nav class=widgets-item_nav>
-                    <div class=wrapper><a class="nav-link d-inline-flex align-items-center" href=#
-                                          data-bs-toggle=collapse data-bs-target=#healthSubmenu aria-expanded=true
-                                          aria-controls=healthSubmenu data-level=first><i
-                            class="icon-caret_right icon"></i> Health</a></div>
-                    <ul class="nav-list nav-list--main collapse show" id=healthSubmenu>
-                        <li><a class="nav-link d-inline-flex align-items-center" href=# data-bs-toggle=collapse
-                               data-bs-target=#depressionSubmenu aria-expanded=false aria-controls=depressionSubmenu
-                               data-level=second><i class="icon-caret_right icon"></i> Depression</a>
-                            <ul class="collapse nav-list--sub" id=depressionSubmenu>
-                                <li class=nav-item><a class=nav-link href=# data-level=third>Lorem</a></li>
-                                <li class=nav-item><a class=nav-link href=# data-level=third>Ipsum</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="nav-link d-inline-flex align-items-center" href=# data-bs-toggle=collapse
-                               data-bs-target=#eyeSubmenu aria-expanded=false aria-controls=eyeSubmenu
-                               data-level=second><i class="icon-caret_right icon"></i> Eye Disease</a>
-                            <ul class="collapse nav-list" id=eyeSubmenu>
-                                <li class=nav-item><a class="nav-link d-inline-flex align-items-center" href=#
-                                                      data-bs-toggle=collapse data-bs-target=#glaucomaSubmenu
-                                                      aria-expanded=false aria-controls=glaucomaSubmenu
-                                                      data-level=third><i class="icon-caret_right icon"></i>
-                                    Glaucoma</a>
-                                    <ul class="collapse nav-list" id=glaucomaSubmenu>
-                                        <li class=nav-item><a class=nav-link href=# data-level=fourth>Lorem</a></li>
-                                        <li class=nav-item><a class=nav-link href=# data-level=fourth>Ipsum</a></li>
-                                        <li class=nav-item><a class=nav-link href=# data-level=fourth>Dolor sit amet</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class=nav-item><a class="nav-link d-inline-flex align-items-center" href=#
-                                                      data-bs-toggle=collapse data-bs-target=#blindnessSubmenu
-                                                      aria-expanded=false aria-controls=blindnessSubmenu
-                                                      data-level=third><i class="icon-caret_right icon"></i>
-                                    Neurodegenerative Blindness</a>
-                                    <ul class="collapse nav-list" id=blindnessSubmenu>
-                                        <li class=nav-item><a class=nav-link href=# data-level=fourth>Lorem</a></li>
-                                        <li class=nav-item><a class=nav-link href=# data-level=fourth>Ipsum</a></li>
-                                        <li class=nav-item><a class=nav-link href=# data-level=fourth>Dolor sit amet</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class=nav-item><a class="nav-link d-inline-flex align-items-center" href=#
-                                                      data-bs-toggle=collapse data-bs-target=#diabeticSubmenu
-                                                      aria-expanded=false aria-controls=diabeticSubmenu
-                                                      data-level=third><i class="icon-caret_right icon"></i> Diabetic
-                                    Retinopathy</a>
-                                    <ul class="collapse nav-list" id=diabeticSubmenu>
-                                        <li class=nav-item><a class=nav-link href=# data-level=fourth>Lorem</a></li>
-                                        <li class=nav-item><a class=nav-link href=# data-level=fourth>Ipsum</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class=nav-item><a class="nav-link d-inline-flex align-items-center" href=#
-                                              data-bs-toggle=collapse data-bs-target=#epilepsySubmenu
-                                              aria-expanded=false aria-controls=epilepsySubmenu data-level=second><i
-                                class="icon-caret_right icon"></i> Epilepsy</a>
-                            <ul class="collapse nav-list" id=epilepsySubmenu>
-                                <li class=nav-item><a class=nav-link href=# data-level=third>Lorem</a></li>
-                                <li class=nav-item><a class=nav-link href=# data-level=third>Ipsum</a></li>
-                            </ul>
-                        </li>
-                        <li class=nav-item><a class="nav-link d-inline-flex align-items-center" href=#
-                                              data-bs-toggle=collapse data-bs-target=#cancerSubmenu aria-expanded=false
-                                              aria-controls=cancerSubmenu data-level=second><i
-                                class="icon-caret_right icon"></i> Cancer</a>
-                            <ul class="collapse nav-list" id=cancerSubmenu>
-                                <li class=nav-item><a class=nav-link href=# data-level=third>Lorem</a></li>
-                                <li class=nav-item><a class=nav-link href=# data-level=third>Ipsum</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <a class="nav-link d-inline-flex align-items-center" href=# data-bs-toggle=collapse
-                       data-bs-target=#ediblesSubmenu aria-expanded=false aria-controls=ediblesSubmenu data-level=first><i
-                            class="icon-caret_right icon"></i> Edibles</a>
-                    <ul class="collapse nav-list" id=ediblesSubmenu>
-                        <li class=nav-item><a class=nav-link href=# data-level=second>Lorem</a></li>
-                        <li class=nav-item><a class=nav-link href=# data-level=second>Ipsum</a></li>
-                        <li class=nav-item><a class=nav-link href=# data-level=second>Dolor sit amet</a></li>
-                        <li class=nav-item><a class=nav-link href=# data-level=second>Massa ultricies mi quis</a></li>
-                        <li class=nav-item><a class=nav-link href=# data-level=second>Nunc non blandit</a></li>
-                    </ul>
-                    <div class=wrapper><a class="nav-link d-inline-flex align-items-center" href=#
-                                          data-bs-toggle=collapse data-bs-target=#growSubmenu aria-expanded=false
-                                          aria-controls=growSubmenu data-level=first><i
-                            class="icon-caret_right icon"></i> Grow</a></div>
-                    <ul class=collapse id=growSubmenu>
-                        <li class=nav-item><a class=nav-link href=# data-level=second>Dolor sit amet</a></li>
-                        <li class=nav-item><a class=nav-link href=# data-level=second>Massa ultricies mi quis</a></li>
-                        <li class=nav-item><a class=nav-link href=# data-level=second>Nunc non blandit</a></li>
-                    </ul>
-                    <div class=wrapper><a class="nav-link d-inline-flex align-items-center" href=#
-                                          data-bs-toggle=collapse data-bs-target=#cbdSubmenu aria-expanded=false
-                                          aria-controls=cbdSubmenu data-level=first><i
-                            class="icon-caret_right icon"></i> CBD</a></div>
-                    <ul class="collapse nav-list" id=cbdSubmenu>
-                        <li class=nav-item><a class=nav-link href=# data-level=second>Dolor sit amet</a></li>
-                        <li class=nav-item><a class=nav-link href=# data-level=second>Massa ultricies mi quis</a></li>
-                        <li class=nav-item><a class=nav-link href=# data-level=second>Nunc non blandit</a></li>
-                        <li class=nav-item><a class=nav-link href=# data-level=second>Ut lectus arcu</a></li>
-                        <li class=nav-item><a class=nav-link href=# data-level=second>Facilisi cras fermentum</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="widgets-item widgets-item--recent">
-                <h4 class="widgets-item_header d-flex align-items-center"><span class=leaf><svg width=24 height=24
-                                                                                                viewBox="0 0 24 24"
-                                                                                                fill=none
-                                                                                                xmlns=http://www.w3.org/2000/svg></svg> </span>Recent Posts
-                </h4>
-                <ul class=list>
-                    <li class=list-item><a class="d-flex flex-column flex-sm-row align-items-sm-center"
-                                           href=http://127.0.0.1:8000/post.html/><span class=media><picture><source
-                            data-srcset=img/news/aside/recent01.webp srcset=img/news/aside/recent01.webp
-                            type=image/webp><img class=preview data-src=img/news/aside/recent01.jpg
-                                                 src=img/news/aside/recent01.jpg alt=post></picture></span><span
-                            class=wrapper><span class=title>Best Weed Strains For Anxiety</span> <span
-                            class="metadata d-flex align-items-center"><i class="icon-calendar_day icon"></i>September 30, 2021</span></span></a>
-                    </li>
-                    <li class=list-item><a class="d-flex flex-column flex-sm-row align-items-sm-center"
-                                           href=http://127.0.0.1:8000/post.html/><span class=media><picture><source
-                            data-srcset=img/shop/04.webp srcset=img/shop/04.webp type=image/webp><img class=preview
-                                                                                                      data-src=img/shop/04.jpg
-                                                                                                      src=img/shop/04.jpg
-                                                                                                      alt=post></picture></span><span
-                            class=wrapper><span class=title>7 Things You Need to Know About Edibles</span> <span
-                            class="metadata d-flex align-items-center"><i class="icon-calendar_day icon"></i>September 30, 2021</span></span></a>
-                    </li>
-                    <li class=list-item><a class="d-flex flex-column flex-sm-row align-items-sm-center"
-                                           href=http://127.0.0.1:8000/post.html/><span class=media><picture><source
-                            data-srcset=img/news/aside/recent03.webp srcset=img/news/aside/recent03.webp
-                            type=image/webp><img class=preview data-src=img/news/aside/recent03.jpg
-                                                 src=img/news/aside/recent03.jpg alt=post></picture></span><span
-                            class=wrapper><span class=title>Vaporizers vs. Vapes: What’s the Difference?</span> <span
-                            class="metadata d-flex align-items-center"><i class="icon-calendar_day icon"></i>September 30, 2021</span></span></a>
-                    </li>
-                    <li class=list-item><a class="d-flex flex-column flex-sm-row align-items-sm-center"
-                                           href=http://127.0.0.1:8000/post.html/><span class=media><picture><source
-                            data-srcset=img/index/latest01.webp srcset=img/index/latest01.webp type=image/webp><img
-                            class=preview data-src=img/index/latest01.jpg src=img/index/latest01.jpg alt=post></picture></span><span
-                            class=wrapper><span class=title>Factors in Choosing Cannabis Products</span> <span
-                            class="metadata d-flex align-items-center"><i class="icon-calendar_day icon"></i>September 30, 2021</span></span></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="widgets-item widgets-item--tags">
-                <h4 class="widgets-item_header d-flex align-items-center"><span class=leaf><svg width=24 height=24
-                                                                                                viewBox="0 0 24 24"
-                                                                                                fill=none
-                                                                                                xmlns=http://www.w3.org/2000/svg></svg> </span>Tags
-                </h4>
-                <ul class="list d-flex flex-wrap">
-                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Vaping</a>
-                    </li>
-                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Cannabis</a>
-                    </li>
-                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Flower</a>
-                    </li>
-                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Health</a>
-                    </li>
-                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Nature</a>
-                    </li>
-                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Help</a>
-                    </li>
-                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Facts</a>
-                    </li>
-                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Medicine</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="widgets-item widgets-item--comments">
-                <h4 class="widgets-item_header d-flex align-items-center"><span class=leaf><svg width=24 height=24
-                                                                                                viewBox="0 0 24 24"
-                                                                                                fill=none
-                                                                                                xmlns=http://www.w3.org/2000/svg></svg> </span>Recent Comments
-                </h4>
-                <ul class=list>
-                    <li class="list-item d-flex align-items-baseline"><i class="icon-commenting icon"></i> <span
-                            class=comment><span class=author>Admin</span> in tempor eros tortor, a ornare</span></li>
-                    <li class="list-item d-flex"><i class="icon-commenting icon"></i> <span class=comment><span
-                            class=author>Admin</span> in tempor eros tortor, a ornare</span></li>
-                    <li class="list-item d-flex"><i class="icon-commenting icon"></i> <span class=comment><span
-                            class=author>Admin</span> in tempor eros tortor, a ornare</span></li>
-                </ul>
-            </div>
-            <div class="widgets-item widgets-item--calendar">
-                <h4 class="widgets-item_header d-flex align-items-center"><span class=leaf><svg width=24 height=24
-                                                                                                viewBox="0 0 24 24"
-                                                                                                fill=none
-                                                                                                xmlns=http://www.w3.org/2000/svg></svg> </span>Calendar
-                </h4>
-                <table class=table>
-                    <caption class=table_header>October 2021</caption>
-                    <tbody class=table_body>
-                    <tr class=table_body-week>
-                        <th class=table_body-week_day>S</th>
-                        <th class=table_body-week_day>M</th>
-                        <th class=table_body-week_day>T</th>
-                        <th class=table_body-week_day>W</th>
-                        <th class=table_body-week_day>T</th>
-                        <th class=table_body-week_day>F</th>
-                        <th class=table_body-week_day>S</th>
-                    </tr>
-                    <tr class=table_body-dates>
-                        <td class=table_body-dates_date></td>
-                        <td class=table_body-dates_date></td>
-                        <td class=table_body-dates_date></td>
-                        <td class=table_body-dates_date>1</td>
-                        <td class=table_body-dates_date>2</td>
-                        <td class=table_body-dates_date>3</td>
-                        <td class=table_body-dates_date>4</td>
-                    </tr>
-                    <tr class=table_body-dates>
-                        <td class=table_body-dates_date>5</td>
-                        <td class=table_body-dates_date>6</td>
-                        <td class=table_body-dates_date>7</td>
-                        <td class=table_body-dates_date>8</td>
-                        <td class=table_body-dates_date>9</td>
-                        <td class=table_body-dates_date>10</td>
-                        <td class=table_body-dates_date>11</td>
-                    </tr>
-                    <tr class=table_body-dates>
-                        <td class=table_body-dates_date>12</td>
-                        <td class=table_body-dates_date>13</td>
-                        <td class=table_body-dates_date>14</td>
-                        <td class=table_body-dates_date>15</td>
-                        <td class="table_body-dates_date table_body-dates_date--current">16</td>
-                        <td class=table_body-dates_date>17</td>
-                        <td class=table_body-dates_date>18</td>
-                    </tr>
-                    <tr class=table_body-dates>
-                        <td class=table_body-dates_date>19</td>
-                        <td class=table_body-dates_date>20</td>
-                        <td class=table_body-dates_date>21</td>
-                        <td class=table_body-dates_date>22</td>
-                        <td class=table_body-dates_date>23</td>
-                        <td class=table_body-dates_date>24</td>
-                        <td class=table_body-dates_date>25</td>
-                    </tr>
-                    <tr class=table_body-dates>
-                        <td class=table_body-dates_date>26</td>
-                        <td class=table_body-dates_date>27</td>
-                        <td class=table_body-dates_date>28</td>
-                        <td class=table_body-dates_date>29</td>
-                        <td class=table_body-dates_date>30</td>
-                        <td class=table_body-dates_date>31</td>
-                        <td class=table_body-dates_date></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div class="navigation d-flex align-items-center justify-content-between"><a
-                        class="navigation_control navigation_control--prev d-inline-flex align-items-center" href=#><i
-                        class="icon-caret_left icon"></i> Previous </a><a
-                        class="navigation_control navigation_control--next d-inline-flex align-items-center" href=#>Next
-                    <i class="icon-caret_right icon"></i></a></div>
-            </div>
-            <div class="widgets-item widgets-item--archives">
-                <h4 class="widgets-item_header d-flex align-items-center"><span class=leaf><svg width=24 height=24
-                                                                                                viewBox="0 0 24 24"
-                                                                                                fill=none
-                                                                                                xmlns=http://www.w3.org/2000/svg></svg> </span>Archives
-                </h4>
-                <ul class=list>
-                    <li class="list-item d-flex align-items-center justify-content-between"><span
-                            class="month d-flex align-items-center"><i class="icon-calendar_month icon"></i> <span
-                            class=month_name>January</span> </span><a class=link href=#>(12)</a></li>
-                    <li class="list-item d-flex align-items-center justify-content-between"><span
-                            class="month d-flex align-items-center"><i class="icon-calendar_month icon"></i> <span
-                            class=month_name>February</span> </span><a class=link href=#>(14)</a></li>
-                    <li class="list-item d-flex align-items-center justify-content-between"><span
-                            class="month d-flex align-items-center"><i class="icon-calendar_month icon"></i> <span
-                            class=month_name>March</span> </span><a class=link href=#>(16)</a></li>
-                    <li class="list-item d-flex align-items-center justify-content-between"><span
-                            class="month d-flex align-items-center"><i class="icon-calendar_month icon"></i> <span
-                            class=month_name>April</span> </span><a class=link href=#>(23)</a></li>
-                </ul>
-            </div>
-            <div class="widgets-item widgets-item--sale">
-                <div class=content><h4 class=content_header>Everything is 20% off for this special day! Save now or miss
-                    out on this great deal!</h4>
-                    <p class=content_text>Excluding items already on sale</p>
-                    <div class="content_timer timer d-flex justify-content-start">
-                        <div class="timer_block d-flex flex-column justify-content-center"><span
-                                class=timer_block-number id=hours>22</span></div>
-                        <div class="timer_separator d-flex flex-column justify-content-center align-items-center"><span
-                                class=dot></span> <span class=dot></span></div>
-                        <div class="timer_block d-flex flex-column justify-content-center"><span
-                                class=timer_block-number id=minutes>00</span></div>
-                        <div class="timer_separator d-flex flex-column justify-content-center align-items-center"><span
-                                class=dot></span> <span class=dot></span></div>
-                        <div class="timer_block d-flex flex-column justify-content-center"><span
-                                class=timer_block-number id=seconds>59</span></div>
-                    </div>
-                    <a href=# class=btn>Shop Now</a></div>
-                <div class=media>
-                    <picture>
-                        <source data-srcset=img/news/aside/leaf.webp srcset=img/news/aside/leaf.webp type=image/webp>
-                        <img class="lazy leaf" data-src=img/news/aside/leaf.png src=img/news/aside/leaf.png alt=media>
-                    </picture>
-                </div>
-            </div>
         </div>
     </div>
 </main>
+
 <footer class=footer>
     <div class="footer_main section">
         <div class="container d-flex flex-column flex-md-row flex-wrap flex-xl-nowrap justify-content-xl-between">

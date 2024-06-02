@@ -30,7 +30,7 @@ urlpatterns = [
     path('compare.html/', views.compare, name="compare"),
     path('contacts/', views.contacts, name="contacts"),
     path('faq.html/', views.faq, name="faq"),
-    path('news.html/', views.news, name="news"),
+    path('news/', views.news, name='news'),
     path('post.html/', views.post, name="post"),
     path('product.html/', views.product, name="product"),
     path('shop.html/', views.shop, name="shop"),
@@ -47,7 +47,7 @@ urlpatterns = [
     path('get_products/', views.get_products, name='get_products'),
     path('get_products_by_effect/', views.get_products_by_effect, name='get_products_by_effect'),
     path('chat/', include('chatbot.urls')),  # Inclusion des URLs de l'application chatbot
-    path('posts', views.post_list, name='post_list'),
+    path('posts/', views.post_list, name='post_list'),
     path('post/<int:post_id>/', views.post_detail, name='post_detail'),
 
     #path('product/<int:product_id>/', views.product, name="product"),

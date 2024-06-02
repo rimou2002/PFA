@@ -47,8 +47,8 @@ def faq(request):
 
 
 def news(request):
-    templates = "news.html"
-    return render(request, templates)
+    posts = Post.objects.all()
+    return render(request, 'news.html', {'posts': posts})
 
 
 def post(request):
@@ -227,7 +227,7 @@ from .models import Post
 # Vue pour lister tous les posts
 def post_list(request):
     posts = Post.objects.all()
-    return render(request, 'post_list.html', {'posts': posts})
+    return render(request, 'news.html', {'posts': posts})
 
 # Vue pour afficher le contenu d'un post spécifique
 def post_detail(request, post_id):
