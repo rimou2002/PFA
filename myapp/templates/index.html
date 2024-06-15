@@ -456,78 +456,48 @@
          </div>
      </section>
      <section class="latest section">
-         <div class=container><h2 class=latest_header>Latest News</h2>
+         <div class="container">
+             <h2 class="latest_header">Latest News</h2>
              <div class="latest_wrapper d-flex flex-column-reverse flex-lg-row">
-                 <div class=latest_promo data-aos=fade-right>
+                 <div class="latest_promo" data-aos="fade-right">
                      <picture>
-                         <source srcset=img/index/promo.webp type=image/webp>
-                         <img class="lazy latest_promo-bg" data-src=img/index/promo.jpg src=img/index/promo.jpg
-                              alt=promo></picture>
+                         <source srcset="static/img/index/new_promo.webp" type="image/webp">
+                         <img class="lazy latest_promo-bg" data-src="img/index/new_promo.jpg" src="static/img/index/new_promo.jpg" alt="promo">
+                     </picture>
+
                      <div class="overlay d-flex d-sm-block flex-column justify-content-center">
-                         <h4 class=overlay_header>Buy Marijuana Seeds Online and Get a Gift</h4>
-                         <p class=overlay_text>Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat
-                             pulvinar proin</p></div>
+                         <h4 class="overlay_header">Buy Marijuana Seeds Online and Get a Gift</h4>
+                         <p class="overlay_text">Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat pulvinar proin</p>
+                     </div>
                  </div>
                  <ul class="latest_list col-lg-7 col-xl-6">
-                     <li class="list-item d-flex flex-column flex-sm-row" data-aos=fade-up>
-                 <span class=latest_list-preview><picture><source data-srcset=img/index/latest01.webp
-                                                                  srcset=img/index/latest01.webp type=image/webp>
-                     <img class="lazy preview-img" data-src=img/index/latest01.jpg src=img/index/latest01.jpg
-                          alt="Top 15 Best Strain Of Weed For Anxiety"></picture></span>
-                         <div class="latest_list-main d-sm-flex flex-column justify-content-between flex-grow-1"><span
-                                 class=metadata>
-                     <span class="metadata_item d-inline-flex align-items-center"><i
-                             class="icon-calendar_day icon secondary">
-
-                     </i> September 30, 2021 </span><span class="metadata_item d-inline-flex align-items-center">
-                     <i class="icon-comments icon secondary"></i> <span class="number d-md-none">0</span> <span
-                                 class="text d-none d-md-inline">No Comments</span>
-                 </span></span><a class=title href=http://127.0.0.1:8000/post.html/>Top 15 Best Strain Of Weed For Anxiety</a>
-                             <p class=text>Felis eget velit aliquet sagittis id consectetur. Eleifend donec pretium
-                                 vulputate sapien nec sagittis</p>
+                     {% for post in latest_posts %}
+                     <li class="list-item d-flex flex-column flex-sm-row" data-aos="fade-up">
+                    <span class="latest_list-preview">
+                        <picture>
+                            <source data-srcset="{{ post.image.url }}" srcset="{{ post.image.url }}" type="image/webp">
+                            <img class="lazy preview-img" data-src="{{ post.image.url }}" src="{{ post.image.url }}" alt="{{ post.title }}">
+                        </picture>
+                    </span>
+                         <div class="latest_list-main d-sm-flex flex-column justify-content-between flex-grow-1">
+                        <span class="metadata">
+                            <span class="metadata_item d-inline-flex align-items-center">
+                                <i class="icon-calendar_day icon secondary"></i> {{ post.date }}
+                            </span>
+                            <span class="metadata_item d-inline-flex align-items-center">
+                                <i class="icon-comments icon secondary"></i> <span class="number d-md-none">0</span> <span class="text d-none d-md-inline">No Comments</span>
+                            </span>
+                        </span>
+                             <a class="title" href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+                             <p class="text">{{ post.des }}</p>
                          </div>
                      </li>
-                     <li class="list-item d-flex flex-column flex-sm-row" data-aos=fade-up><span
-                             class=latest_list-preview><picture>
-                 <source data-srcset=img/index/latest02.webp srcset=img/index/latest02.webp type=image/webp>
-                 <img class="lazy preview-img" data-src=img/index/latest02.jpg src=img/index/latest02.jpg
-                      alt="Raw Cannabis Seeds Promote Health">
-             </picture></span>
-                         <div class="latest_list-main d-sm-flex flex-column justify-content-between flex-grow-1"><span
-                                 class=metadata>
-                 <span class="metadata_item d-inline-flex align-items-center"><i
-                         class="icon-calendar_day icon secondary">
-
-                 </i> September 30, 2021 </span><span class="metadata_item d-inline-flex align-items-center">
-                 <i class="icon-comments icon secondary"></i> <span class="number d-md-none">0</span>
-                 <span class="text d-none d-md-inline">No Comments</span> </span></span>
-                             <a class=title href=http://127.0.0.1:8000/post.html/>Raw Cannabis Seeds Promote Health</a>
-                             <p class=text>Felis eget velit aliquet sagittis id consectetur. Eleifend donec pretium
-                                 vulputate sapien nec sagittis</p>
-                         </div>
-                     </li>
-                     <li class="list-item d-flex flex-column flex-sm-row" data-aos=fade-up><span
-                             class=latest_list-preview><picture>
-                 <source data-srcset=img/index/latest03.webp srcset=img/index/latest03.webp type=image/webp>
-                 <img class="lazy preview-img" data-src=img/index/latest03.jpg src=img/index/latest03.jpg
-                      alt="How Many Autoflowers In a Tent?"></picture>
-             </span>
-                         <div class="latest_list-main d-sm-flex flex-column justify-content-between flex-grow-1"><span
-                                 class=metadata>
-                 <span class="metadata_item d-inline-flex align-items-center"><i
-                         class="icon-calendar_day icon secondary">
-
-                 </i> September 30, 2021 </span><span class="metadata_item d-inline-flex align-items-center">
-                 <i class="icon-comments icon secondary"></i> <span class="number d-md-none">0</span>
-                 <span class="text d-none d-md-inline">No Comments</span> </span></span>
-                             <a class=title href=http://127.0.0.1:8000/post.html/>How Many Autoflowers In a Tent?</a>
-                             <p class=text>Felis eget velit aliquet sagittis id consectetur. Eleifend donec pretium
-                                 vulputate sapien nec sagittis</p></div>
-                     </li>
+                     {% endfor %}
                  </ul>
              </div>
          </div>
      </section>
+
      <section class=instagram>
          <div class=container>
              <div class=instagram_header>

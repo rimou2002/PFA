@@ -5,7 +5,7 @@
     <meta charset=UTF-8>
     <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1">
     <meta http-equiv=X-UA-Compatible content="ie=edge">
-    <title>Benefits of CBD Extract for Health | Herbalist</title>
+    <title>{{ post.title }}</title>
     {% load static %}
     <link rel="stylesheet preload" as=style href="{% static 'css/preload.min.css' %}">
     <link rel="stylesheet preload" as=style href="{% static 'css/icomoon.css' %}">
@@ -121,16 +121,15 @@
 </header>
 <header class=page>
     <div class="page_main container-fluid">
-        <div class=container><h1 class=page_header>Benefits of CBD Extract for Health</h1>
-            <p class=page_text>Nibh tellus molestie nunc non blandit. Mi tempus imperdiet nulla malesuada pellentesque
-                elit</p></div>
+        <div class=container><h1 class=page_header>{{ post.title }}</h1>
+            <p class=page_text>{{ post.subtitle }}</p></div>
     </div>
     <div class=container>
         <ul class="page_breadcrumbs d-flex flex-wrap">
             <li class=page_breadcrumbs-item><a class=link href=http://127.0.0.1:8000/
 >Home</a></li>
             <li class=page_breadcrumbs-item><a class=link href=http://127.0.0.1:8000/news//>News</a></li>
-            <li class="page_breadcrumbs-item current"><span>Benefits of CBD Extract for Health</span></li>
+            <li class="page_breadcrumbs-item current"><span>{{ post.title }}</span></li>
         </ul>
     </div>
 </header>
@@ -138,15 +137,17 @@
     <div class=container>
         <div class=post_cover>
             <picture>
-                <source data-srcset=img/post/cover.webp srcset=img/post/cover.webp type=image/webp>
-                <img class=lazy data-src=img/post/cover.jpg src=img/post/cover.jpg alt=cover></picture>
+                <source data-srcset="{{ post.image.url }}" srcset="{{ post.image.url }}" type="image/webp">
+                <img class="lazy" data-src="{{ post.image.url }}" src="{{ post.image.url }}" alt="{{ post.title }}">
+            </picture>
+
         </div>
     </div>
     <article>
         <div class="container container--narrow">
             <div class="post_info d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
                 <div class="metadata metadata--info d-flex"><span class="metadata_item d-flex align-items-center"><i
-                        class="icon-calendar_day secondary icon"></i> September 30, 2021 </span><a
+                        class="icon-calendar_day secondary icon"></i> {{ post.date|date:"F d, Y" }} </span><a
                         class="metadata_item d-flex align-items-center" href=#postComments><i
                         class="icon-comments secondary icon"></i> <span class=metadata_item-text>2 Comments</span> <span
                         class=metadata_item-number>2</span></a></div>
@@ -165,104 +166,100 @@
                             class="icon-whatsapp icon"></i></a></li>
                 </ul>
             </div>
-            <p class=post_text>Amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus. Iaculis
-                nunc sed augue lacus viverra vitae. In nibh mauris cursus mattis molestie. Suspendisse ultrices gravida
-                dictum fusce ut placerat orci nulla. Pellentesque habitant morbi tristique senectus. Tortor aliquam
-                nulla facilisi cras fermentum odio. Neque gravida in fermentum et sollicitudin ac orci.</p>
-            <h2 class=post_header>Improving gastrointestinal symptoms</h2>
-            <p class=post_text>Vulputate eu scelerisque felis imperdiet proin fermentum leo vel. Massa ultricies mi quis
-                hendrerit. Purus sit amet volutpat consequat mauris nunc congue nisi. Aenean vel elit scelerisque mauris
-                pellentesque. Netus et malesuada fames ac turpis egestas integer eget. Nunc non blandit massa enim nec
-                dui nunc</p>
+            <p class=post_text>{{ post.des }}</p>
+            <h2 class=post_header>{{ post.title1 }}</h2>
+            <p class=post_text>{{ post.content }}</p>
             <ul class=post_list>
-                <li class=post_list-item>Massa massa ultricies mi quis hendrerit</li>
-                <li class=post_list-item>Facilisi cras fermentum odio eu feugiat</li>
-                <li class=post_list-item>Placerat vestibulum lectus mauris ultrices eros</li>
-                <li class=post_list-item>Nullam non nisi est sit amet facilisis</li>
+                <li class=post_list-item>{{ post.p1 }}</li>
+                <li class=post_list-item>{{ post.p2 }}</li>
+                <li class=post_list-item>{{ post.p3 }}</li>
+                <li class=post_list-item>{{ post.p4 }}</li>
             </ul>
-            <h2 class=post_header>Managing chronic pain</h2>
-            <p class=post_text>Elit scelerisque mauris pellentesque pulvinar. Quam adipiscing vitae proin sagittis nisl.
-                Tempor commodo ullamcorper a lacus vestibulum sed arcu non odio. In dictum non consectetur a. Nunc vel
-                risus commodo viverra</p>
-            <div class=post_quote><q class=post_quote-text>Aliquet risus feugiat in ante metus dictum at tempor. Id leo
-                in vitae turpis massa sed elementum tempus egestas. Placerat orci nulla pellentesque dignissim enim sit
-                amet. Justo eget magna fermentum iaculis eu non diam phasellus</q> <span class=post_quote-author>Tina Bradley</span>
+            <h2 class=post_header>{{ post.title2 }}</h2>
+            <p class=post_text>{{ post.content_2 }}</p>
+            <div class=post_quote><q class=post_quote-text>{{ post.quotes }}</q> <span class=post_quote-author>{{ post.quotes_author }}</span>
             </div>
-            <p class=post_text>Commodo viverra maecenas accumsan lacus vel facilisis volutpat. Nec tincidunt praesent
-                semper feugiat nibh sed. Felis eget nunc lobortis mattis aliquam. Iaculis eu non diam phasellus
-                vestibulum. Aliquam id diam maecenas ultricies mi eget mauris.</p>
-            <h2 class=post_header>Supporting mental health</h2>
+            <p class=post_text>{{ post.content_3 }}</p>
+            <h2 class=post_header>{{ post.title3 }}</h2>
             <div class=post_highlight>
                 <div class="post_highlight-wrapper d-md-flex justify-content-between">
-                    <div class=post_highlight-block><p class=post_text>Quisque non tellus orci ac auctor augue mauris
-                        augue neque. Lacus sed viverra tellus in hac habitasse platea dictumst. Euismod elementum nisi
-                        quis eleifend quam adipiscing vitae proin.</p>
+                    <div class=post_highlight-block><p class=post_text>{{ post.content_4 }}</p>
                         <ul class="post_list ordered">
-                            <li class="post_list-item d-flex align-items-start"><span class=number>1.</span> Lacus sed
-                                viverra tellus in hac habitasse platea dictumst
+                            <li class="post_list-item d-flex align-items-start"><span class=number>1.</span> {{ post.pp1 }}
                             </li>
-                            <li class="post_list-item d-flex align-items-start"><span class=number>2.</span> Gravida
-                                neque convallis a cras semper auctor neque vitae
+                            <li class="post_list-item d-flex align-items-start"><span class=number>2.</span> {{ post.pp2 }}
                             </li>
-                            <li class="post_list-item d-flex align-items-start"><span class=number>3.</span> Euismod
-                                elementum nisi quis eleifend quam adipiscing vitae proin. Massa tincidunt dui ut ornare
-                                lectus
+                            <li class="post_list-item d-flex align-items-start"><span class=number>3.</span> {{ post.pp3 }}
                             </li>
-                            <li class="post_list-item d-flex align-items-start"><span class=number>4.</span> Lacus sed
-                                turpis tincidunt id aliquet risus feugiat in
+                            <li class="post_list-item d-flex align-items-start"><span class=number>4.</span> {{ post.pp4 }}
                             </li>
                         </ul>
                     </div>
                     <div class=post_highlight-media>
                         <div class=post_highlight-media_img>
                             <picture>
-                                <source data-srcset=img/post/01.webp srcset=img/post/01.webp type=image/webp>
-                                <img class=lazy data-src=img/post/01.jpg src=img/post/01.jpg alt=media></picture>
+                                <source data-srcset="{{ post.image2.url }}" srcset="{{ post.image2.url }}" type="image/webp">
+                                <img class="lazy" data-src="{{ post.image2.url }}" src="{{ post.image2.url }}" alt="{{ post.title }}">
+                            </picture>
                         </div>
-                        <p class=post_highlight-media_capture>Purus ut faucibus pulvinar elementum. Et malesuada fames
-                            ac turpis</p></div>
+                        <p class=post_highlight-media_capture>{{ post.desimage }}</p></div>
                 </div>
-                <p class=post_text>Dui faucibus in ornare quam viverra orci sagittis eu. Libero nunc consequat interdum
-                    varius sit amet. Ut aliquam purus sit amet luctus venenatis lectus. Pharetra pharetra massa massa
-                    ultricies mi quis. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla.
-                    Lectus sit amet est placerat in</p></div>
+                <p class=post_text>{{ post.content_5 }}</p></div>
             <div class="post_tags d-sm-flex align-items-center"><h5 class=post_tags-header>Tags</h5>
                 <ul class="post_tags-list d-flex flex-wrap">
-                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Vaping</a>
+                    {% for tag in post.get_tags_list %}
+                    <li class="list-item">
+                        <a class="link d-inline-flex align-items-center justify-content-center" href="#">{{ tag }}</a>
                     </li>
-                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Cannabis</a>
-                    </li>
-                    <li class=list-item><a class="link d-inline-flex align-items-center justify-content-center" href=#>Flower</a>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
     </article>
+
+
     <div class=post_footer>
         <div class="container container--narrow">
             <div class="post_footer-author d-flex flex-column flex-sm-row align-items-lg-center">
                 <picture>
-                    <source data-srcset=img/post/author.webp srcset=img/post/author.webp type=image/webp>
-                    <img class="lazy post_footer-author_avatar" data-src=img/post/author.jpg src=img/post/author.jpg
-                         alt=media></picture>
-                <div class=post_footer-author_about><h4 class=name>James Wagner</h4>
-                    <p class=bio>Nec ullamcorper sit amet risus nullam eget. Sed odio morbi quis commodo odio. Arcu
-                        cursus euismod quis viverra. Sed adipiscing diam donec adipiscing.Tempor orci eu lobortis
-                        elementum nibh. Duis tristique sollicitudin nibh sit amet commodo nulla facilisi</p></div>
+                    <source data-srcset="{{ post.author.image.url }}" srcset="{{ post.author.image.url }}" type="image/webp">
+                    <img class="lazy post_footer-author_avatar" data-src="{{ post.author.image.url }}" src="{{ post.author.image.url }}" alt="media">
+                </picture>
+                <div class=post_footer-author_about><h4 class=name>{{ post.author.name }}</h4>
+                    <p class=bio>{{ post.author.bio }}</p></div>
             </div>
             <div class="post_footer-nav d-sm-flex justify-content-between">
-                <div class="post_footer-nav_block post_footer-nav_block--prev d-flex flex-column"><a
-                        class="nav-link nav-link--prev d-inline-flex align-items-center" href=#><i
-                        class="icon-caret_left icon"></i> Previous Post </a><a class=post-title href=#>Get the Best Out
-                    of Your Cannabis Experience</a></div>
-                <div class="post_footer-nav_block post_footer-nav_block--next d-flex flex-column align-items-end"><a
-                        class="nav-link nav-link--next d-inline-flex align-items-center" href=#>Next Post <i
-                        class="icon-caret_right icon"></i> </a><a class=post-title href=#>Factors in Choosing Cannabis
-                    Products</a></div>
+                <div class="post_footer-nav_block post_footer-nav_block--prev d-flex flex-column">
+                    {% if previous_post %}
+                    <a class="nav-link nav-link--prev d-inline-flex align-items-center" href="{% url 'post_detail' previous_post.id %}">
+                        <i class="icon-caret_left icon"></i> Previous Post
+                    </a>
+                    <a class="post-title" href="{% url 'post_detail' previous_post.id %}">{{ previous_post.title }}</a>
+                    {% else %}
+                    <span class="nav-link nav-link--prev d-inline-flex align-items-center">
+            <i class="icon-caret_left icon"></i> Previous Post
+        </span>
+                    <span class="post-title">No previous post</span>
+                    {% endif %}
+                </div>
+                <div class="post_footer-nav_block post_footer-nav_block--next d-flex flex-column align-items-end">
+                    {% if next_post %}
+                    <a class="nav-link nav-link--next d-inline-flex align-items-center" href="{% url 'post_detail' next_post.id %}">
+                        Next Post <i class="icon-caret_right icon"></i>
+                    </a>
+                    <a class="post-title" href="{% url 'post_detail' next_post.id %}">{{ next_post.title }}</a>
+                    {% else %}
+                    <span class="nav-link nav-link--next d-inline-flex align-items-center">
+            Next Post <i class="icon-caret_right icon"></i>
+        </span>
+                    <span class="post-title">No next post</span>
+                    {% endif %}
+                </div>
             </div>
+
         </div>
     </div>
-    <section class=comments id=postComments>
+    <!-- <section class=comments id=postComments>
         <div class="container container--narrow"><h2 class=comments_header>2 Comments</h2>
             <div class="comments_item d-sm-flex">
                 <picture>
@@ -291,7 +288,7 @@
                         cras adipiscing enim</p></div>
             </div>
         </div>
-    </section>
+    </section>-->
     <section class=reply>
         <div class="container container--narrow"><h2 class=reply_header>Leave a Reply</h2>
             <form class="reply_form form d-flex flex-column flex-md-row flex-wrap justify-content-between" action=#
@@ -310,77 +307,42 @@
     </section>
 </main>
 <aside class="latest section">
-    <div class=container><h2 class=latest_header>Latest News</h2>
+    <div class="container">
+        <h2 class="latest_header">Latest News</h2>
         <div class="latest_posts swiper">
-            <div class=swiper-wrapper>
+            <div class="swiper-wrapper">
+                {% for post in latest_posts %}
                 <div class="latest_posts-post swiper-slide">
-                    <div class=latest_posts-post_wrapper>
-                        <div class=media>
+                    <div class="latest_posts-post_wrapper">
+                        <div class="media">
                             <picture>
-                                <source data-srcset=img/about/latest01.webp srcset=img/about/latest01.webp
-                                        type=image/webp>
-                                <img class=lazy data-src=img/about/latest01.jpg src=img/about/latest01.jpg
-                                     alt="What Are The Different Types Of Cannabis Products?"></picture>
+                                <source data-srcset="{{ post.image2.url }}" srcset="{{ post.image2.url }}" type="image/webp">
+                                <img class="lazy" data-src="{{ post.image.url }}" src="{{ post.image.url }}" alt="{{ post.title }}">
+                            </picture>
                         </div>
-                        <div class="metadata d-flex"><span class="metadata_item d-flex align-items-center"><i
-                                class="icon-calendar secondary icon"></i> September 30, 2021 </span><span
-                                class="metadata_item d-flex align-items-center"><i
-                                class="icon-comments secondary icon"></i> <span
-                                class="metadata_item-post_text d-none d-sm-inline">No Comments</span> <span
-                                class=metadata_item-number>0</span></span></div>
-                        <div class=main><a class=title href=http://127.0.0.1:8000/post.html/ target=_blank rel="noopener norefferer">What Are
-                            The Different Types Of Cannabis Products?</a>
-                            <p class=ppostReply>Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus</p>
+                        <div class="metadata d-flex">
+                            <span class="metadata_item d-flex align-items-center">
+                                <i class="icon-calendar secondary icon"></i> {{ post.date }}
+                            </span>
+                            <span class="metadata_item d-flex align-items-center">
+                                <i class="icon-comments secondary icon"></i>
+                                <span class="metadata_item-post_text d-none d-sm-inline">No Comments</span>
+                                <span class="metadata_item-number">0</span>
+                            </span>
+                        </div>
+                        <div class="main">
+                            <a class="title" href="{% url 'post_detail' post.id %}" target="_blank" rel="noopener noreferrer">{{ post.title }}</a>
+                            <p class="ppostReply">{{ post.subtitle }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="latest_posts-post swiper-slide">
-                    <div class=latest_posts-post_wrapper>
-                        <div class=media>
-                            <picture>
-                                <source data-srcset=img/about/latest02.webp srcset=img/about/latest02.webp
-                                        type=image/webp>
-                                <img class=lazy data-src=img/about/latest02.jpg src=img/about/latest02.jpg
-                                     alt="Get the Best Out of Your Cannabis Experience"></picture>
-                        </div>
-                        <div class="metadata d-flex"><span class="metadata_item d-flex align-items-center"><i
-                                class="icon-calendar secondary icon"></i> September 30, 2021 </span><span
-                                class="metadata_item d-flex align-items-center"><i
-                                class="icon-comments secondary icon"></i> <span
-                                class="metadata_item-post_text d-none d-sm-inline">No Comments</span> <span
-                                class=metadata_item-number>0</span></span></div>
-                        <div class=main><a class=title href=http://127.0.0.1:8000/post.html/ target=_blank rel="noopener norefferer">Get the
-                            Best Out of Your Cannabis Experience</a>
-                            <p class=ppostReply>Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="latest_posts-post swiper-slide">
-                    <div class=latest_posts-post_wrapper>
-                        <div class=media>
-                            <picture>
-                                <source data-srcset=img/about/latest03.webp srcset=img/about/latest03.webp
-                                        type=image/webp>
-                                <img class=lazy data-src=img/about/latest03.jpg src=img/about/latest03.jpg
-                                     alt="Factors in Choosing Cannabis Products"></picture>
-                        </div>
-                        <div class="metadata d-flex"><span class="metadata_item d-flex align-items-center"><i
-                                class="icon-calendar secondary icon"></i> September 30, 2021 </span><span
-                                class="metadata_item d-flex align-items-center"><i
-                                class="icon-comments secondary icon"></i> <span
-                                class="metadata_item-post_text d-none d-sm-inline">No Comments</span> <span
-                                class=metadata_item-number>0</span></span></div>
-                        <div class=main><a class=title href=http://127.0.0.1:8000/post.html/ target=_blank rel="noopener norefferer">Factors in
-                            Choosing Cannabis Products</a>
-                            <p class=ppostReply>Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus</p>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
             <div class="swiper-pagination swiper-pagination--dots"></div>
         </div>
     </div>
 </aside>
+
 <footer class=footer>
     <div class="footer_main section">
         <div class="container d-flex flex-column flex-md-row flex-wrap flex-xl-nowrap justify-content-xl-between">

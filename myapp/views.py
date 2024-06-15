@@ -18,7 +18,9 @@ from .models import Categorie
 def index(request):
     # Get the last 6 products added
     latest_products = Product.objects.order_by('-id')[:8]
-    return render(request, 'index.html', {'latest_products': latest_products})
+    # Get the last 3 posts
+    latest_posts = Post.objects.order_by('-date')[:3]
+    return render(request, 'index.html', {'latest_products': latest_products, 'latest_posts': latest_posts})
 
 
 def about(request):
@@ -221,15 +223,40 @@ def get_products_by_effect(request):
     # Render the products to HTML
     return render(request, 'products_partial.html', {'products': products})
 
-from django.shortcuts import render, get_object_or_404
 from .models import Post
+from django.shortcuts import render, get_object_or_404
 
-# Vue pour lister tous les posts
+def get_latest_posts():
+    # Fetch the latest posts, you can customize the number of posts here
+    return Post.objects.order_by('-date')[:3]
+
+def get_previous_post(post):
+    return Post.objects.filter(date__lt=post.date).order_by('-date').first()
+
+# Function to get the next post
+def get_next_post(post):
+    return Post.objects.filter(date__gt=post.date).order_by('date').first()
+
+# View to list all posts
 def post_list(request):
     posts = Post.objects.all()
-    return render(request, 'news.html', {'posts': posts})
+    latest_posts = get_latest_posts()
+    return render(request, 'news.html', {'posts': posts, 'latest_posts': latest_posts})
 
-# Vue pour afficher le contenu d'un post spécifique
+# View to display a specific post's content
 def post_detail(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    return render(request, 'post_detail.html', {'post': post})
+    tags = post.tags.split(',')
+    latest_posts = get_latest_posts()
+
+    previous_post = get_previous_post(post)
+    next_post = get_next_post(post)
+
+    return render(request, 'post.html', {
+        'post': post,
+        'tags': tags,
+        'latest_posts': latest_posts,
+        'previous_post': previous_post,
+        'next_post': next_post
+    })
+
