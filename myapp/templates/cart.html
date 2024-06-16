@@ -150,82 +150,49 @@
 <main>
     <section class="cart section">
         <div class="container d-md-flex justify-content-between align-content-start">
-            <div class=cart_main><h3 class="cart_main-header d-flex align-items-center justify-content-between">Products
-                <span>2 Items</span></h3>
-                <ul class=cart_main-list>
-                    <li class=cart_main-list_item>
+            <div class="cart_main">
+                <h3 class="cart_main-header d-flex align-items-center justify-content-between">Products
+                    <span>{{ cart_items|length }} Items</span>
+                </h3>
+                <ul class="cart_main-list">
+                    {% for item in cart_items %}
+                    <li class="cart_main-list_item">
                         <div class="wrapper d-flex flex-wrap flex-xl-nowrap align-items-center justify-content-between">
                             <div class="wrapper_item d-flex align-items-center">
-                                <div class=wrapper_item-media>
+                                <div class="wrapper_item-media">
                                     <picture>
-                                        <source data-srcset=img/cart/01.webp srcset=img/cart/01.webp type=image/webp>
-                                        <img class=lazy data-src=img/cart/01.jpg src=img/cart/01.jpg alt=media>
+                                        <!-- Replace with actual image rendering logic -->
+                                        <img class="lazy" data-src="{{ item.image.url }}" src="{{ item.image.url }}" alt="{{ item.name }}">
                                     </picture>
                                 </div>
-                                <div class=wrapper_item-info><h4 class=title>Jonny Chronic - French Macaroon</h4><span
-                                        class=volume>3.5mg</span></div>
-                            </div>
-                            <div class="price_wrapper d-flex flex-column"><span class="price price--old">$14.89</span>
-                                <span class="price price--new">$7.49</span></div>
-                            <div class="price_wrapper price_wrapper--subtotal d-flex flex-column"><h5 class=title>
-                                Subtotal</h5><span class="price price--total">$14.98</span></div>
-                            <div class="qty d-flex align-items-center justify-content-between"><span
-                                    class="qty_minus control disabled d-flex align-items-center"><i
-                                    class=icon-minus></i> </span><input class=qty_amount type=number readonly=readonly
-                                                                        value=1 min=1 max=99> <span
-                                    class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span>
-                            </div>
-                            <a class="close d-flex align-items-center align-items-sm-start" href=#><i
-                                    class=icon-close></i></a></div>
-                    </li>
-                    <li class=cart_main-list_item>
-                        <div class="wrapper d-flex flex-wrap flex-xl-nowrap align-items-center justify-content-between">
-                            <div class="wrapper_item d-flex align-items-center">
-                                <div class=wrapper_item-media>
-                                    <picture>
-                                        <source data-srcset=img/cart/02.webp srcset=img/cart/02.webp type=image/webp>
-                                        <img class=lazy data-src=img/cart/02.jpg src=img/cart/02.jpg alt=media>
-                                    </picture>
+                                <div class="wrapper_item-info">
+                                    <h4 class="title">{{ item.name }}</h4>
+                                    <!-- Example: Display product details like volume, etc. -->
+                                    <span class="volume">{{ item.volume }}</span>
                                 </div>
-                                <div class=wrapper_item-info><h4 class=title>Natures: CBD Tincture</h4><span
-                                        class=volume>30ml</span></div>
                             </div>
-                            <div class="price_wrapper d-flex flex-column"><span class="price price--old">$54.89</span>
-                                <span class="price price--new">$44.76</span></div>
-                            <div class="price_wrapper price_wrapper--subtotal d-flex flex-column"><h5 class=title>
-                                Subtotal</h5><span class="price price--total">$44.76</span></div>
-                            <div class="qty d-flex align-items-center justify-content-between"><span
-                                    class="qty_minus control disabled d-flex align-items-center"><i
-                                    class=icon-minus></i> </span><input class=qty_amount type=number readonly=readonly
-                                                                        value=1 min=1 max=99> <span
-                                    class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span>
+                            <div class="price_wrapper d-flex flex-column">
+                                <!-- Example: Display old and new prices -->
+                                <span class="price price--old">{{ item.old_price }}</span>
+                                <span class="price price--new">{{ item.new_price }}</span>
                             </div>
-                            <a class="close d-flex align-items-center align-items-sm-start" href=#><i
-                                    class=icon-close></i></a></div>
+                            <div class="qty d-flex align-items-center justify-content-between">
+                                <!-- Example: Display quantity input -->
+                                <input class="qty_amount" type="number" readonly="readonly" value="{{ item.quantity }}" min="1" max="99">
+                            </div>
+                            <a class="close d-flex align-items-center align-items-sm-start" href="#"><i class="icon-close"></i></a>
+                        </div>
                     </li>
+                    {% endfor %}
                 </ul>
                 <div class="cart_main-action d-flex flex-column flex-sm-row align-items-center justify-content-sm-between">
-                    <a class=btn--underline href=#>Keep Shopping</a> <a class="btn btn--green" href=#>Update cart</a>
+                    <a class="btn--underline" href="#">Keep Shopping</a>
+                    <a class="btn btn--green" href="#">Update cart</a>
                 </div>
             </div>
-            <div class=cart_summary><h3 class=cart_summary-header>Order Summary</h3>
-                <form class=cart_summary-form action=# method=post><h5 class=cart_summary-form_header>Calculate
-                    Shipping</h5><input class="cart_summary-form_field field" type=text placeholder=Country> <input
-                        class="cart_summary-form_field field" type=text placeholder=City> <input
-                        class="cart_summary-form_field field" type=text placeholder=ZIP>
-                    <button class="cart_summary-form_btn btn--underline" type=submit>Submit</button>
-                </form>
-                <div class=cart_summary-table>
-                    <div class="cart_summary-table_row d-flex justify-content-between"><span
-                            class=property>Items 2</span> <span class=value>$44.89</span></div>
-                    <div class="cart_summary-table_row d-flex justify-content-between"><span
-                            class=property>Shipping</span> <span class=value>Free</span></div>
-                    <div class="cart_summary-table_row cart_summary-table_row--total d-flex justify-content-between">
-                        <span class=property>Total</span> <span class=value>$59.74</span></div>
-                </div>
-                <a class="cart_summary-btn btn" href=#>Checkout</a></div>
         </div>
     </section>
+
     <aside>
         <section class="top top--highlight section">
             <div class=container><h2 class=top_header>Top Sales Products</h2>

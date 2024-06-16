@@ -1,19 +1,17 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.core.checks import messages
 from django.utils import timezone
-from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User  # Import the User model
 from myapp.models import Client, User
-from django.http import JsonResponse
 from django.template.loader import render_to_string
-from myapp.models import Categorie
-from .models import Categorie
-
-
-# Create your views here.
-#def index(request):
-# templates = "index.html"
-# return render(request, templates)
+from django.shortcuts import redirect
+from django.http import JsonResponse
+from .models import Post
+from django.shortcuts import render, get_object_or_404
+from .models import Product, Categorie
+from django.contrib import messages
+from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
+from decimal import Decimal
 
 def index(request):
     # Get the last 6 products added
@@ -28,9 +26,46 @@ def about(request):
     return render(request, templates)
 
 
+
+
+def add_to_cart(request, product_id):
+    try:
+        product = get_object_or_404(Product, id=product_id)
+
+        # Convert Decimal fields to float
+        prix_float = float(product.prix)
+
+        cart_product = {
+            'id': product.id,
+            'name': product.nom,
+            'price': prix_float,  # Convert prix to float
+            'quantity': 1,
+        }
+
+        # Simulate adding the product to the cart (you'll need your own cart mechanism)
+        if 'cart' not in request.session:
+            request.session['cart'] = []
+
+        request.session['cart'].append(cart_product)
+
+        messages.success(request, f"{product.nom} added to cart.")
+
+        # You can return JSON response if needed
+        return JsonResponse({'message': 'Product added to cart.'})
+
+    except Product.DoesNotExist:
+        messages.error(request, "Product does not exist.")
+        return redirect('shop')
+
+
+
 def cart(request):
-    templates = "cart.html"
-    return render(request, templates)
+    # Example function to display the cart
+    cart_items = request.session.get('cart', [])
+    context = {
+        'cart_items': cart_items
+    }
+    return render(request, 'cart.html', context)
 
 
 def compare(request):
@@ -78,9 +113,18 @@ def team(request):
     return render(request, templates)
 
 
+def add_to_wishlist(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    wishlist = request.session.get('wishlist', [])
+    if product_id not in wishlist:
+        wishlist.append(product_id)
+    request.session['wishlist'] = wishlist
+    return redirect('wishlist')
+
 def wishlist(request):
-    templates = "wishlist.html"
-    return render(request, templates)
+    wishlist = request.session.get('wishlist', [])
+    products = Product.objects.filter(id__in=wishlist)
+    return render(request, 'wishlist.html', {'products': products})
 
 
 def err(request):
@@ -97,12 +141,6 @@ def product_view(request):
     product_id = request.GET.get('id')
     product = Product.objects.get(id=product_id)
     return render(request, 'product.html', {'product': product})
-
-
-############################################################################################################
-
-
-from django.shortcuts import render, redirect
 
 
 def registration(request):
@@ -165,8 +203,6 @@ def managerdashboard(request):
 
 
 
-
-
 def product_list(request):
     # Retrieve the last 6 products ordered by their primary key (assuming the primary key is the ID)
     latest_products = Product.objects.order_by('-id')[:6]
@@ -178,14 +214,10 @@ def product_list(request):
     return render(request, 'product_list.html', {'products': products})
 
 
-from django.shortcuts import render
-from .models import Product
-
-
-def product_list(request):
+#def product_list(request):
     # Retrieve the last 6 products ordered by their primary key (assuming the primary key is the ID)
-    latest_products = Product.objects.order_by('-id')[:6]
-    return render(request, 'product_list.html', {'latest_products': latest_products})
+    #latest_products = Product.objects.order_by('-id')[:6]
+    #return render(request, 'product_list.html', {'latest_products': latest_products})
 
 
 def search_products(request):
@@ -196,11 +228,7 @@ def search_products(request):
     # Return the rendered HTML as JSON response
     return JsonResponse({'products_html': products_html})
 
-from django.http import JsonResponse
-from .models import Product
 
-from django.shortcuts import render
-from .models import Product, Categorie
 
 def get_products(request):
     # Get the selected category from the query parameters
@@ -223,8 +251,7 @@ def get_products_by_effect(request):
     # Render the products to HTML
     return render(request, 'products_partial.html', {'products': products})
 
-from .models import Post
-from django.shortcuts import render, get_object_or_404
+
 
 def get_latest_posts():
     # Fetch the latest posts, you can customize the number of posts here

@@ -148,20 +148,99 @@
 <main>
     <div class="shop-wrapper section--nopb">
         <div class="container d-flex flex-lg-row flex-wrap flex-column justify-content-between">
+            <style>
+                .media {
+                    position: relative !important; /* Ensure relative positioning is enforced */
+                    width: 100% !important; /* Ensure the media container takes full width */
+                    height: auto !important; /* Ensure the height is auto or specified if needed */
+                }
+
+                .overlay {
+                    position: absolute !important;
+                    top: 50% !important;
+                    left: 50% !important;
+                    transform: translate(-50%, -50%) !important;
+                    display: none !important; /* Initially hidden */
+                    width: 100% !important;
+                    height: 100% !important;
+                    background-color: rgba(0, 0, 0, 0.5) !important; /* Optional background for better visibility */
+                    z-index: 1 !important;
+                    align-items: center !important; /* Center items vertically */
+                    justify-content: center !important; /* Center items horizontally */
+                }
+
+                .media:hover .overlay {
+                    display: flex !important; /* Show overlay on hover */
+                }
+
+                .action {
+                    list-style: none !important;
+                    padding: 0 !important;
+                    margin: 0 !important;
+                    display: flex !important;
+                }
+
+                .action .list-item {
+                    margin: 0 5px !important;
+                }
+
+                .action .action_link {
+                    color: white !important; /* or any color you prefer */
+                    font-size: 20px !important; /* adjust size as needed */
+                    text-decoration: none !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    width: 40px !important; /* Adjust width as needed */
+                    height: 40px !important; /* Adjust height as needed */
+                    background-color: transparent !important;
+                }
+
+                .action .action_link:hover {
+                    color: #ffd700 !important; /* Change icon color on hover */
+                }
+            </style>
             <div class="shop_products d-flex flex-column">
                 <ul class="shop_products-list d-sm-flex flex-wrap">
                     {% for product in products %}
                     <li class="shop_products-list_item col-sm-6 col-md-4 col-lg-6 col-xl-4">
                         <div class="wrapper d-flex flex-column">
-                            <div class=media>
+                            <div class="media position-relative">
                                 <img src="{{ product.image.url }}" alt="{{ product.nom }}">
+                                <div class="overlay d-flex">
+                                    <ul class="action d-flex align-items-center justify-content-center">
+                                        <li class="list-item">
+                                            <a class="action_link d-flex align-items-center justify-content-center" href="#" data-trigger="compare">
+                                                <i class="icon-compare"></i>
+                                            </a>
+                                        </li>
+                                        <!-- Example product list item -->
+                                        <li class="list-item">
+                                            <a class="action_link d-flex align-items-center justify-content-center" href="{% url 'add_to_cart' product.id %}">
+                                                <i class="icon-basket"></i>
+                                            </a>
+                                        </li>
+
+                                        <li class="list-item">
+                                            <a class="action_link d-flex align-items-center justify-content-center" href="{% url 'add_to_wishlist' product.id %}" data-role="wishlist">
+                                                <i class="icon-heart"></i>
+                                            </a>
+                                        </li>
+
+
+                                        <li class="list-item">
+                                            <a class="action_link d-flex align-items-center justify-content-center" href="{% url 'product_detail' product.id %}">
+                                                <i class="icon-eye"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                             <div class="main d-flex flex-column">
-                                <a class="main_title" href="http://127.0.0.1:8000/product.html?id={{ product.id }}" target="_blank" rel="noopener noreferrer">
+                                <a class="main_title" href="{% url 'product_detail' product.id %}" target="_blank" rel="noopener noreferrer">
                                     {{ product.nom }}
                                 </a>
-
-                                <div class=main_price>
+                                <div class="main_price">
                                     {{ product.prix }}
                                 </div>
                             </div>
@@ -172,7 +251,12 @@
                     {% endfor %}
                 </ul>
             </div>
-            <!-- Aside Wrapper Starts -->
+        </div>
+    </div>
+
+
+
+    <!-- Aside Wrapper Starts -->
             <div class=shop_aside>
                 <div class="shop_aside-wrapper collapse" id=shopFilters>
                     <div class="shop_aside-block shop_aside-block--search">
@@ -299,7 +383,7 @@
                                                                                                             viewBox="0 0 24 24"
                                                                                                             fill=none
                                                                                                             xmlns=http://www.w3.org/2000/svg>
-                                fill=#214842/></svg> </span>Filter by Price
+                                fill=#214842/></svg> <!--</span>Filter by Price
                         </h4>
                         <div class=range-slider></div>
                         <div class="range-output d-flex align-items-center justify-content-between"><input id=priceMin
@@ -307,7 +391,7 @@
                                                                                                            readonly=readonly
                                                                                                            value=4$>
                             <input id=priceMax type=text readonly=readonly value=1020$></div>
-                    </div>
+                    </div>-->
                     <div class="shop_aside-block shop_aside-block--sale">
                         <!--<div class=content><h4 class=shop_aside-block_header>Everything is 20% off for this special
                             day!</h4>
