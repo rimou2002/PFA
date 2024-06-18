@@ -4,14 +4,13 @@ from django.contrib.auth.models import User  # Import the User model
 from myapp.models import Client, User
 from django.template.loader import render_to_string
 from django.shortcuts import redirect
-from django.http import JsonResponse
 from .models import Post
-from django.shortcuts import render, get_object_or_404
-from .models import Product, Categorie
+from django.shortcuts import render
+from .models import Product, Categorie, Cart
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
-from decimal import Decimal
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     # Get the last 6 products added
@@ -35,18 +34,17 @@ def add_to_cart(request, product_id):
         # Convert Decimal fields to float
         prix_float = float(product.prix)
 
-        cart_product = {
-            'id': product.id,
-            'name': product.nom,
-            'price': prix_float,  # Convert prix to float
-            'quantity': 1,
-        }
+        # Check if the product is already in the cart
+        cart_item, created = Cart.objects.get_or_create(product=product)
 
-        # Simulate adding the product to the cart (you'll need your own cart mechanism)
-        if 'cart' not in request.session:
-            request.session['cart'] = []
-
-        request.session['cart'].append(cart_product)
+        if not created:
+            # If the product is already in the cart, increase the quantity
+            cart_item.quantity += 1
+            cart_item.save()
+        else:
+            # If the product is not in the cart, add it
+            cart_item = Cart(product=product, quantity=1)
+            cart_item.save()
 
         messages.success(request, f"{product.nom} added to cart.")
 
@@ -57,20 +55,38 @@ def add_to_cart(request, product_id):
         messages.error(request, "Product does not exist.")
         return redirect('shop')
 
-
-
 def cart(request):
     # Example function to display the cart
-    cart_items = request.session.get('cart', [])
+    cart_items = Cart.objects.all()
     context = {
         'cart_items': cart_items
     }
     return render(request, 'cart.html', context)
 
 
+def add_to_compare(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    compare_list = request.session.get('compare_list', [])
+    if product_id not in compare_list:
+        compare_list.append(product_id)
+        request.session['compare_list'] = compare_list
+    return redirect('compare')
+
+def remove_from_compare(request, product_id):
+    compare_list = request.session.get('compare_list', [])
+    if product_id in compare_list:
+        compare_list.remove(product_id)
+        request.session['compare_list'] = compare_list
+    return redirect('compare')
+
 def compare(request):
-    templates = "compare.html"
-    return render(request, templates)
+    compare_list = request.session.get('compare_list', [])
+    compared_products = Product.objects.filter(id__in=compare_list)
+    return render(request, 'compare.html', {'compared_products': compared_products})
+
+def clear_compare(request):
+    request.session['compare_list'] = []
+    return redirect('compare')
 
 
 def contacts(request):

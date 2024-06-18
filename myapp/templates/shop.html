@@ -210,10 +210,12 @@
                                 <div class="overlay d-flex">
                                     <ul class="action d-flex align-items-center justify-content-center">
                                         <li class="list-item">
-                                            <a class="action_link d-flex align-items-center justify-content-center" href="#" data-trigger="compare">
+                                            <a class="action_link d-flex align-items-center justify-content-center" href="{% url 'add_to_compare' product.id %}">
                                                 <i class="icon-compare"></i>
                                             </a>
                                         </li>
+
+
                                         <!-- Example product list item -->
                                         <li class="list-item">
                                             <a class="action_link d-flex align-items-center justify-content-center" href="{% url 'add_to_cart' product.id %}">

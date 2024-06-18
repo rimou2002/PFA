@@ -148,6 +148,7 @@
     </div>
 </header>
 <main>
+    <!-- cart.html -->
     <section class="cart section">
         <div class="container d-md-flex justify-content-between align-content-start">
             <div class="cart_main">
@@ -161,23 +162,19 @@
                             <div class="wrapper_item d-flex align-items-center">
                                 <div class="wrapper_item-media">
                                     <picture>
-                                        <!-- Replace with actual image rendering logic -->
-                                        <img class="lazy" data-src="{{ item.image.url }}" src="{{ item.image.url }}" alt="{{ item.name }}">
+                                        <img class="lazy" data-src="{{ item.product.image.url }}" src="{{ item.product.image.url }}" alt="{{ item.product.nom }}">
                                     </picture>
                                 </div>
                                 <div class="wrapper_item-info">
-                                    <h4 class="title">{{ item.name }}</h4>
-                                    <!-- Example: Display product details like volume, etc. -->
-                                    <span class="volume">{{ item.volume }}</span>
+                                    <h4 class="title">{{ item.product.nom }}</h4>
+                                    <span class="volume">{{ item.product.volume }}</span>
                                 </div>
                             </div>
                             <div class="price_wrapper d-flex flex-column">
-                                <!-- Example: Display old and new prices -->
-                                <span class="price price--old">{{ item.old_price }}</span>
-                                <span class="price price--new">{{ item.new_price }}</span>
+                                <span class="price price--old">{{ item.product.old_price }}</span>
+                                <span class="price price--new">{{ item.product.prix }}</span>
                             </div>
                             <div class="qty d-flex align-items-center justify-content-between">
-                                <!-- Example: Display quantity input -->
                                 <input class="qty_amount" type="number" readonly="readonly" value="{{ item.quantity }}" min="1" max="99">
                             </div>
                             <a class="close d-flex align-items-center align-items-sm-start" href="#"><i class="icon-close"></i></a>
@@ -192,6 +189,7 @@
             </div>
         </div>
     </section>
+
 
     <aside>
         <section class="top top--highlight section">

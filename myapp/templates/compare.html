@@ -129,139 +129,37 @@
 </header>
 <main>
     <section class="compare section">
-        <div class=container>
-            <div class="compare_header d-lg-flex flex-wrap justify-content-between align-items-center"><h2
-                    class=compare_header-title>Comparison of 3 Products</h2>
+        <div class="container">
+            <div class="compare_header d-lg-flex flex-wrap justify-content-between align-items-center">
+                <h2 class="compare_header-title">Comparison of Products</h2>
                 <div class="compare_header-action d-flex align-items-center">
-                    <div class=wrapper><a class="compare_header-action_add d-inline-flex align-items-center"
-                                          href=#><span
-                            class="icon-wrapper d-flex justify-content-center align-items-center"><i
-                            class=icon-plus></i> </span>Add Product</a></div>
-                    <a class="compare_header-action_clear btn--underline" href=#>Clear all</a></div>
+                    <a class="compare_header-action_clear btn--underline" href="{% url 'clear_compare' %}">Clear all</a>
+                </div>
                 <ul class="compare_header-list d-sm-flex flex-wrap flex-grow-1">
-                    <li class="compare_header-list_item col-sm-6 col-lg-4" data-order=1>
+                    {% for product in compared_products %}
+                    <li class="compare_header-list_item col-sm-6 col-lg-4">
                         <div class="wrapper d-flex flex-column flex-md-row">
-                            <div class=media>
-                                <picture>
-                                    <source data-srcset=img/compare/01.webp srcset=img/compare/01.webp type=image/webp>
-                                    <img class=lazy data-src=img/compare/01.jpg src=img/compare/01.jpg alt=media>
-                                </picture>
+                            <div class="media">
+                                <img src="{{ product.image.url }}" alt="{{ product.nom }}">
                             </div>
-                            <div class="main d-flex flex-column justify-content-between"><a class=main_title
-                                                                                            href=http://127.0.0.1:8000/product.html/
-                                                                                            target=_blank
-                                                                                            rel="noopener norefferer">Pure
-                                Sun CBD Oil 1:10</a>
-                                <div class=main_price><span class=price>$36.87</span></div>
-                                <div><a class=btn--underline href=#>Remove Product</a></div>
+                            <div class="main d-flex flex-column justify-content-between">
+                                <a class="main_title" href="{% url 'product_detail' product.id %}" target="_blank" rel="noopener noreferrer">{{ product.nom }}</a>
+                                <div class="main_price"><span class="price">{{ product.prix }}</span></div>
+                                <a class="btn--underline" href="{% url 'remove_from_compare' product.id %}">Remove Product</a>
                             </div>
                         </div>
                     </li>
-                    <li class="compare_header-list_item col-sm-6 col-lg-4" data-order=2>
-                        <div class="wrapper d-flex flex-column flex-md-row">
-                            <div class=media>
-                                <picture>
-                                    <source data-srcset=img/compare/02.webp srcset=img/compare/02.webp type=image/webp>
-                                    <img class=lazy data-src=img/compare/02.jpg src=img/compare/02.jpg alt=media>
-                                </picture>
-                            </div>
-                            <div class="main d-flex flex-column justify-content-between"><a class=main_title
-                                                                                            href=http://127.0.0.1:8000/product.html/
-                                                                                            target=_blank
-                                                                                            rel="noopener norefferer">Natures:
-                                CBD Tincture</a>
-                                <div class=main_price><span class="price price--old">$45.99</span> <span
-                                        class="price price--new">$30.99</span></div>
-                                <div><a class=btn--underline href=#>Remove Product</a></div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="compare_header-list_item col-sm-6 col-lg-4" data-order=3>
-                        <div class="wrapper d-flex flex-column flex-md-row">
-                            <div class=media>
-                                <picture>
-                                    <source data-srcset=img/compare/03.webp srcset=img/compare/03.webp type=image/webp>
-                                    <img class=lazy data-src=img/compare/03.jpg src=img/compare/03.jpg alt=media>
-                                </picture>
-                            </div>
-                            <div class="main d-flex flex-column justify-content-between"><a class=main_title
-                                                                                            href=http://127.0.0.1:8000/product.html/
-                                                                                            target=_blank
-                                                                                            rel="noopener norefferer">House
-                                Shatter – Durban Poison</a>
-                                <div class=main_price><span class=price>$16.90</span></div>
-                                <div><a class=btn--underline href=#>Remove Product</a></div>
-                            </div>
-                        </div>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
-            <div class=compare_main><h3 class=compare_main-header>Specifications</h3>
-                <ul class=compare_main-list>
-                    <li class=compare_main-list_item><h4 class=property-header>Category</h4>
-                        <ul class="value-list d-sm-flex flex-wrap">
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Pure Sun CBD Oil 1:10</span>
-                                <span class=product-value>Oil</span></li>
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Natures: CBD Tincture</span>
-                                <span class=product-value>Oil</span></li>
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>House Shatter – Durban Poison</span>
-                                <span class=product-value>Concentrates</span></li>
-                        </ul>
-                    </li>
-                    <li class=compare_main-list_item><h4 class=property-header>Size</h4>
-                        <ul class="value-list d-sm-flex flex-wrap">
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Pure Sun CBD Oil 1:10</span>
-                                <span class=product-value>30ml</span></li>
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Natures: CBD Tincture</span>
-                                <span class=product-value>30ml</span></li>
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>House Shatter – Durban Poison</span>
-                                <span class=product-value>1 Gram</span></li>
-                        </ul>
-                    </li>
-                    <li class=compare_main-list_item><h4 class=property-header>Plant Type</h4>
-                        <ul class="value-list d-sm-flex flex-wrap">
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Pure Sun CBD Oil 1:10</span>
-                                <span class=product-value>Hybrid</span></li>
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Natures: CBD Tincture</span>
-                                <span class=product-value>Sativa Dominant</span></li>
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>House Shatter – Durban Poison</span>
-                                <span class=product-value>Sativa</span></li>
-                        </ul>
-                    </li>
-                    <li class=compare_main-list_item><h4 class=property-header>THC</h4>
-                        <ul class="value-list d-sm-flex flex-wrap">
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Pure Sun CBD Oil 1:10</span>
-                                <span class=product-value>0.00 - 57.00 mg</span></li>
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Natures: CBD Tincture</span>
-                                <span class=product-value>—</span></li>
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>House Shatter – Durban Poison</span>
-                                <span class=product-value>80.5%</span></li>
-                        </ul>
-                    </li>
-                    <li class=compare_main-list_item><h4 class=property-header>CBD</h4>
-                        <ul class="value-list d-sm-flex flex-wrap">
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Pure Sun CBD Oil 1:10</span>
-                                <span class=product-value>10.00 - 11.06 mg/g</span></li>
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Natures: CBD Tincture</span>
-                                <span class=product-value>33.33 mg CBD per 1ml</span></li>
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>House Shatter – Durban Poison</span>
-                                <span class=product-value>0.33%</span></li>
-                        </ul>
-                    </li>
-                    <li class=compare_main-list_item><h4 class=property-header>Effects</h4>
-                        <ul class="value-list d-sm-flex flex-wrap">
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Pure Sun CBD Oil 1:10</span>
-                                <span class=product-value>Calm, Happy, Relaxed</span></li>
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>Natures: CBD Tincture</span>
-                                <span class=product-value>Pain, Anxiety, Sleeping problems</span></li>
-                            <li class="list-item col-sm-6 col-lg-4 d-flex flex-column"><span class=product-title>House Shatter – Durban Poison</span>
-                                <span class=product-value>Creative, Energizing, Euphoria, Focus</span></li>
-                        </ul>
-                    </li>
-                </ul>
+            <div class="compare_main">
+                <h3 class="compare_main-header">Specifications</h3>
+                <!-- Add specifications comparison logic here -->
             </div>
         </div>
     </section>
+
+
     <aside class="viewed section">
         <div class=container><h2 class=viewed_header>Recently Viewed Products</h2>
             <div class="viewed_slider swiper">
