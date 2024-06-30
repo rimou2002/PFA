@@ -13,8 +13,23 @@
     <link rel="stylesheet preload" as=style href="{% static 'css/libs.min.css' %}">
     <link rel=stylesheet href="{% static 'css/shop.min.css' %}">
     <link rel=stylesheet href="{% static 'css/floatbutton.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
+
+<style>
+    .action_link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .action_link i {
+        font-size: 24px; /* Adjust size as needed */
+        color: #FFD700; /* Adjust color as needed */
+    }
+</style>
 <header class="header d-flex flex-wrap align-items-center" data-page=shop data-overlay=@@overlay>
     <div class="container d-flex flex-wrap flex-xl-nowrap align-items-center justify-content-between"><a
             class="brand header_logo d-flex align-items-center" href=http://127.0.0.1:8000/><span class=logo><svg width=48 height=45
@@ -146,8 +161,8 @@
     </div>
 </header>
 <main>
-    <div class="shop-container d-flex">
-        <div class="shop-wrapper section--nopb">
+    <div class="shop-container d-flex" >
+        <div class="shop-wrapper section--nopb flex-column justify-content-between">
             <div class="container d-flex flex-lg-row flex-wrap flex-column justify-content-between">
                 <style>
                     .media {
@@ -244,13 +259,13 @@
                     /* Additional styling as needed */
                 </style>
 
-                <div class="shop_products d-flex flex-column">
-                    <ul class="shop_products-list d-sm-flex flex-wrap">
+                <div class="shop_products d-flex flex-column" >
+                    <ul class="shop_products-list d-sm-flex flex-wrap" style="width: 1200px !important" >
                         {% for product in products %}
-                        <li class="shop_products-list_item col-sm-6 col-md-4 col-lg-6 col-xl-4">
+                        <li class="shop_products-list_item col-sm-6 col-md-4 col-lg-6 col-xl-4" style="width: 30% !important;">
                             <div class="wrapper d-flex flex-column">
                                 <div class="media position-relative">
-                                    <img src="{{ product.image.url }}" alt="{{ product.nom }}">
+                                    <img src="{{ product.image.url }}" alt="{{ product.nom }}" style="width: 320px; height: 320px">
                                     <div class="overlay d-flex">
                                         <ul class="action d-flex align-items-center justify-content-center">
                                             <li class="list-item">
@@ -283,8 +298,8 @@
                                     <a class="main_title" href="{% url 'product_detail' product.id %}" target="_blank" rel="noopener noreferrer">
                                         {{ product.nom }}
                                     </a>
-                                    <div class="main_price">
-                                        {{ product.prix }}
+                                    <div class="main_price" style="justify-content: center; align-items: center; display: flex;">
+                                        <span class="price price--new">{{ product.prix }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -318,7 +333,7 @@
 
         <!-- Aside Wrapper Starts -->
         <div class="shop_aside">
-            <div class="shop_aside-wrapper collapse" id="shopFilters">
+            <div class="shop_aside-wrapper collapse" id="shopFilters" style="padding-top: 160px">
                 <div class="shop_aside-block shop_aside-block--search">
                     <h4 class="shop_aside-block_header d-flex align-items-center"><span class="leaf">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -423,7 +438,7 @@
             <h2 class="top_header">Top Sales Products</h2>
             <ul class="top_list d-lg-flex flex-wrap">
                 {% for product in top %}
-                <li class="top_list-item col-lg-6" data-order="{{ forloop.counter }}">
+                <li class="top_list-item col-lg-6" data-order="{{ forloop.counter }}" style="width: 50%">
                     <div class="top_list-item_wrapper d-flex flex-column flex-sm-row flex-lg-column flex-xxl-row">
                         <div class="media">
                             <a href="{% url 'product_detail' product.id %}" target="_blank" rel="noopener noreferrer">
@@ -440,11 +455,16 @@
 
                                 <span class="price price--new">${{ product.prix }}</span>
                             </div>
-                            <div class="d-flex">
-                                <a class="btn" href="#">Add to Cart</a>
+                            <div class="d-flex" style="width:300px">
+                                <a class="btn" href="#" style="width:250px !important; padding: 0;">Add to Cart</a>
                                 <div class="action d-flex">
-                                    <a class="action_link d-flex align-items-center justify-content-center" href="#" data-role="wishlist"><i class="icon-heart"></i></a>
-                                    <a class="action_link d-flex align-items-center justify-content-center" href="#" data-trigger="view"><i class="icon-eye"></i></a>
+                                    <a class="action_link d-flex align-items-center justify-content-center" href="#" data-role="wishlist">
+                                        <i class="fas fa-heart"></i>
+                                    </a>
+                                    <a class="action_link d-flex align-items-center justify-content-center" href="#" data-trigger="view">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+
                                 </div>
                             </div>
                         </div>
@@ -455,6 +475,8 @@
         </div>
 
     </section>
+
+
     <!--<section class="seo section--nopb">!-->
         <div class=container><h2 class=seo_header>SEO Text</h2>
             <div class="seo_content d-lg-flex justify-content-between"><p class=seo_content-text>Wiam khty atbdli hadchi</p>

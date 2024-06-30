@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang=en>
 <head>
@@ -5,7 +6,7 @@
     <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1">
     <meta http-equiv=X-UA-Compatible content="ie=edge">
     <title>PFA</title>
-    {% load static %}
+
     <link rel="stylesheet preload" as=style href="{% static 'css/preload.min.css' %}">
     <link rel="stylesheet preload" as=style href="{% static 'css/icomoon.css' %}">
     <link rel="stylesheet preload" as=style href="{% static 'css/libs.min.css' %}">
@@ -461,7 +462,7 @@
              <div class="latest_wrapper d-flex flex-column-reverse flex-lg-row">
                  <div class="latest_promo" data-aos="fade-right">
                      <picture>
-                         <source data-srcset="{% static 'img/index/new_promo.png' %}" type="image/webp">
+                         <source data-srcset="{% static 'img/index/r1.jpg' %}" type="image/webp">
                          <img class="lazy preview" data-src="{% static 'img/index/new_promo.png' %}" src="{% static 'img/index/new_promo.png'' %}" alt="media">
                      </picture>
 
@@ -710,76 +711,56 @@
      </div>
  </footer>
  <script src="{% static 'js/common.min.js' %}"></script>
- <div class="cartOffcanvas offcanvas offcanvas-end" tabindex=-1 id=cartOffcanvas>
-     <div class="cartOffcanvas_header d-flex align-items-center justify-content-between">
-         <h2 class=cartOffcanvas_header-title id=cartOffcanvasLabel>Cart</h2>
-         <button class=cartOffcanvas_header-close type=button data-bs-dismiss=offcanvas aria-label=Close><i
-                 class=icon-close></i>
-         </button>
-     </div>
-     <div class=cartOffcanvas_body>
-         <ul class=cartOffcanvas_body-list>
-             <li class="cartOffcanvas_body-list_item d-sm-flex align-items-center">
-                 <div class=media>
-                     <a href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
-                         <picture>
-                             <source data-srcset=img/cart/01.webp srcset=img/cart/01.webp type=image/webp>
-                             <img class=lazy data-src=img/cart/01.jpg src=img/cart/01.jpg alt=media></picture>
-                     </a></div>
-                 <div class="main d-flex flex-wrap justify-content-between align-items-end align-items-lg-center">
-                     <a class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
-                         <span class=main_title-product>Jonny Chronic - French Macaroon</span></a>
-                     <div class=main_price><span class=price>$14.98</span></div>
-                     <div class="qty d-flex align-items-center justify-content-between">
-                         <span class="qty_minus control disabled d-flex align-items-center"><i
-                                 class=icon-minus></i> </span>
-                         <input class=qty_amount type=number readonly=readonly value=1 min=1 max=99>
-                         <span class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span></div>
-                     <a class=btn--underline href=#>Remove</a></div>
-             </li>
-             <li class="cartOffcanvas_body-list_item d-sm-flex align-items-center">
-                 <div class=media><a href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
-                     <picture>
-                         <source data-srcset=img/cart/02.webp srcset=img/cart/02.webp type=image/webp>
-                         <img class=lazy data-src=img/cart/02.jpg src=img/cart/02.jpg alt=media></picture>
-                 </a></div>
-                 <div class="main d-flex flex-wrap justify-content-between align-items-end align-items-lg-center">
-                     <a class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
-                         <span class=main_title-product>House Shatter – Durban Poison</span></a>
-                     <div class=main_price>
-                         <span class=price>$6.96</span></div>
-                     <div class="qty d-flex align-items-center justify-content-between">
-                         <span class="qty_minus control disabled d-flex align-items-center"><i
-                                 class=icon-minus></i> </span>
-                         <input class=qty_amount type=number readonly=readonly value=1 min=1 max=99>
-                         <span class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span></div>
-                     <a class=btn--underline href=#>Remove</a></div>
-             </li>
-             <li class="cartOffcanvas_body-list_item d-sm-flex align-items-center">
-                 <div class=media>
-                     <a href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
-                         <picture>
-                             <source data-srcset=img/cart/03.webp srcset=img/cart/03.webp type=image/webp>
-                             <img class=lazy data-src=img/cart/03.jpg src=img/cart/03.jpg alt=media></picture>
-                     </a></div>
-                 <div class="main d-flex flex-wrap justify-content-between align-items-end align-items-lg-center">
-                     <a class=main_title href=http://127.0.0.1:8000/product.html/ target=_blank rel="noopener norefferer">
-                         <span class=main_title-product>Natures: CBD Tincture</span></a>
-                     <div class=main_price>
-                         <span class=price>$7.49</span></div>
-                     <div class="qty d-flex align-items-center justify-content-between">
-                         <span class="qty_minus control disabled d-flex align-items-center"><i
-                                 class=icon-minus></i> </span>
-                         <input class=qty_amount type=number readonly=readonly value=1 min=1 max=99>
-                         <span class="qty_plus control d-flex align-items-center"><i class=icon-plus></i></span></div>
-                     <a class=btn--underline href=#>Remove</a></div>
-             </li>
-         </ul>
-         <div class="cartOffcanvas_body-total d-flex justify-content-between align-items-center">
-             <span>Total</span> <span class=cartTotal>$29.43</span></div>
-         <a class="cartOffcanvas_body-btn btn" href=http://127.0.0.1:8000/cart/>Proceed to checkout</a></div>
- </div>
- <script src="{% static 'js/index.min.js' %}"></script>
+<div class="cartOffcanvas offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+    <div class="cartOffcanvas_header d-flex align-items-center justify-content-between">
+        <h2 class="cartOffcanvas_header-title" id="cartOffcanvasLabel">Cart</h2>
+        <button class="cartOffcanvas_header-close" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+            <i class="icon-close"></i>
+        </button>
+    </div>
+    <div class="cartOffcanvas_body">
+        <ul class="cartOffcanvas_body-list">
+            {% for item in cart_items %}
+            <li class="cartOffcanvas_body-list_item d-sm-flex align-items-center">
+                <div class="media">
+                    <a href="{% url 'product_detail' item.product.id %}" target="_blank" rel="noopener norefferer">
+                        <picture>
+                            <source data-srcset="{{ item.product.image.url }}" srcset="{{ item.product.image.url }}" type="image/webp">
+                            <img class="lazy" data-src="{{ item.product.image.url }}" src="{{ item.product.image.url }}" alt="media">
+                        </picture>
+                    </a>
+                </div>
+                <div class="main d-flex flex-wrap justify-content-between align-items-end align-items-lg-center">
+                    <a class="main_title" href="{% url 'product_detail' item.product.id %}" target="_blank" rel="noopener norefferer">
+                        <span class="main_title-product">{{ item.product.nom }}</span>
+                    </a>
+                    <div class="main_price">
+                        <span class="price">${{ item.product.prix }}</span>
+                    </div>
+                    <div class="qty d-flex align-items-center justify-content-between">
+                        <span class="qty_minus control disabled d-flex align-items-center">
+                            <i class="icon-minus"></i>
+                        </span>
+                        <input class="qty_amount" type="number" readonly="readonly" value="{{ item.quantity }}" min="1" max="99">
+                        <span class="qty_plus control d-flex align-items-center">
+                            <i class="icon-plus"></i>
+                        </span>
+                    </div>
+                    <a class="btn--underline" href="#">Remove</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="cartOffcanvas_body-total d-flex justify-content-between align-items-center">
+            <span>Total</span> <span class="cartTotal">${{ total_price }}</span>
+        </div>
+        <a class="cartOffcanvas_body-btn btn" href="{% url 'cart' %}">Proceed to checkout</a>
+    </div>
+</div>
+
+
+
+<script src="{% static 'js/index.min.js' %}"></script>
  <script src="{% static 'js/demo.js' %}"></script>
  <script async src="{% static 'https://www.googletagmanager.com/gtag/js?id=G-MZ1FBMV3CL' %}"></script>
  <script>window.dataLayer = window.dataLayer || [];

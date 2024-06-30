@@ -12,12 +12,30 @@ from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 
+
+
+
 def index(request):
-    # Get the last 6 products added
+    # Get the last 8 products added
     latest_products = Product.objects.order_by('-id')[:8]
     # Get the last 3 posts
     latest_posts = Post.objects.order_by('-date')[:3]
-    return render(request, 'index.html', {'latest_products': latest_products, 'latest_posts': latest_posts})
+    # Get all items in the cart
+    cart_items = Cart.objects.all()
+
+    # Calculate the total price of items in the cart
+    total_price = sum(item.product.prix * item.quantity for item in cart_items)
+
+    context = {
+        'latest_products': latest_products,
+        'latest_posts': latest_posts,
+        'cart_items': cart_items,
+        'total_price': total_price,
+    }
+    return render(request, 'index.html', context)
+
+
+
 
 
 def about(request):
