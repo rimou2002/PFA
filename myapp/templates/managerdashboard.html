@@ -17,7 +17,7 @@
     <title>Admin Dashboard Panel</title>
 </head>
 <body>
-<nav>
+<nav style="width: 260px">
     <div class="logo-name">
         <div class="logo-image">
             <img src="{% static 'images/logo.png' %}" alt="">
@@ -25,45 +25,110 @@
 
         <span class="logo_name">CodingLab</span>
     </div>
-
+    <style>
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 40vh; /* Adjust this as needed */
+        }
+        .nav-links li {
+            list-style: none;
+        }
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            padding: 10px;
+            color: #000; /* Adjust this as needed */
+        }
+        .nav-links i {
+            margin-right: 10px;
+        }
+    </style>
+    <style>
+        .lucide--user-round {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='8' r='5'/%3E%3Cpath d='M20 21a8 8 0 0 0-16 0'/%3E%3C/g%3E%3C/svg%3E");
+            padding: 11px;
+            margin: 0 20px 0 10px;
+        }
+        .fluent-mdl2--product-list {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2048 2048'%3E%3Cpath fill='%23000' d='M1024 1000v959l-64 32l-832-415V536l832-416l832 416v744h-128V680zm-64-736L719 384l621 314l245-122zm-64 1552v-816L256 680v816zM335 576l625 312l238-118l-622-314zm1073 1216v-128h640v128zm0-384h640v128h-640zm-256 640v-128h128v128zm0-512v-128h128v128zm0 256v-128h128v128zm-128 24h1zm384 232v-128h640v128z'/%3E%3C/svg%3E");
+            background-color: currentColor;
+            -webkit-mask-image: var(--svg);
+            mask-image: var(--svg);
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+            padding: 11px;
+            margin: 0 20px 0 10px;
+        }
+        .fluent-mdl2--activate-orders {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2048 2048'%3E%3Cpath fill='%23000' d='m2029 1453l-557 558l-269-270l90-90l179 178l467-466zM1024 640H640V512h384zm0 256H640V768h384zm-384 128h384v128H640zM512 640H384V512h128zm0 256H384V768h128zm-128 128h128v128H384zm768-384V128H256v1792h896v128H128V0h1115l549 549v731l-128 128V640zm128-128h293l-293-293z'/%3E%3C/svg%3E");
+            background-color: currentColor;
+            -webkit-mask-image: var(--svg);
+            mask-image: var(--svg);
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+            padding: 11px;
+            margin: 0 20px 0 10px;
+        }
+    </style>
     <div class="menu-items">
         <ul class="nav-links">
             <li><a href="#">
                 <i class="uil uil-estate"></i>
-                <span class="link-name">Dahsboard</span>
+                <span class="link-name">Tableau de bord</span>
             </a></li>
             <li><a href="#">
-                <i class="uil uil-files-landscapes"></i>
-                <span class="link-name">Content</span>
+<!--                <i class="uil uil-files-landscapes"></i>-->
+                <span class="lucide--user-round"></span>
+                <span class="link-name">Utilisateur</span>
             </a></li>
             <li><a href="#">
-                <i class="uil uil-chart"></i>
-                <span class="link-name">Analytics</span>
+<!--                <i class="uil uil-chart"></i>-->
+                <span class="fluent-mdl2--product-list"></span>
+                <span class="link-name">Produits</span>
             </a></li>
             <li><a href="#">
-                <i class="uil uil-thumbs-up"></i>
-                <span class="link-name">Like</span>
+<!--                <i class="uil uil-thumbs-up"></i>-->
+                <span class="fluent-mdl2--activate-orders"></span>
+                <span class="link-name">Commandes</span>
             </a></li>
-            <li><a href="#">
+            <!--<li><a href="#">
                 <i class="uil uil-comments"></i>
-                <span class="link-name">Comment</span>
+                <span class="link-name">Commande</span>
             </a></li>
             <li><a href="#">
                 <i class="uil uil-share"></i>
                 <span class="link-name">Share</span>
-            </a></li>
+            </a></li>-->
         </ul>
 
         <ul class="logout-mode">
             <li><a href="#">
                 <i class="uil uil-signout"></i>
-                <span class="link-name">Logout</span>
+                <span class="link-name">Déconnexion</span>
             </a></li>
 
             <li class="mode">
                 <a href="#">
                     <i class="uil uil-moon"></i>
-                    <span class="link-name">Dark Mode</span>
+                    <span class="link-name">Mode sombre</span>
                 </a>
 
                 <div class="mode-toggle">
@@ -80,7 +145,7 @@
 
         <div class="search-box">
             <i class="uil uil-search"></i>
-            <input type="text" placeholder="Search here...">
+            <input type="text" placeholder="Chercher...">
         </div>
 
         <img src="{% static 'images/profile.jpg' %}" alt="">
@@ -90,24 +155,25 @@
         <div class="overview">
             <div class="title">
                 <i class="uil uil-tachometer-fast-alt"></i>
-                <span class="text">Dashboard</span>
+                <span class="text">Tableau de bord</span>
             </div>
 
             <div class="boxes">
                 <div class="box box1">
-                    <i class="uil uil-thumbs-up"></i>
-                    <span class="text">Total Likes</span>
-                    <span class="number">50,120</span>
+<!--                    <i class="uil uil-thumbs-up"></i>-->
+                    <span class="lucide--user-round" style="padding: 15px; margin: 8px;"></span>
+                    <span class="text">Total utilisateurs </span>
+                    <span class="number">729</span>
                 </div>
                 <div class="box box2">
-                    <i class="uil uil-comments"></i>
-                    <span class="text">Comments</span>
-                    <span class="number">20,120</span>
+                    <span class="fluent-mdl2--product-list" style="padding: 15px; margin: 8px;"></span>
+                    <span class="text">Total produits</span>
+                    <span class="number">147</span>
                 </div>
                 <div class="box box3">
-                    <i class="uil uil-share"></i>
-                    <span class="text">Total Share</span>
-                    <span class="number">10,120</span>
+                    <span class="fluent-mdl2--activate-orders" style="padding: 15px; margin: 8px;"></span>
+                    <span class="text">Total commandes</span>
+                    <span class="number">234</span>
                 </div>
             </div>
         </div>
@@ -115,55 +181,40 @@
         <div class="activity">
             <div class="title">
                 <i class="uil uil-clock-three"></i>
-                <span class="text">Recent Activity</span>
+                <span class="text">Commandes récentes</span>
             </div>
 
             <div class="activity-data">
                 <div class="data names">
-                    <span class="data-title">Name</span>
-                    <span class="data-list">Prem Shahi</span>
-                    <span class="data-list">Deepa Chand</span>
-                    <span class="data-list">Manisha Chand</span>
-                    <span class="data-list">Pratima Shahi</span>
-                    <span class="data-list">Man Shahi</span>
-                    <span class="data-list">Ganesh Chand</span>
-                    <span class="data-list">Bikash Chand</span>
+                    <span class="data-title">Nom et prénom</span>
+                    <span class="data-list">Akram Jaber</span>
+                    <span class="data-list">Wiam Benhouad</span>
+                    <span class="data-list">Hamza Eddiniaoui</span>
+                    <span class="data-list">Abderrahmane Elboustani</span>
                 </div>
                 <div class="data email">
                     <span class="data-title">Email</span>
-                    <span class="data-list">premshahi@gmail.com</span>
-                    <span class="data-list">deepachand@gmail.com</span>
-                    <span class="data-list">prakashhai@gmail.com</span>
-                    <span class="data-list">manishachand@gmail.com</span>
-                    <span class="data-list">pratimashhai@gmail.com</span>
-                    <span class="data-list">manshahi@gmail.com</span>
-                    <span class="data-list">ganeshchand@gmail.com</span>
+                    <span class="data-list">akramjaber@gmail.com</span>
+                    <span class="data-list">wiiiiiam@gmail.com</span>
+                    <span class="data-list">hamzadiwani@gmail.com</span>
+                    <span class="data-list">abdoelbst@gmail.com</span>
                 </div>
                 <div class="data joined">
-                    <span class="data-title">Joined</span>
-                    <span class="data-list">2022-02-12</span>
-                    <span class="data-list">2022-02-12</span>
+                    <span class="data-title">date de commande</span>
+                    <span class="data-list">2024-07-29</span>
+                    <span class="data-list">2024-02-12</span>
                     <span class="data-list">2022-02-13</span>
                     <span class="data-list">2022-02-13</span>
-                    <span class="data-list">2022-02-14</span>
-                    <span class="data-list">2022-02-14</span>
-                    <span class="data-list">2022-02-15</span>
                 </div>
                 <div class="data type">
-                    <span class="data-title">Type</span>
+                    <span class="data-title">Prix total</span>
                     <span class="data-list">New</span>
                     <span class="data-list">Member</span>
                     <span class="data-list">Member</span>
                     <span class="data-list">New</span>
-                    <span class="data-list">Member</span>
-                    <span class="data-list">New</span>
-                    <span class="data-list">Member</span>
                 </div>
                 <div class="data status">
                     <span class="data-title">Status</span>
-                    <span class="data-list">Liked</span>
-                    <span class="data-list">Liked</span>
-                    <span class="data-list">Liked</span>
                     <span class="data-list">Liked</span>
                     <span class="data-list">Liked</span>
                     <span class="data-list">Liked</span>
