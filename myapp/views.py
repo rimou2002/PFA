@@ -25,35 +25,20 @@ def about(request):
     return render(request, templates)
 
 
-
-
 def add_to_cart(request, product_id):
-    try:
-        product = get_object_or_404(Product, id=product_id)
+    product = get_object_or_404(Product, id=product_id)
 
-        # Convert Decimal fields to float
-        prix_float = float(product.prix)
+    # Check if the product is already in the cart
+    cart_item, created = Cart.objects.get_or_create(product=product)
 
-        # Check if the product is already in the cart
-        cart_item, created = Cart.objects.get_or_create(product=product)
-
-        if not created:
-            # If the product is already in the cart, increase the quantity
-            cart_item.quantity += 1
-            cart_item.save()
-        else:
-            # If the product is not in the cart, add it
-            cart_item = Cart(product=product, quantity=1)
-            cart_item.save()
-
+    if created:
         messages.success(request, f"{product.nom} added to cart.")
+    else:
+        messages.info(request, f"{product.nom} is already in the cart.")
 
-        # You can return JSON response if needed
-        return JsonResponse({'message': 'Product added to cart.'})
+    return redirect('shop')
 
-    except Product.DoesNotExist:
-        messages.error(request, "Product does not exist.")
-        return redirect('shop')
+
 
 def cart(request):
     # Example function to display the cart
