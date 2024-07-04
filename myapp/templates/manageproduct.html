@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">Manage Products</h2>
+
+    <!-- Button to toggle Add Product Form -->
+    <button class="btn btn-primary mb-4" type="button" data-toggle="collapse" data-target="#productForm" aria-expanded="false" aria-controls="productForm" id="formToggleBtn">
+        Add Product
+    </button>
+
+    <!-- Add/Update Product Form -->
+    <div class="collapse" id="productForm">
+        <div class="card card-body">
+            <form method="post" enctype="multipart/form-data" id="productFormElement">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="hidden" name="product_id" id="productIdField">
+                <button type="submit" name="add_product" class="btn btn-primary" id="formSubmitBtn">Add Product</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Product List -->
+    <h3>Product List</h3>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Category</th>
+            <th>Type</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.nom }}</td>
+            <td><img src="{{ product.image.url }}" alt="Image" width="50"></td>
+            <td>{{ product.categorie.nom }}</td>
+            <td>{{ product.type }}</td>
+            <td>{{ product.prix }}</td>
+            <td>
+                <button class="btn btn-info btn-sm" onclick="viewProduct({{ product.id }})">View</button>
+                <button class="btn btn-warning btn-sm" onclick="editProduct({
+                    id: '{{ product.id }}',
+                    nom: '{{ product.nom }}',
+                    categorie_id: '{{ product.categorie.id }}',
+                    description_id: '{{ product.description.id }}',
+                    reviews_id: '{{ product.reviews.id }}',
+                    prix: '{{ product.prix }}',
+                    quantite: '{{ product.quantite }}',
+                    image: '{{ product.image.url }}',
+                    image2: '{{ product.image2.url }}',
+                    image3: '{{ product.image3.url }}',
+                    size: '{{ product.size }}',
+                    type: '{{ product.type }}',
+                    effects: '{{ product.effects }}',
+                    tags: '{{ product.tags }}',
+                    reference: '{{ product.reference }}',
+                    salesnumber: '{{ product.salesnumber }}'
+                })">Edit</button>
+                <form method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
+                    <button type="submit" name="delete_product" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function editProduct(product) {
+        document.getElementById('productIdField').value = product.id;
+        document.getElementById('id_nom').value = product.nom;
+        document.getElementById('id_categorie').value = product.categorie_id;
+        document.getElementById('id_description').value = product.description_id;
+        document.getElementById('id_reviews').value = product.reviews_id;
+        document.getElementById('id_prix').value = product.prix;
+        document.getElementById('id_quantite').value = product.quantite;
+        document.getElementById('id_image').src = product.image;
+        document.getElementById('id_image2').src = product.image2;
+        document.getElementById('id_image3').src = product.image3;
+        document.getElementById('id_size').value = product.size;
+        document.getElementById('id_type').value = product.type;
+        document.getElementById('id_effects').value = product.effects;
+        document.getElementById('id_tags').value = product.tags;
+        document.getElementById('id_reference').value = product.reference;
+        document.getElementById('id_salesnumber').value = product.salesnumber;
+
+        document.getElementById('formSubmitBtn').innerText = 'Update Product';
+
+        var formToggle = document.getElementById('formToggleBtn');
+        if (!$('#productForm').hasClass('show')) {
+            formToggle.click();
+        }
+    }
+
+    function viewProduct(id) {
+        window.location.href = '/product.html/' + id + '/';
+    }
+</script>
+</body>
+</html>

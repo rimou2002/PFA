@@ -1,7 +1,9 @@
 from django.core.checks import messages
 from django.utils import timezone
 from django.contrib.auth.models import User  # Import the User model
-from myapp.models import Client, User
+
+from PFAV2.forms import ProductForm
+from myapp.models import Client, User, Description, Reviews
 from django.template.loader import render_to_string
 from django.shortcuts import redirect
 from .models import Post
@@ -333,3 +335,41 @@ def post_detail(request, post_id):
         'next_post': next_post
     })
 
+
+
+def manageproduct(request):
+    if request.method == 'POST':
+        if 'add_product' in request.POST:
+            form = ProductForm(request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
+                return redirect('manageproduct')
+        elif 'update_product' in request.POST:
+            product_id = request.POST.get('product_id')
+            product = get_object_or_404(Product, id=product_id)
+            form = ProductForm(request.POST, request.FILES, instance=product)
+            if form.is_valid():
+                form.save()
+                return redirect('manageproduct')
+        elif 'delete_product' in request.POST:
+            product_id = request.POST.get('product_id')
+            product = get_object_or_404(Product, id=product_id)
+            product.delete()
+            return redirect('manageproduct')
+    else:
+        form = ProductForm()
+
+    products = Product.objects.all()
+    categories = Categorie.objects.all()
+    reviews = Reviews.objects.all()
+    descriptions = Description.objects.all()
+
+    context = {
+        'form': form,
+        'products': products,
+        'categories': categories,
+        'reviews': reviews,
+        'descriptions': descriptions,
+    }
+
+    return render(request, 'manageproduct.html', context)

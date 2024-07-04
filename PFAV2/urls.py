@@ -54,6 +54,7 @@ urlpatterns = [
     path('chat/', include('chatbot.urls')),  # Inclusion des URLs de l'application chatbot
     path('posts/', views.post_list, name='post_list'),
     path('post/<int:post_id>/', views.post_detail, name='post_detail'),
+    path('manageproduct/', views.manageproduct, name='manageproduct'),
 
     #path('product/<int:product_id>/', views.product, name="product"),
     #path('product_detail/', views.product_detail, name='product_detail'),

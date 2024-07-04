@@ -6,9 +6,9 @@ from django.shortcuts import render
 from django.conf import settings
 from openai.error import RateLimitError
 
-openai.api_key = settings.OPENAI_API_KEY
+#openai.api_key = settings.OPENAI_API_KEY
 
-@csrf_exempt
+#@csrf_exempt
 def chatbot(request):
     if request.method == 'POST':
         data = json.loads(request.body)
