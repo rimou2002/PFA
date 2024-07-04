@@ -153,178 +153,94 @@
                 </ul>
             </div>
             <div class="compare_main">
-                <h3 class="compare_main-header">Specifications</h3>
-                <!-- Add specifications comparison logic here -->
+                <div class="compare_main">
+                    <h3 class="compare_main-header">Specifications</h3>
+                    <ul class="compare_main-list">
+                        <!-- Category -->
+                        <li class="compare_main-list_item">
+                            <h4 class="property-header">Category</h4>
+                            <ul class="value-list d-sm-flex flex-wrap">
+                                {% for product in compared_products %}
+                                <li class="list-item col-sm-6 col-lg-4 d-flex flex-column">
+                                    <span class="product-title">{{ product.nom }}</span>
+                                    <span class="product-value">{{ product.categorie.nom }}</span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+
+                        <!-- Type -->
+                        <li class="compare_main-list_item">
+                            <h4 class="property-header">Type</h4>
+                            <ul class="value-list d-sm-flex flex-wrap">
+                                {% for product in compared_products %}
+                                <li class="list-item col-sm-6 col-lg-4 d-flex flex-column">
+                                    <span class="product-title">{{ product.nom }}</span>
+                                    <span class="product-value">{{ product.type }}</span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+
+                        <!-- Effects -->
+                        <li class="compare_main-list_item">
+                            <h4 class="property-header">Effects</h4>
+                            <ul class="value-list d-sm-flex flex-wrap">
+                                {% for product in compared_products %}
+                                <li class="list-item col-sm-6 col-lg-4 d-flex flex-column">
+                                    <span class="product-title">{{ product.nom }}</span>
+                                    <span class="product-value">{{ product.effects }}</span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </section>
 
 
     <aside class="viewed section">
-        <div class=container><h2 class=viewed_header>Recently Viewed Products</h2>
+        <div class="container">
+            <h2 class="viewed_header">Recently Viewed Products</h2>
             <div class="viewed_slider swiper">
-                <div class=swiper-wrapper>
+                <div class="swiper-wrapper">
+                    {% for product in recently_viewed_products %}
                     <div class="viewed_slider-slide swiper-slide">
                         <div class="wrapper d-flex flex-column">
-                            <div class=media>
+                            <div class="media">
+                                <picture>
+                                    <img src="{{ product.image.url }}" alt="{{ product.nom }}" class="img-responsive">
+                                </picture>
                                 <div class="overlay d-flex flex-column align-items-center justify-content-center">
                                     <ul class="action d-flex align-items-center justify-content-center">
-                                        <li class=list-item><a
-                                                class="action_link d-flex align-items-center justify-content-center"
-                                                href=# data-trigger=compare><i class=icon-compare></i></a></li>
-                                        <li class=list-item><a
-                                                class="action_link d-flex align-items-center justify-content-center"
-                                                href=#><i class=icon-basket></i></a></li>
-                                        <li class=list-item><a
-                                                class="action_link d-flex align-items-center justify-content-center"
-                                                href=# data-role=wishlist><i class=icon-heart></i></a></li>
-                                        <li class=list-item><a
-                                                class="action_link d-flex align-items-center justify-content-center"
-                                                href=# data-trigger=view><i class=icon-eye></i></a></li>
+                                        <li class="list-item"><a href="{% url 'compare' %}" class="action_link"><i class="icon-compare"></i></a></li>
+                                        <li class="list-item"><a href="{% url 'add_to_cart' product.id %}" class="action_link"><i class="icon-basket"></i></a></li>
+                                        <li class="list-item">
+                                            <a href="{% url 'add_to_wishlist' product.id %}" class="action_link" data-role="wishlist">
+                                                <i class="icon-heart"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-item"><a href="{% url 'product_detail' product.id %}" class="action_link"><i class="icon-eye"></i></a></li>
                                     </ul>
                                 </div>
-                                <picture>
-                                    <source data-srcset=img/shop/07.webp srcset=img/shop/07.webp type=image/webp>
-                                    <img class=lazy data-src=img/shop/07.jpg src=img/shop/07.jpg alt=media></picture>
                             </div>
                             <div class="main d-flex flex-column">
-                                <div class=main_rating>
-                                    <ul class="main_rating-stars d-flex align-items-center accent">
-                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
-                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
-                                        <li class=main_rating-stars_star><i class=icon-star></i></li>
-                                        <li class=main_rating-stars_star><i class=icon-star></i></li>
-                                        <li class=main_rating-stars_star><i class=icon-star></i></li>
-                                    </ul>
-                                </div>
-                                <h4 class=main_title>Witchcraft Cannabis</h4>
-                                <div class=main_price><span class=price>$7.97</span></div>
+                                <h4 class="main_title">{{ product.nom }}</h4>
+                                <div class="main_price"><span class="price">${{ product.prix }}</span></div>
                             </div>
                         </div>
                     </div>
-                    <div class="viewed_slider-slide swiper-slide">
-                        <div class="wrapper d-flex flex-column">
-                            <div class=media>
-                                <div class="overlay d-flex flex-column align-items-center justify-content-center">
-                                    <ul class="action d-flex align-items-center justify-content-center">
-                                        <li class=list-item><a
-                                                class="action_link d-flex align-items-center justify-content-center"
-                                                href=# data-trigger=compare><i class=icon-compare></i></a></li>
-                                        <li class=list-item><a
-                                                class="action_link d-flex align-items-center justify-content-center"
-                                                href=#><i class=icon-basket></i></a></li>
-                                        <li class=list-item><a
-                                                class="action_link d-flex align-items-center justify-content-center"
-                                                href=# data-role=wishlist><i class=icon-heart></i></a></li>
-                                        <li class=list-item><a
-                                                class="action_link d-flex align-items-center justify-content-center"
-                                                href=# data-trigger=view><i class=icon-eye></i></a></li>
-                                    </ul>
-                                </div>
-                                <picture>
-                                    <source data-srcset=img/shop/10.webp srcset=img/shop/10.webp type=image/webp>
-                                    <img class=lazy data-src=img/shop/10.jpg src=img/shop/10.jpg alt=media></picture>
-                            </div>
-                            <div class="main d-flex flex-column">
-                                <div class=main_rating>
-                                    <ul class="main_rating-stars d-flex align-items-center accent">
-                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
-                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
-                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
-                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
-                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
-                                    </ul>
-                                </div>
-                                <h4 class=main_title>Ice Wreck</h4>
-                                <div class=main_price><span class=price>$7.97</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="viewed_slider-slide swiper-slide">
-                        <div class="wrapper d-flex flex-column">
-                            <div class=media><span
-                                    class="sale d-flex align-items-center justify-content-center">-15%</span>
-                                <div class="overlay d-flex flex-column align-items-center justify-content-center">
-                                    <ul class="action d-flex align-items-center justify-content-center">
-                                        <li class=list-item><a
-                                                class="action_link d-flex align-items-center justify-content-center"
-                                                href=# data-trigger=compare><i class=icon-compare></i></a></li>
-                                        <li class=list-item><a
-                                                class="action_link d-flex align-items-center justify-content-center"
-                                                href=#><i class=icon-basket></i></a></li>
-                                        <li class=list-item><a
-                                                class="action_link d-flex align-items-center justify-content-center"
-                                                href=# data-role=wishlist><i class=icon-heart></i></a></li>
-                                        <li class=list-item><a
-                                                class="action_link d-flex align-items-center justify-content-center"
-                                                href=# data-trigger=view><i class=icon-eye></i></a></li>
-                                    </ul>
-                                </div>
-                                <picture>
-                                    <source data-srcset=img/shop/08.webp srcset=img/shop/08.webp type=image/webp>
-                                    <img class=lazy data-src=img/shop/08.jpg src=img/shop/08.jpg alt=media></picture>
-                            </div>
-                            <div class="main d-flex flex-column">
-                                <div class=main_rating>
-                                    <ul class="main_rating-stars d-flex align-items-center accent">
-                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
-                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
-                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
-                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
-                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
-                                    </ul>
-                                </div>
-                                <h4 class=main_title>House Terp Sauce – 1 Gram</h4>
-                                <div class=main_price><span class="price price--old">$10.97</span> <span
-                                        class="price price--new">$6.97</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="viewed_slider-slide swiper-slide">
-                        <div class="wrapper d-flex flex-column">
-                            <div class=media><span
-                                    class="sale d-flex align-items-center justify-content-center">-15%</span>
-                                <div class="overlay d-flex flex-column align-items-center justify-content-center">
-                                    <ul class="action d-flex align-items-center justify-content-center">
-                                        <li class=list-item><a
-                                                class="action_link d-flex align-items-center justify-content-center"
-                                                href=# data-trigger=compare><i class=icon-compare></i></a></li>
-                                        <li class=list-item><a
-                                                class="action_link d-flex align-items-center justify-content-center"
-                                                href=#><i class=icon-basket></i></a></li>
-                                        <li class=list-item><a
-                                                class="action_link d-flex align-items-center justify-content-center"
-                                                href=# data-role=wishlist><i class=icon-heart></i></a></li>
-                                        <li class=list-item><a
-                                                class="action_link d-flex align-items-center justify-content-center"
-                                                href=# data-trigger=view><i class=icon-eye></i></a></li>
-                                    </ul>
-                                </div>
-                                <picture>
-                                    <source data-srcset=img/shop/14.webp srcset=img/shop/14.webp type=image/webp>
-                                    <img class=lazy data-src=img/shop/14.jpg src=img/shop/14.jpg alt=media></picture>
-                            </div>
-                            <div class="main d-flex flex-column">
-                                <div class=main_rating>
-                                    <ul class="main_rating-stars d-flex align-items-center accent">
-                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
-                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
-                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
-                                        <li class=main_rating-stars_star><i class=icon-star_fill></i></li>
-                                        <li class=main_rating-stars_star><i class=icon-star></i></li>
-                                    </ul>
-                                </div>
-                                <h4 class=main_title>Chem Dawg</h4>
-                                <div class=main_price><span class="price price--old">$10.97</span> <span
-                                        class="price price--new">$6.97</span></div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <div class="swiper-pagination swiper-pagination--dots"></div>
             </div>
         </div>
     </aside>
+
+
 </main>
 <footer class=footer>
     <div class="footer_main section">

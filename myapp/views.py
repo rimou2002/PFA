@@ -59,12 +59,16 @@ def add_to_cart(request, product_id):
 
 
 def cart(request):
-    # Example function to display the cart
-    cart_items = Cart.objects.all()
+    cart_items = Cart.objects.all()  # Existing cart items
+    # Assuming 'salesnumber' is stored in Product and is a measure of sales popularity
+    top_sales_products = Product.objects.order_by('-salesnumber')[:5]  # Get top 5 selling products
+
     context = {
-        'cart_items': cart_items
+        'cart_items': cart_items,
+        'top_sales_products': top_sales_products  # Add this line to pass top sales products to the template
     }
     return render(request, 'cart.html', context)
+
 
 
 def add_to_compare(request, product_id):
@@ -85,7 +89,16 @@ def remove_from_compare(request, product_id):
 def compare(request):
     compare_list = request.session.get('compare_list', [])
     compared_products = Product.objects.filter(id__in=compare_list)
-    return render(request, 'compare.html', {'compared_products': compared_products})
+
+    viewed_product_ids = request.session.get('viewed_products', [])
+    recently_viewed_products = Product.objects.filter(id__in=viewed_product_ids)
+
+    context = {
+        'compared_products': compared_products,
+        'recently_viewed_products': recently_viewed_products
+    }
+    return render(request, 'compare.html', context)
+
 
 def clear_compare(request):
     request.session['compare_list'] = []
@@ -153,7 +166,21 @@ def err(request):
 
 def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
+
+    # Get the list of recently viewed product IDs from the session
+    viewed_products = request.session.get('viewed_products', [])
+
+    # Add current product_id to the list if it's not already included
+    if product_id not in viewed_products:
+        viewed_products.append(product_id)
+        if len(viewed_products) > 5:  # Limit the list to last 5 viewed items
+            viewed_products.pop(0)
+
+    # Update the session
+    request.session['viewed_products'] = viewed_products
+
     return render(request, 'product.html', {'product': product})
+
 
 
 def product_view(request):

@@ -239,7 +239,7 @@
                 <g clip-path=url(#logoHeader)><circle cx=23.5 cy=23.4998 r=17.5 fill=#EFC368/>
 
                 </g><defs><clipPath id=logoHeader><rect width=48 height=45 fill=white/></clipPath></defs></svg> </span>
-            <span class=accent>Herba</span> <span>list</span></a>
+            <span class=accent>Para</span> <span>Wiak</span></a>
         <nav class=header_nav>
             <ul class=header_nav-list>
                 <li class="header_nav-list_item dropdown"><a
@@ -500,8 +500,10 @@
                          convallis posuere</p></div>
                  <div class=about_main-media>
                      <picture>
-                         <source data-srcset=img/index/about.webp srcset=img/index/about.webp type=image/webp>
-                         <img class=lazy data-src=img/index/about.jpg src=img/index/about.jpg alt=media></picture>
+                         <source data-srcset="{% static 'img/index/about.jpg' %}" type="image/webp">
+                         <img class="lazy preview" data-src="{% static 'img/index/about.jpg' %}" src="{% static 'img/index/about.jpg' %}" alt="media">
+                     </picture>
+
                  </div>
              </div>
              <ul class="about_numbers d-flex flex-wrap">
@@ -539,10 +541,10 @@
          <div class="container d-flex flex-column flex-lg-row">
              <div class=product_media>
                  <picture>
-                     <source data-srcset=img/index/product.webp srcset=img/index/product.webp type=image/webp>
-                     <img class=lazy data-src=img/index/product.jpg src=img/index/product.jpg
-                          alt="CBD Facial Serum: Anti-Aging + Daily Moisturizer">
+                     <source data-srcset="{% static 'img/index/product.jpg' %}" type="image/webp">
+                     <img class="lazy preview" data-src="{% static 'img/index/product.jpg' %}" src="{% static 'img/index/product.jpg' %}" alt="media">
                  </picture>
+
              </div>
              <div class="product_main col-lg-6"><a class=product_main-title href=http://127.0.0.1:8000/product.html/ target=_blank
                                                    rel="noopener norefferer">CBD Facial Serum: Anti-Aging + Daily
@@ -634,8 +636,9 @@
                         </svg></span></div>
              <div class=effects_media>
                  <picture>
-                     <source data-srcset=img/index/effects.webp srcset=img/index/effects.webp type=image/webp>
-                     <img class=lazy data-src=img/index/effects.jpg src=img/index/effects.jpg alt=media></picture>
+                     <source data-srcset="{% static 'img/index/effects.jpg' %}" type="image/webp">
+                     <img class="lazy preview" data-src="{% static 'img/index/effects.jpg' %}" src="{% static 'img/index/effects.jpg' %}" alt="media">
+                 </picture>
              </div>
              <ul class="effects_list col-xxl-4">
                  <li class="effects_list-item d-flex flex-column align-items-center flex-sm-row align-items-sm-start"
@@ -722,16 +725,16 @@
                  <div class="instagram_slider-slide swiper-slide">
                      <a class=link href=https://instagram.com/ target=_blank rel="noopener norefferer">
                          <picture>
-                             <source data-srcset=img/instagram/01.webp srcset=img/instagram/01.webp type=image/webp>
-                             <img class=lazy data-src=img/instagram/01.jpg src=img/instagram/01.jpg alt="instagram post">
+                             <source data-srcset="{% static 'img/index/insta.jpg' %}" type="image/webp">
+                             <img class="lazy preview" data-src="{% static 'img/index/insta.jpg' %}" src="{% static 'img/index/insta.jpg' %}" alt="media">
                          </picture>
                          <span class="overlay d-flex justify-content-center align-items-center"><i
                                  class=icon-instagram></i></span></a></div>
                  <div class="instagram_slider-slide swiper-slide"><a class=link href=https://instagram.com/ target=_blank
                                                                      rel="noopener norefferer">
                      <picture>
-                         <source data-srcset=img/instagram/02.webp srcset=img/instagram/02.webp type=image/webp>
-                         <img class=lazy data-src=img/instagram/02.jpg src=img/instagram/02.jpg alt="instagram post">
+                         <source data-srcset="{% static 'img/index/about.jpg' %}" type="image/webp">
+                         <img class="lazy preview" data-src="{% static 'img/index/about.jpg' %}" src="{% static 'img/index/about.jpg' %}" alt="media">
                      </picture>
                      <span class="overlay d-flex justify-content-center align-items-center"><i class=icon-instagram></i></span></a>
                  </div>
