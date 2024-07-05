@@ -244,7 +244,12 @@ def loginpage(request):
 
 
 def managerdashboard(request):
-    return render(request, 'managerdashboard.html')
+    total_users = User.objects.count()
+    total_products = Product.objects.count()
+    return render(request, 'managerdashboard.html', {
+        'total_users': total_users,
+        'total_products': total_products
+    })
 
 
 
