@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">Manage Users</h2>
+
+    <!-- Button to toggle Add User Form -->
+    <button class="btn btn-primary mb-4" type="button" data-toggle="collapse" data-target="#userForm" aria-expanded="false" aria-controls="userForm" id="formToggleBtn">
+        Add User
+    </button>
+
+    <!-- Add/Update User Form -->
+    <div class="collapse" id="userForm">
+        <div class="card card-body">
+            <form method="post" id="userFormElement">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="hidden" name="user_id" id="userIdField">
+                <button type="submit" name="add_user" class="btn btn-primary" id="formSubmitBtn">Add User</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- User List -->
+    <h3>User List</h3>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.prenom }}</td>
+            <td>{{ user.nom }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+            <td>
+                <button class="btn btn-info btn-sm" onclick="viewUser({
+                    id: '{{ user.id }}',
+                    prenom: '{{ user.prenom }}',
+                    nom: '{{ user.nom }}',
+                    email: '{{ user.email }}',
+                    role: '{{ user.role }}'
+                })">View</button>
+                <button class="btn btn-warning btn-sm" onclick="editUser({
+                    id: '{{ user.id }}',
+                    prenom: '{{ user.prenom }}',
+                    nom: '{{ user.nom }}',
+                    email: '{{ user.email }}',
+                    role: '{{ user.role }}'
+                })">Edit</button>
+                <form method="post" action="{% url 'delete_user' %}" style="display:inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="user_id" value="{{ user.id }}">
+                    <button type="submit" name="delete_user" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- User Details Modal -->
+    <div class="modal fade" id="userDetailsModal" tabindex="-1" role="dialog" aria-labelledby="userDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="userDetailsModalLabel">User Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>First Name</th>
+                            <td id="viewPrenom"></td>
+                        </tr>
+                        <tr>
+                            <th>Last Name</th>
+                            <td id="viewNom"></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td id="viewEmail"></td>
+                        </tr>
+                        <tr>
+                            <th>Role</th>
+                            <td id="viewRole"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function editUser(user) {
+        document.getElementById('userIdField').value = user.id;
+        document.getElementById('id_prenom').value = user.prenom;
+        document.getElementById('id_nom').value = user.nom;
+        document.getElementById('id_email').value = user.email;
+        document.getElementById('id_role').value = user.role;
+
+        document.getElementById('formSubmitBtn').innerText = 'Update User';
+        document.getElementById('userFormElement').action = "{% url 'edit_user' user_id=0 %}".replace('/0/', '/' + user.id + '/');
+
+        var formToggle = document.getElementById('formToggleBtn');
+        if (!$('#userForm').hasClass('show')) {
+            formToggle.click();
+        }
+    }
+
+    function viewUser(user) {
+        document.getElementById('viewPrenom').innerText = user.prenom;
+        document.getElementById('viewNom').innerText = user.nom;
+        document.getElementById('viewEmail').innerText = user.email;
+        document.getElementById('viewRole').innerText = user.role;
+
+        $('#userDetailsModal').modal('show');
+    }
+</script>
+
+</body>
+</html>

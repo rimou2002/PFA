@@ -28,10 +28,10 @@ urlpatterns = [
     path('about.html/', views.about, name="about"),
     path('add_to_cart/<int:product_id>/', views.add_to_cart, name='add_to_cart'),
     path('cart/', views.cart, name='cart'),
-                  path('compare/', views.compare, name='compare'),
-                  path('add_to_compare/<int:product_id>/', views.add_to_compare, name='add_to_compare'),
-                  path('remove_from_compare/<int:product_id>/', views.remove_from_compare, name='remove_from_compare'),
-                  path('clear_compare/', views.clear_compare, name='clear_compare'),
+    path('compare/', views.compare, name='compare'),
+    path('add_to_compare/<int:product_id>/', views.add_to_compare, name='add_to_compare'),
+    path('remove_from_compare/<int:product_id>/', views.remove_from_compare, name='remove_from_compare'),
+    path('clear_compare/', views.clear_compare, name='clear_compare'),
     path('contacts/', views.contacts, name="contacts"),
     path('faq.html/', views.faq, name="faq"),
     path('news/', views.news, name='news'),
@@ -55,9 +55,11 @@ urlpatterns = [
     path('posts/', views.post_list, name='post_list'),
     path('post/<int:post_id>/', views.post_detail, name='post_detail'),
     path('manageproduct/', views.manageproduct, name='manageproduct'),
+    path('manage-users/', views.manage_users, name='manage_users'),
+    path('edit-user/<int:user_id>/', views.edit_user, name='edit_user'),
+    path('delete-user/', views.delete_user, name='delete_user'),
 
-    #path('product/<int:product_id>/', views.product, name="product"),
-    #path('product_detail/', views.product_detail, name='product_detail'),
+
     path('', include('myapp.urls'))
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

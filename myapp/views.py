@@ -2,8 +2,8 @@ from django.core.checks import messages
 from django.utils import timezone
 from django.contrib.auth.models import User  # Import the User model
 
-from PFAV2.forms import ProductForm
-from myapp.models import Client, User, Description, Reviews
+from myapp.forms import ProductForm
+from myapp.models import Client, Description, Reviews
 from django.template.loader import render_to_string
 from django.shortcuts import redirect
 from .models import Post
@@ -12,9 +12,6 @@ from .models import Product, Categorie, Cart
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
-from django.contrib.auth.decorators import login_required
-
-
 
 
 def index(request):
@@ -373,3 +370,63 @@ def manageproduct(request):
     }
 
     return render(request, 'manageproduct.html', context)
+
+
+
+# views.py in myapp
+
+# views.py in myapp
+
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.hashers import make_password
+from myapp.models import User
+from myapp.forms import UserForm
+
+def manage_users(request):
+    if request.method == 'POST':
+        user_id = request.POST.get('user_id')
+        if user_id:
+            user = get_object_or_404(User, id=user_id)
+            form = UserForm(request.POST, instance=user)
+        else:
+            form = UserForm(request.POST)
+
+        if form.is_valid():
+            user = form.save(commit=False)
+            if 'password' in form.cleaned_data and form.cleaned_data['password']:
+                user.password = make_password(form.cleaned_data['password'])
+            user.save()
+            return redirect('manage_users')
+
+        if 'delete_user' in request.POST:
+            user_id = request.POST.get('user_id')
+            user = get_object_or_404(User, id=user_id)
+            user.delete()
+            return redirect('manage_users')
+    else:
+        form = UserForm()
+
+    users = User.objects.all()
+    return render(request, 'manageuser.html', {'form': form, 'users': users})
+
+def edit_user(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    if request.method == 'POST':
+        form = UserForm(request.POST, instance=user)
+        if form.is_valid():
+            user = form.save(commit=False)
+            if 'password' in form.cleaned_data and form.cleaned_data['password']:
+                user.password = make_password(form.cleaned_data['password'])
+            user.save()
+            return redirect('manage_users')
+    else:
+        form = UserForm(instance=user)
+
+    return render(request, 'manageuser.html', {'form': form, 'users': User.objects.all(), 'editing': True})
+
+def delete_user(request):
+    if request.method == 'POST':
+        user_id = request.POST.get('user_id')
+        user = get_object_or_404(User, id=user_id)
+        user.delete()
+    return redirect('manage_users')
