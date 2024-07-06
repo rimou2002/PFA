@@ -1020,10 +1020,11 @@
 <script>
     const chatbotToggler = document.querySelector(".chatbot-toggler");
     const closeBtn = document.querySelector(".close-btn");
-    const chatbox = document.getElementById('chatbox');
+    const chatbox = document.querySelector('.chatbox');
     const chatInput = document.getElementById('user-input');
     const sendChatBtn = document.getElementById('send-btn');
 
+    // Function to create chat messages
     const createChatLi = (message, className) => {
         const chatLi = document.createElement("li");
         chatLi.classList.add("chat", `${className}`);
@@ -1031,48 +1032,28 @@
         chatLi.innerHTML = chatContent;
         chatLi.querySelector("p").textContent = message;
         return chatLi;
-    }
+    };
 
+    // Function to simulate response generation
     const generateResponse = (chatElement) => {
         const messageElement = chatElement.querySelector("p");
 
-        fetch('https://1f82-34-87-101-217.ngrok-free.app/predict', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                "instruction": userMessage,
-                "input": ""
-            })
-        })
-            .then(response => response.json())
-            .then(data => {
-                const fullResponse = data.response || data.error || "Undefined response";
-                const extractedResponse = extractRelevantPart(fullResponse);
-                messageElement.textContent = extractedResponse;
-            })
-            .catch(() => {
-                messageElement.classList.add("error");
-                messageElement.textContent = "Oops! Something went wrong. Please try again.";
-            })
-            .finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
-    }
+        // Simulate a delay for the "Thinking..." message
+        setTimeout(() => {
+            const userMessage = chatInput.value.trim();
+            const dfMessenger = document.querySelector('df-messenger');
+            dfMessenger.renderCustomText(userMessage);
+        }, 600);
 
-    const extractRelevantPart = (response) => {
-        const answerMarker = "### Response:";
-        const explanationMarker = "### Explanation:";
-        let extractedResponse = response;
+        // Remove the "Thinking..." message
+        setTimeout(() => {
+            chatbox.removeChild(chatElement);
+        }, 1200);
+    };
 
-        if (response.includes(answerMarker)) {
-            extractedResponse = response.split(answerMarker)[1].split(explanationMarker)[0].trim();
-        }
-
-        return extractedResponse;
-    }
-
+    // Function to handle user chat input
     const handleChat = () => {
-        userMessage = chatInput.value.trim();
+        const userMessage = chatInput.value.trim();
         if (!userMessage) return;
 
         chatInput.value = "";
@@ -1081,14 +1062,13 @@
         chatbox.appendChild(createChatLi(userMessage, "outgoing"));
         chatbox.scrollTo(0, chatbox.scrollHeight);
 
-        setTimeout(() => {
-            const incomingChatLi = createChatLi("Thinking...", "incoming");
-            chatbox.appendChild(incomingChatLi);
-            chatbox.scrollTo(0, chatbox.scrollHeight);
-            generateResponse(incomingChatLi);
-        }, 600);
-    }
+        const incomingChatLi = createChatLi("Thinking...", "incoming");
+        chatbox.appendChild(incomingChatLi);
+        chatbox.scrollTo(0, chatbox.scrollHeight);
+        generateResponse(incomingChatLi);
+    };
 
+    // Event listeners
     chatInput.addEventListener("input", () => {
         chatInput.style.height = `${chatInput.scrollHeight}px`;
     });
@@ -1103,7 +1083,33 @@
     sendChatBtn.addEventListener("click", handleChat);
     closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
     chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+
+    // Load Dialogflow Messenger and append to chatbox
+    window.addEventListener('load', function() {
+        var script = document.createElement('script');
+        script.src = 'https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1';
+        document.head.appendChild(script);
+
+        var dfMessenger = document.createElement('df-messenger');
+        dfMessenger.setAttribute('chat-title', 'parapharmacy-bot');
+        dfMessenger.setAttribute('agent-id', '5a38c805-f56b-4e38-bee1-26d2bd9c62b5'); // Replace this with your actual agent ID
+        dfMessenger.setAttribute('language-code', 'en');
+        dfMessenger.style.width = '100%';
+        dfMessenger.style.height = '100%';
+        dfMessenger.style.border = 'none';
+        chatbox.appendChild(dfMessenger);
+    });
 </script>
+
+
+{% load static %}
+<script src="{% static 'js/chatbot.js' %}"></script>
+
+
+
+
+
+
 
 
 
